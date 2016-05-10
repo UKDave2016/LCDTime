@@ -121,6 +121,13 @@
 #define MENU_TIME   1
 #define MENU_DATE   2
 
+#define LED_DIN     RC0
+#define LED_LOAD    RC1
+#define LED_CLK     RC2
+#define LED_TRIS_D    TRISC0
+#define LED_TRIS_L    TRISC1
+#define LED_TRIS_C    TRISC2
+
 #ifdef	__cplusplus
 extern "C" {
 #endif /* __cplusplus */

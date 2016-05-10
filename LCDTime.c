@@ -50,6 +50,8 @@ void main(void)
 
     LCDClear();
     
+//    initLED() ;
+    
   while(1)
   {
       readClock();
@@ -409,4 +411,48 @@ void showDate()
         case    6   :   LCDWriteString("Sat") ; break ;
         case    7   :   LCDWriteString("Sun") ; break ;
     } ;
+}
+
+// MAX7221 Code, works, but I don't have a LED display with common cathode, doh!
+
+void initLED()
+{
+    TRISC0 = 0 ;
+    TRISC1 = 0 ;
+    TRISC2 = 0 ;
+    
+    LED_LOAD = 1 ; // !CS
+    
+    sendLED(0x0C01) ;
+    
+    sendLED(0x0F01) ;
+ 
+}
+
+void sendLED(unsigned int c)
+{
+    int i ;
+    
+    LED_LOAD = 0 ;
+    __delay_ms(4);
+    
+    for (i=0;i<16;i++)
+    {
+        __delay_ms(1);
+        
+        if (c & 0x8000)
+            LED_DIN = 1 ;
+        else
+            LED_DIN = 0 ;
+
+        c = c << 1 ;
+        
+        __delay_ms(1) ;
+        LED_CLK = 1 ;
+        __delay_ms(1) ;
+        LED_CLK = 0 ;
+    }   
+    
+    __delay_ms(4);
+    LED_LOAD = 1 ;
 }

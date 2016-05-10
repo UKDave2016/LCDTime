@@ -40,6 +40,9 @@ void doMenu() ;
 void showTime() ;
 void showDate() ;
 
+void initLED() ;
+void sendLED(unsigned int c) ;
+
 // TODO Insert declarations or function prototypes (right here) to leverage 
 // live documentation
 

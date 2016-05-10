@@ -1906,10 +1906,7 @@ TRISC2 = 0 ;
 
 RC1 = 1 ;
 
-sendLED(0x0C01) ;
-
-sendLED(0x0F01) ;
-
+sendLED(0xF001) ;
 }
 
 void sendLED(unsigned int c)
@@ -1917,25 +1914,19 @@ void sendLED(unsigned int c)
 int i ;
 
 RC1 = 0 ;
-_delay((unsigned long)((4)*(4000000/4000.0)));
 
 for (i=0;i<16;i++)
 {
-_delay((unsigned long)((1)*(4000000/4000.0)));
+_delay((unsigned long)((1)*(4000000/4000000.0)));
 
-if (c & 0x8000)
-RC0 = 1 ;
-else
-RC0 = 0 ;
+RC0 = (c & 0x01) ;
+c = c >> 1 ;
 
-c = c << 1 ;
-
-_delay((unsigned long)((1)*(4000000/4000.0))) ;
+_delay((unsigned long)((1)*(4000000/4000000.0))) ;
 RC2 = 1 ;
-_delay((unsigned long)((1)*(4000000/4000.0))) ;
+_delay((unsigned long)((1)*(4000000/4000000.0))) ;
 RC2 = 0 ;
 }
 
-_delay((unsigned long)((4)*(4000000/4000.0)));
 RC1 = 1 ;
 }
