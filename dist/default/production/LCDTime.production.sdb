@@ -1,0 +1,402 @@
+[p LITE_MODE AUTOSTATIC PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877 ]
+[d frameptr 6 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+"62 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\pic\eeprom.c
+[v _eecpymem eecpymem `(v  1 e 1 0 ]
+"39
+[v _memcpyee memcpyee `(v  1 e 1 0 ]
+"4 C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+[v _DS1307_Init DS1307_Init `(i  1 e 2 0 ]
+"32
+[v _DS1307_Write DS1307_Write `(v  1 e 1 0 ]
+"38
+[v _DS1307_Read DS1307_Read `(uc  1 e 1 0 ]
+"43
+[v _DS1307_SetTime DS1307_SetTime `(v  1 e 1 0 ]
+"54
+[v _DS1307_SetDate DS1307_SetDate `(v  1 e 1 0 ]
+"66
+[v _DS1307_GetTime DS1307_GetTime `(v  1 e 1 0 ]
+"80
+[v _DS1307_GetDate DS1307_GetDate `(v  1 e 1 0 ]
+"3 C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+[v _I2C_Init I2C_Init `(v  1 e 1 0 ]
+"9
+[v _I2C_Clock I2C_Clock `(v  1 e 1 0 ]
+"17
+[v _I2C_Start I2C_Start `(v  1 e 1 0 ]
+"29
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+"40
+[v _I2C_Write I2C_Write `(v  1 e 1 0 ]
+"54
+[v _I2C_Read I2C_Read `(uc  1 e 1 0 ]
+"81
+[v _I2C_Ack I2C_Ack `(v  1 e 1 0 ]
+"88
+[v _I2C_NoAck I2C_NoAck `(v  1 e 1 0 ]
+"54 C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+[v _LCDByte LCDByte `(v  1 e 1 0 ]
+"109
+[v _LCDBusyLoop LCDBusyLoop `(v  1 e 1 0 ]
+"167
+[v _LCDInit LCDInit `(v  1 e 1 0 ]
+"225
+[v _LCDWriteString LCDWriteString `(v  1 e 1 0 ]
+"323
+[v _LCDWriteInt LCDWriteInt `(v  1 e 1 0 ]
+"345
+[v _LCDGotoXY LCDGotoXY `(v  1 e 1 0 ]
+"45 C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+[v _main main `(v  1 e 1 0 ]
+"66
+[v _doMenu doMenu `(v  1 e 1 0 ]
+"330
+[v _readInputs readInputs `(v  1 e 1 0 ]
+"350
+[v _readClock readClock `(v  1 e 1 0 ]
+"373
+[v _showClock showClock `(v  1 e 1 0 ]
+"382
+[v _showTime showTime `(v  1 e 1 0 ]
+"391
+[v _showDate showDate `(v  1 e 1 0 ]
+"331 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f877.h
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+[s S113 . 1 `uc 1 TRISB0 1 0 :1:0 
+`uc 1 TRISB1 1 0 :1:1 
+`uc 1 TRISB2 1 0 :1:2 
+`uc 1 TRISB3 1 0 :1:3 
+`uc 1 TRISB4 1 0 :1:4 
+`uc 1 TRISB5 1 0 :1:5 
+`uc 1 TRISB6 1 0 :1:6 
+`uc 1 TRISB7 1 0 :1:7 
+]
+"1349
+[u S122 . 1 `S113 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES122  1 e 1 @134 ]
+"1454
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"2328
+[v _RB1 RB1 `VEb  1 e 0 @49 ]
+"2330
+[v _RB2 RB2 `VEb  1 e 0 @50 ]
+"2334
+[v _RB4 RB4 `VEb  1 e 0 @52 ]
+"2336
+[v _RB5 RB5 `VEb  1 e 0 @53 ]
+"2338
+[v _RB6 RB6 `VEb  1 e 0 @54 ]
+"2340
+[v _RB7 RB7 `VEb  1 e 0 @55 ]
+"2376
+[v _RD0 RD0 `VEb  1 e 0 @64 ]
+"2378
+[v _RD1 RD1 `VEb  1 e 0 @65 ]
+"2532
+[v _TRISD0 TRISD0 `VEb  1 e 0 @1088 ]
+"2534
+[v _TRISD1 TRISD1 `VEb  1 e 0 @1089 ]
+"19 C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+[v _hour hour `i  1 e 2 0 ]
+[v _minute minute `i  1 e 2 0 ]
+[v _seconds seconds `i  1 e 2 0 ]
+[v _year year `i  1 e 2 0 ]
+[v _month month `i  1 e 2 0 ]
+[v _date date `i  1 e 2 0 ]
+[v _day day `i  1 e 2 0 ]
+"20
+[v _last_hour last_hour `uc  1 e 1 0 ]
+"22
+[v _bButton bButton `uc  1 e 1 0 ]
+"23
+[v _state state `uc  1 e 1 0 ]
+"25
+[v _ttable ttable `DCC[7][4]uc  1 e 28 0 ]
+"42
+[v _monthDays monthDays `DCC[12]uc  1 e 12 0 ]
+"43
+[v _menuFunction menuFunction `uc  1 e 1 0 ]
+"45
+[v _main main `(v  1 e 1 0 ]
+{
+"64
+} 0
+"373
+[v _showClock showClock `(v  1 e 1 0 ]
+{
+"380
+} 0
+"350
+[v _readClock readClock `(v  1 e 1 0 ]
+{
+"352
+[v readClock@c c `uc  1 a 1 8 ]
+[v readClock@b b `uc  1 a 1 7 ]
+[v readClock@a a `uc  1 a 1 6 ]
+[v readClock@n n `uc  1 a 1 5 ]
+"371
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 0 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 9 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 11 ]
+"53
+} 0
+"66 C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+[v _DS1307_GetTime DS1307_GetTime `(v  1 e 1 0 ]
+{
+[v DS1307_GetTime@h_ptr h_ptr `*.4uc  1 a 1 wreg ]
+[v DS1307_GetTime@h_ptr h_ptr `*.4uc  1 a 1 wreg ]
+[v DS1307_GetTime@m_ptr m_ptr `*.4uc  1 p 1 5 ]
+[v DS1307_GetTime@s_ptr s_ptr `*.4uc  1 p 1 6 ]
+"68
+[v DS1307_GetTime@h_ptr h_ptr `*.4uc  1 a 1 8 ]
+"78
+} 0
+"80
+[v _DS1307_GetDate DS1307_GetDate `(v  1 e 1 0 ]
+{
+[v DS1307_GetDate@n_ptr n_ptr `*.4uc  1 a 1 wreg ]
+[v DS1307_GetDate@n_ptr n_ptr `*.4uc  1 a 1 wreg ]
+[v DS1307_GetDate@d_ptr d_ptr `*.4uc  1 p 1 5 ]
+[v DS1307_GetDate@m_ptr m_ptr `*.4uc  1 p 1 6 ]
+[v DS1307_GetDate@y_ptr y_ptr `*.4uc  1 p 1 7 ]
+"82
+[v DS1307_GetDate@n_ptr n_ptr `*.4uc  1 a 1 9 ]
+"93
+} 0
+"81 C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+[v _I2C_Ack I2C_Ack `(v  1 e 1 0 ]
+{
+"86
+} 0
+"66 C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+[v _doMenu doMenu `(v  1 e 1 0 ]
+{
+"187
+[v doMenu@y y `i  1 a 2 23 ]
+[v doMenu@m_236 m `i  1 a 2 21 ]
+[v doMenu@d d `i  1 a 2 19 ]
+[v doMenu@n n `i  1 a 2 17 ]
+"74
+[v doMenu@s s `i  1 a 2 15 ]
+[v doMenu@m m `i  1 a 2 13 ]
+[v doMenu@h h `i  1 a 2 11 ]
+"328
+} 0
+"382
+[v _showTime showTime `(v  1 e 1 0 ]
+{
+"389
+} 0
+"391
+[v _showDate showDate `(v  1 e 1 0 ]
+{
+"412
+} 0
+"225 C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+[v _LCDWriteString LCDWriteString `(v  1 e 1 0 ]
+{
+[v LCDWriteString@msg msg `*.24DCCuc  1 a 1 wreg ]
+"261
+[v LCDWriteString@cc cc `c  1 a 1 0 ]
+"225
+[v LCDWriteString@msg msg `*.24DCCuc  1 a 1 wreg ]
+[v LCDWriteString@msg msg `*.24DCCuc  1 a 1 1 ]
+"279
+} 0
+"323
+[v _LCDWriteInt LCDWriteInt `(v  1 e 1 0 ]
+{
+[v LCDWriteInt@val val `uc  1 a 1 wreg ]
+"325
+[v LCDWriteInt@d d `ui  1 a 2 5 ]
+[v LCDWriteInt@c c `ui  1 a 2 3 ]
+"323
+[v LCDWriteInt@val val `uc  1 a 1 wreg ]
+[v LCDWriteInt@field_length field_length `c  1 p 1 12 ]
+"327
+[v LCDWriteInt@val val `uc  1 a 1 7 ]
+"339
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+[v ___awmod __awmod `(i  1 e 2 0 ]
+{
+"11
+[v ___awmod@sign sign `uc  1 a 1 6 ]
+[v ___awmod@counter counter `uc  1 a 1 5 ]
+"6
+[v ___awmod@divisor divisor `i  1 p 2 0 ]
+[v ___awmod@dividend dividend `i  1 p 2 2 ]
+"35
+} 0
+"6 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 7 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 6 ]
+[v ___awdiv@counter counter `uc  1 a 1 5 ]
+"6
+[v ___awdiv@divisor divisor `i  1 p 2 0 ]
+[v ___awdiv@dividend dividend `i  1 p 2 2 ]
+"42
+} 0
+"330 C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+[v _readInputs readInputs `(v  1 e 1 0 ]
+{
+"345
+[v readInputs@pinstate pinstate `uc  1 a 1 3 ]
+"348
+} 0
+"345 C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+[v _LCDGotoXY LCDGotoXY `(v  1 e 1 0 ]
+{
+[v LCDGotoXY@x x `uc  1 a 1 wreg ]
+[v LCDGotoXY@x x `uc  1 a 1 wreg ]
+[v LCDGotoXY@y y `uc  1 p 1 12 ]
+"347
+[v LCDGotoXY@x x `uc  1 a 1 0 ]
+"388
+} 0
+"43 C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+[v _DS1307_SetTime DS1307_SetTime `(v  1 e 1 0 ]
+{
+[v DS1307_SetTime@hh hh `uc  1 a 1 wreg ]
+[v DS1307_SetTime@hh hh `uc  1 a 1 wreg ]
+[v DS1307_SetTime@mm mm `uc  1 p 1 5 ]
+[v DS1307_SetTime@ss ss `uc  1 p 1 6 ]
+"45
+[v DS1307_SetTime@hh hh `uc  1 a 1 7 ]
+"52
+} 0
+"54
+[v _DS1307_SetDate DS1307_SetDate `(v  1 e 1 0 ]
+{
+[v DS1307_SetDate@nn nn `uc  1 a 1 wreg ]
+[v DS1307_SetDate@nn nn `uc  1 a 1 wreg ]
+[v DS1307_SetDate@dd dd `uc  1 p 1 5 ]
+[v DS1307_SetDate@mm mm `uc  1 p 1 6 ]
+[v DS1307_SetDate@yy yy `uc  1 p 1 7 ]
+"56
+[v DS1307_SetDate@nn nn `uc  1 a 1 8 ]
+"64
+} 0
+"167 C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+[v _LCDInit LCDInit `(v  1 e 1 0 ]
+{
+[v LCDInit@style style `uc  1 a 1 wreg ]
+[v LCDInit@style style `uc  1 a 1 wreg ]
+"183
+[v LCDInit@style style `uc  1 a 1 0 ]
+"224
+} 0
+"54
+[v _LCDByte LCDByte `(v  1 e 1 0 ]
+{
+[v LCDByte@c c `uc  1 a 1 wreg ]
+"64
+[v LCDByte@temp temp `uc  1 a 1 11 ]
+"63
+[v LCDByte@ln ln `uc  1 a 1 9 ]
+[v LCDByte@hn hn `uc  1 a 1 8 ]
+"54
+[v LCDByte@c c `uc  1 a 1 wreg ]
+[v LCDByte@isdata isdata `uc  1 p 1 5 ]
+"66
+[v LCDByte@c c `uc  1 a 1 10 ]
+"107
+} 0
+"109
+[v _LCDBusyLoop LCDBusyLoop `(v  1 e 1 0 ]
+{
+"113
+[v LCDBusyLoop@status status `uc  1 a 1 4 ]
+[v LCDBusyLoop@temp temp `uc  1 a 1 3 ]
+[v LCDBusyLoop@busy busy `uc  1 a 1 2 ]
+"165
+} 0
+"3 C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+[v _I2C_Init I2C_Init `(v  1 e 1 0 ]
+{
+"7
+} 0
+"4 C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+[v _DS1307_Init DS1307_Init `(i  1 e 2 0 ]
+{
+"6
+[v DS1307_Init@s s `uc  1 a 1 6 ]
+"30
+} 0
+"29 C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+[v _I2C_Stop I2C_Stop `(v  1 e 1 0 ]
+{
+"38
+} 0
+"17
+[v _I2C_Start I2C_Start `(v  1 e 1 0 ]
+{
+"27
+} 0
+"88
+[v _I2C_NoAck I2C_NoAck `(v  1 e 1 0 ]
+{
+"93
+} 0
+"32 C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+[v _DS1307_Write DS1307_Write `(v  1 e 1 0 ]
+{
+[v DS1307_Write@dat dat `uc  1 a 1 wreg ]
+[v DS1307_Write@dat dat `uc  1 a 1 wreg ]
+"34
+[v DS1307_Write@dat dat `uc  1 a 1 4 ]
+"36
+} 0
+"40 C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+[v _I2C_Write I2C_Write `(v  1 e 1 0 ]
+{
+[v I2C_Write@dat dat `uc  1 a 1 wreg ]
+"42
+[v I2C_Write@i i `uc  1 a 1 3 ]
+"40
+[v I2C_Write@dat dat `uc  1 a 1 wreg ]
+"43
+[v I2C_Write@dat dat `uc  1 a 1 2 ]
+"52
+} 0
+"9
+[v _I2C_Clock I2C_Clock `(v  1 e 1 0 ]
+{
+"15
+} 0
+"38 C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+[v _DS1307_Read DS1307_Read `(uc  1 e 1 0 ]
+{
+"41
+} 0
+"54 C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+[v _I2C_Read I2C_Read `(uc  1 e 1 0 ]
+{
+"56
+[v I2C_Read@dat dat `uc  1 a 1 3 ]
+[v I2C_Read@i i `uc  1 a 1 2 ]
+"79
+} 0
