@@ -16,14 +16,18 @@
 #pragma config WRT = OFF        // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
 #pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
 
+// local storage of time from RTC
 int hour=6, minute=5, seconds=4, year=16, month=5, date=8, day = 1 ;
+// used to save a few cycles
 char last_hour = 0xee ;
 
+// flag to show button has been pressed
 unsigned char bButton = 0 ;
+// current state of the encoder
 unsigned char state = R_START;
 
+// encoder state table
 const unsigned char ttable[7][4] = {
-  // R_START
   {R_START,    R_CW_BEGIN,  R_CCW_BEGIN, R_START},
   // R_CW_FINAL
   {R_CW_NEXT,  R_START,     R_CW_FINAL,  R_START | DIR_CW},
@@ -39,22 +43,32 @@ const unsigned char ttable[7][4] = {
   {R_CCW_NEXT, R_CCW_FINAL, R_CCW_BEGIN, R_START},
 };
 
-
+// days of the week
+const char daysOfTheWeek[] = "MonTueWedThuFriSatSun" ;
+const char setText[5] = {"Set \0"};
+// days per months
 const unsigned char monthDays[12] = { 31,29,31,30,31,30,31,31,30,31,30,31 } ;
+// which menu are we processing? setting it to a specific menu selects only that menu, or we cycle through them all
 unsigned char menuFunction = MENU_NONE ;
+int next_menu_clear = 0 ;
 
 void main(void) 
 {
+    // init the RTC comms line
     I2C_Init() ;
+    // init the LCD display
     LCDInit(LS_NONE);
+    // init the actual RTC
     DS1307_Init() ;
 
+    //clear the display
     LCDClear();
     
    // initLED() ;
     
+    // infinite loop, read the clock, display on the LCD, check for the button, and if needed, process the menus
    while(1)
-  {
+  {       
       readClock();
       
       showClock() ;           
@@ -62,10 +76,52 @@ void main(void)
       readInputs() ;
       
       if (bButton)
-      {
         doMenu();
-     }
+      else if (state)
+      {
+          // rotate the encoder to select a menu function, well, that was the aim, but encoder reading
+          // seems a tad slow or inaccurate.
+          //
+          // there is a timeout if the button isn't pressed after selecting the menu option
+          
+          if (state & DIR_CW)
+          {
+              menuFunction++ ;
+              if (menuFunction == MENU_LAST)
+                  menuFunction = MENU_NONE ;
+          }
+          else if (state & DIR_CCW)
+          {
+              menuFunction-- ;
+              if (menuFunction < MENU_NONE)
+                  menuFunction = MENU_LAST-1 ;
+          }
+          
+          if (menuFunction != MENU_NONE)
+          {
+              next_menu_clear = minute * 60 + seconds + 20 ;
+              LCDGotoXY(9,0);
+              if (menuFunction == MENU_TIME)
+                LCDWriteString("Time ?");
+              if (menuFunction == MENU_DATE)
+                LCDWriteString("Date ?");
+          }
+          else
+              clearPrompt();
+      }
+      else if (next_menu_clear && ((minute * 60 + seconds) > next_menu_clear))
+      {
+          clearPrompt();
+      }
   }
+}
+
+void clearPrompt()
+{
+  next_menu_clear = 0 ;
+  menuFunction = MENU_NONE ;
+  LCDGotoXY(9,0);
+  LCDWriteString("      ");              
 }
 
 void doMenu()
@@ -83,7 +139,8 @@ void doMenu()
         s = seconds ;
         
         LCDClear();
-        LCDWriteString("Set Hours");
+        LCDWriteString(setText);
+        LCDWriteString("Hours");
         
         LCDGotoXY(0,1) ;
         showTime();
@@ -116,7 +173,8 @@ void doMenu()
             readInputs();
     
         LCDGotoXY(0,0) ;
-        LCDWriteString("Set Minutes");
+        LCDWriteString(setText);
+        LCDWriteString("Minutes");
 
         while(!bButton)
         {
@@ -146,7 +204,8 @@ void doMenu()
             readInputs();
 
         LCDGotoXY(0,0) ;
-        LCDWriteString("Set Seconds");
+        LCDWriteString(setText);
+        LCDWriteString("Seconds");
 
         while(!bButton)
         {
@@ -174,7 +233,7 @@ void doMenu()
         
         // save changes
         if (h != hour || m != minute || s != seconds)
-        {
+        { // we only update the RTC if changes have been made
             h = ((hour / 10) << 4) + hour % 10 ;
             m = ((minute / 10) << 4) + minute % 10 ;
             s = ((seconds / 10) << 4) + seconds % 10 ;
@@ -197,7 +256,8 @@ void doMenu()
         y = year ;
         
         LCDClear();
-        LCDWriteString("Set Year");
+        LCDWriteString(setText);
+        LCDWriteString("Year");
         
         LCDGotoXY(0,1) ;
         showDate();
@@ -230,7 +290,8 @@ void doMenu()
             readInputs();
     
         LCDGotoXY(0,0) ;
-        LCDWriteString("Set Month");
+        LCDWriteString(setText);
+        LCDWriteString("Month");
 
         while(!bButton)
         {
@@ -260,7 +321,8 @@ void doMenu()
             readInputs();
 
         LCDGotoXY(0,0) ;
-        LCDWriteString("Set Date ");
+        LCDWriteString(setText);
+        LCDWriteString("Date ");
 
         while(!bButton)
         {
@@ -290,7 +352,8 @@ void doMenu()
             readInputs();
 
         LCDGotoXY(0,0) ;
-        LCDWriteString("Set Day  ");
+        LCDWriteString(setText);
+        LCDWriteString("Day  ");
 
         while(!bButton)
         {
@@ -317,7 +380,7 @@ void doMenu()
         }
 
         if (n != day || d != date || m != month || y != year)
-        {
+        { // again, we only update the RTC if changes have been made
             n = ((day / 10) << 4) + day % 10 ;
             d = ((date / 10) << 4) + date % 10 ;
             m = ((month / 10) << 4) + month % 10 ;
@@ -338,7 +401,7 @@ void readInputs()
     bButton = 0 ;
     
     if (BUTTON == 1)
-    {
+    {   // debounce delay
         __delay_us(15) ;
         if (BUTTON == 1)
         {
@@ -347,6 +410,7 @@ void readInputs()
         }
     }
     
+    // (http://www.buxtronix.net/2011/10/rotary-encoders-done-properly.html ))
    unsigned char pinstate = (ENC_B << 1) | ENC_A ;
   // Determine new state from the pins and state table.
    state = ttable[state & 0xf][pinstate];
@@ -358,6 +422,7 @@ void readClock()
     
     DS1307_GetTime(&a,&b,&c);
     
+    // clock data is BCD
     hour = (a % 16) + ((a / 16 ) * 10) ;
     minute = (b % 16) + ((b / 16 ) * 10) ;
     seconds = (c % 16) + ((c / 16 ) * 10) ;
@@ -401,6 +466,8 @@ void showTime()
 
 void showDate()
 {
+    int d = (day-1) * 3 ;
+    
     LCDWriteInt(date,2);
     LCDData('/') ;
     LCDWriteInt(month,2);
@@ -410,14 +477,7 @@ void showDate()
     LCDWriteInt(year,2);
     LCDData(32) ;
     LCDData(32) ;
-    switch(day)
-    {
-        case    1   :   LCDWriteString("Mon") ; break ;
-        case    2   :   LCDWriteString("Tue") ; break ;
-        case    3   :   LCDWriteString("Wed") ; break ;
-        case    4   :   LCDWriteString("Thu") ; break ;
-        case    5   :   LCDWriteString("Fri") ; break ;
-        case    6   :   LCDWriteString("Sat") ; break ;
-        case    7   :   LCDWriteString("Sun") ; break ;
-    } ;
+    LCDData(daysOfTheWeek[d++]) ;
+    LCDData(daysOfTheWeek[d++]) ;
+    LCDData(daysOfTheWeek[d]) ;
 }
