@@ -1007,8 +1007,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCDTime.h: 38: void doMenu() ;
 [; ;LCDTime.h: 40: void showTime() ;
 [; ;LCDTime.h: 41: void showDate() ;
-[; ;LCDTime.h: 43: void initLED() ;
-[; ;LCDTime.h: 44: void sendLED(unsigned int c) ;
 [; ;lcd_hd44780_pic16.h: 56: void LCDInit(uint8_t style);
 [; ;lcd_hd44780_pic16.h: 57: void LCDWriteString(const char *msg);
 [; ;lcd_hd44780_pic16.h: 58: void LCDWriteInt(unsigned char val,int8_t field_length);

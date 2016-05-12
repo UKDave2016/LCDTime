@@ -1451,6 +1451,7 @@ void showDate() ;
 
 void initLED() ;
 void sendLED(unsigned int c) ;
+void setLED(int,int) ;
 
 # 56 "lcd_hd44780_pic16.h"
 void LCDInit(uint8_t style);

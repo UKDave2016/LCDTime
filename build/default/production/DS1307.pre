@@ -1449,9 +1449,6 @@ void doMenu() ;
 void showTime() ;
 void showDate() ;
 
-void initLED() ;
-void sendLED(unsigned int c) ;
-
 # 56 "lcd_hd44780_pic16.h"
 void LCDInit(uint8_t style);
 void LCDWriteString(const char *msg);

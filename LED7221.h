@@ -28,21 +28,17 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef LCDTIME_H
-#define	LCDTIME_H
+#ifndef LED7221_H
+#define	LED7221_H
 
-void readClock() ;
-void showClock() ;
-void readInputs();
-
-void doMenu() ;
-
-void showTime() ;
-void showDate() ;
+#include <xc.h> // include processor files - each processor file is guarded.  
 
 
-// TODO Insert declarations or function prototypes (right here) to leverage 
-// live documentation
+
+void initLED() ;
+void sendLED(unsigned int c) ;
+void setLED(int,int) ;
+
 
 #ifdef	__cplusplus
 extern "C" {

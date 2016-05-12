@@ -59,24 +59,26 @@
 [v _LCDWriteInt LCDWriteInt `(v  1 e 1 0 ]
 "345
 [v _LCDGotoXY LCDGotoXY `(v  1 e 1 0 ]
-"45 C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+"47 C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
 [v _main main `(v  1 e 1 0 ]
-"74
+"73
 [v _doMenu doMenu `(v  1 e 1 0 ]
-"338
+"337
 [v _readInputs readInputs `(v  1 e 1 0 ]
-"358
+"357
 [v _readClock readClock `(v  1 e 1 0 ]
-"381
+"380
 [v _showClock showClock `(v  1 e 1 0 ]
 "390
 [v _showTime showTime `(v  1 e 1 0 ]
-"399
+"404
 [v _showDate showDate `(v  1 e 1 0 ]
-"422
+"429
 [v _initLED initLED `(v  1 e 1 0 ]
-"433
+"443
 [v _sendLED sendLED `(v  1 e 1 0 ]
+"473
+[v _setLED setLED `(v  1 e 1 0 ]
 "331 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f877.h
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 [s S113 . 1 `uc 1 TRISB0 1 0 :1:0 
@@ -142,28 +144,34 @@
 "25
 [v _ttable ttable `DCC[7][4]uc  1 e 28 0 ]
 "42
+[v _led_digits led_digits `[10]uc  1 e 10 0 ]
+"44
 [v _monthDays monthDays `DCC[12]uc  1 e 12 0 ]
-"43
-[v _menuFunction menuFunction `uc  1 e 1 0 ]
 "45
+[v _menuFunction menuFunction `uc  1 e 1 0 ]
+"47
 [v _main main `(v  1 e 1 0 ]
 {
-"72
+"58
+[v main@seg seg `i  1 a 2 27 ]
+"57
+[v main@led led `i  1 a 2 25 ]
+"71
 } 0
-"381
+"380
 [v _showClock showClock `(v  1 e 1 0 ]
 {
-"388
+"387
 } 0
-"358
+"357
 [v _readClock readClock `(v  1 e 1 0 ]
 {
-"360
+"359
 [v readClock@c c `uc  1 a 1 8 ]
 [v readClock@b b `uc  1 a 1 7 ]
 [v readClock@a a `uc  1 a 1 6 ]
 [v readClock@n n `uc  1 a 1 5 ]
-"379
+"378
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -203,43 +211,55 @@
 {
 "86
 } 0
-"422 C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+"429 C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
 [v _initLED initLED `(v  1 e 1 0 ]
 {
-"431
+"441
 } 0
-"433
-[v _sendLED sendLED `(v  1 e 1 0 ]
-{
-"435
-[v sendLED@i i `i  1 a 2 4 ]
-"433
-[v sendLED@c c `ui  1 p 2 0 ]
-"453
-} 0
-"74
+"73
 [v _doMenu doMenu `(v  1 e 1 0 ]
 {
-"195
+"194
 [v doMenu@y y `i  1 a 2 23 ]
-[v doMenu@m_251 m `i  1 a 2 21 ]
+[v doMenu@m_260 m `i  1 a 2 21 ]
 [v doMenu@d d `i  1 a 2 19 ]
 [v doMenu@n n `i  1 a 2 17 ]
-"82
+"81
 [v doMenu@s s `i  1 a 2 15 ]
 [v doMenu@m m `i  1 a 2 13 ]
 [v doMenu@h h `i  1 a 2 11 ]
-"336
+"335
 } 0
 "390
 [v _showTime showTime `(v  1 e 1 0 ]
 {
-"397
+"402
 } 0
-"399
+"473
+[v _setLED setLED `(v  1 e 1 0 ]
+{
+"476
+[v setLED@v v `uc  1 a 1 5 ]
+"475
+[v setLED@d d `uc  1 a 1 4 ]
+"473
+[v setLED@digit digit `i  1 p 2 9 ]
+[v setLED@value value `i  1 p 2 11 ]
+"480
+} 0
+"443
+[v _sendLED sendLED `(v  1 e 1 0 ]
+{
+"445
+[v sendLED@i i `i  1 a 2 4 ]
+"443
+[v sendLED@c c `ui  1 p 2 0 ]
+"469
+} 0
+"404
 [v _showDate showDate `(v  1 e 1 0 ]
 {
-"420
+"425
 } 0
 "225 C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
 [v _LCDWriteString LCDWriteString `(v  1 e 1 0 ]
@@ -290,12 +310,12 @@
 [v ___awdiv@dividend dividend `i  1 p 2 2 ]
 "42
 } 0
-"338 C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+"337 C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
 [v _readInputs readInputs `(v  1 e 1 0 ]
 {
-"353
+"352
 [v readInputs@pinstate pinstate `uc  1 a 1 3 ]
-"356
+"355
 } 0
 "345 C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
 [v _LCDGotoXY LCDGotoXY `(v  1 e 1 0 ]

@@ -11,75 +11,73 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/production\LCDTime.production.obj
-cinit CODE 0 7ED 7ED 13 2
-text1 CODE 0 B98 B98 18 2
-text2 CODE 0 249 249 126 2
-text3 CODE 0 C15 C15 27 2
-text4 CODE 0 E94 E94 56 2
-text5 CODE 0 E4 E4 66 2
-text6 CODE 0 B42 B42 A 2
-text7 CODE 0 BB0 BB0 19 2
-text8 CODE 0 FA0 FA0 60 2
-text9 CODE 0 36F 36F 47E 2
-text10 CODE 0 CEB CEB 33 2
-text11 CODE 0 1B2 1B2 97 2
-text12 CODE 0 E44 E44 50 2
-text13 CODE 0 14A 14A 68 2
-text14 CODE 0 D59 D59 4B 2
-text15 CODE 0 EEA EEA 59 2
-text16 CODE 0 CBC CBC 2F 2
-text17 CODE 0 BEF BEF 26 2
-text18 CODE 0 C3C C3C 28 2
-text19 CODE 0 C8E C8E 2E 2
-text20 CODE 0 D1E D1E 3B 2
-text21 CODE 0 DF4 DF4 50 2
-text22 CODE 0 F43 F43 5D 2
-text23 CODE 0 B2A B2A 5 2
-text24 CODE 0 DA4 DA4 50 2
-text25 CODE 0 B66 B66 10 2
-text26 CODE 0 B76 B76 11 2
-text27 CODE 0 B38 B38 A 2
-text28 CODE 0 B4C B4C B 2
-text29 CODE 0 BC9 BC9 26 2
-text30 CODE 0 B2F B2F 9 2
-text31 CODE 0 B26 B26 4 2
-text32 CODE 0 C64 C64 2A 2
-maintext CODE 0 99 99 4B 2
-cstackCOMMON COMMON 1 70 70 E 1
-cstackBANK0 BANK0 1 20 20 1C 1
-inittext CODE 0 B87 B87 11 2
-bssBANK0 BANK0 1 4B 4B 3 1
-idataBANK0 CODE 0 B57 B57 F 2
-strings STRING 0 3 3 93 2
-dataBANK0 BANK0 1 3C 3C F 1
-$C:\Users\Dave\AppData\Local\Temp\s4lg.obj
+$C:\Users\Dave\AppData\Local\Temp\sg58.obj
 end_init CODE 0 0 0 3 2
 config CONFIG 0 2007 2007 1 2
+$dist/default/production\LCDTime.production.obj
+cinit CODE 0 7ED 7ED 13 2
+text1 CODE 0 C2B C2B 18 2
+text2 CODE 0 249 249 126 2
+text3 CODE 0 C8F C8F 27 2
+text4 CODE 0 EF4 EF4 56 2
+text5 CODE 0 E4 E4 66 2
+text6 CODE 0 BD5 BD5 A 2
+text7 CODE 0 36F 36F 47E 2
+text8 CODE 0 D96 D96 33 2
+text9 CODE 0 1B2 1B2 97 2
+text10 CODE 0 EA4 EA4 50 2
+text11 CODE 0 14A 14A 68 2
+text12 CODE 0 99 99 4B 2
+text13 CODE 0 F4A F4A 59 2
+text14 CODE 0 D36 D36 2F 2
+text15 CODE 0 C69 C69 26 2
+text16 CODE 0 CB6 CB6 28 2
+text17 CODE 0 D08 D08 2E 2
+text18 CODE 0 DC9 DC9 3B 2
+text19 CODE 0 E54 E54 50 2
+text20 CODE 0 FA3 FA3 5D 2
+text21 CODE 0 BBD BBD 5 2
+text22 CODE 0 E04 E04 50 2
+text23 CODE 0 BF9 BF9 10 2
+text24 CODE 0 C09 C09 11 2
+text25 CODE 0 BCB BCB A 2
+text26 CODE 0 BDF BDF B 2
+text27 CODE 0 C43 C43 26 2
+text28 CODE 0 BC2 BC2 9 2
+text29 CODE 0 BB9 BB9 4 2
+text30 CODE 0 CDE CDE 2A 2
+maintext CODE 0 D65 D65 31 2
+cstackCOMMON COMMON 1 70 70 E 1
+cstackBANK0 BANK0 1 20 20 19 1
+inittext CODE 0 C1A C1A 11 2
+bssBANK0 BANK0 1 48 48 3 1
+idataBANK0 CODE 0 BEA BEA F 2
+strings STRING 0 3 3 93 2
+dataBANK0 BANK0 1 39 39 F 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 4E-6F 1
+RAM 4B-6F 1
 RAM A0-EF 1
 RAM 110-16F 1
 RAM 190-1EF 1
-BANK0 4E-6F 1
+BANK0 4B-6F 1
 BANK1 A0-EF 1
 BANK2 110-16F 1
 BANK3 190-1EF 1
 CONST 96-98 2
-CONST 800-B25 2
+CONST 800-BB8 2
 CONST 1000-1FFF 2
 ENTRY 96-98 2
-ENTRY 800-B25 2
+ENTRY 800-BB8 2
 ENTRY 1000-1FFF 2
 IDLOC 2000-2003 2
 STACK 110-16F 1
 CODE 96-98 2
-CODE 800-B25 2
+CODE 800-BB8 2
 CODE 1000-1FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
@@ -87,10 +85,10 @@ SFR2 100-10F 1
 SFR3 180-18F 1
 EEDATA 2100-21FF 2
 STRCODE 96-98 2
-STRCODE 800-B25 2
+STRCODE 800-BB8 2
 STRCODE 1000-1FFF 2
 STRING 96-98 2
-STRING 800-B25 2
+STRING 800-BB8 2
 STRING 1000-1FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
@@ -106,484 +104,458 @@ STRING 1000-1FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\LCDTime.production.obj
-7ED cinit CODE >907:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7ED cinit CODE >910:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7ED cinit CODE >977:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7EE cinit CODE >978:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7EF cinit CODE >979:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7F0 cinit CODE >1011:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7F1 cinit CODE >1012:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7F2 cinit CODE >1013:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7F3 cinit CODE >1014:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7F4 cinit CODE >1015:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7F5 cinit CODE >1016:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7F6 cinit CODE >1017:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7F7 cinit CODE >1018:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7F8 cinit CODE >1019:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7F9 cinit CODE >1020:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7FC cinit CODE >1026:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7FC cinit CODE >1028:C:\Users\Dave\AppData\Local\Temp\s4lg.
-7FD cinit CODE >1029:C:\Users\Dave\AppData\Local\Temp\s4lg.
-C64 text32 CODE >54:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C64 text32 CODE >56:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C65 text32 CODE >58:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C68 text32 CODE >60:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C6D text32 CODE >61:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C6D text32 CODE >62:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C6E text32 CODE >64:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C71 text32 CODE >66:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C77 text32 CODE >68:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C79 text32 CODE >69:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C7D text32 CODE >71:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C7E text32 CODE >73:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C81 text32 CODE >60:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C89 text32 CODE >76:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-C8C text32 CODE >78:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B26 text31 CODE >38:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-B26 text31 CODE >40:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-B2F text30 CODE >9:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B2F text30 CODE >11:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B30 text30 CODE >12:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B33 text30 CODE >13:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B34 text30 CODE >14:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B37 text30 CODE >15:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-BC9 text29 CODE >40:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-BCA text29 CODE >43:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-BCF text29 CODE >44:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-BCF text29 CODE >45:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-BD8 text29 CODE >47:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-BDD text29 CODE >49:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-BE3 text29 CODE >43:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-BEB text29 CODE >51:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-BEE text29 CODE >52:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B4C text28 CODE >32:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-B4D text28 CODE >34:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-B53 text28 CODE >35:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-B56 text28 CODE >36:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-B38 text27 CODE >88:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B38 text27 CODE >90:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B3B text27 CODE >91:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B3E text27 CODE >92:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B41 text27 CODE >93:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B76 text26 CODE >17:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B76 text26 CODE >19:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B79 text26 CODE >20:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B7A text26 CODE >21:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B7B text26 CODE >22:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B7E text26 CODE >23:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B7F text26 CODE >24:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B82 text26 CODE >25:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B83 text26 CODE >26:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B86 text26 CODE >27:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B66 text25 CODE >29:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B66 text25 CODE >31:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B69 text25 CODE >32:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B6A text25 CODE >33:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B6D text25 CODE >34:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B6E text25 CODE >35:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B71 text25 CODE >36:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B72 text25 CODE >37:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B75 text25 CODE >38:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-DA4 text24 CODE >4:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DA4 text24 CODE >6:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DA5 text24 CODE >8:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DAA text24 CODE >9:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DB0 text24 CODE >10:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DB6 text24 CODE >11:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DBB text24 CODE >12:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DC1 text24 CODE >13:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DC9 text24 CODE >14:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DCE text24 CODE >16:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DD0 text24 CODE >18:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DD5 text24 CODE >19:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DDA text24 CODE >20:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DE0 text24 CODE >21:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DE6 text24 CODE >22:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DEC text24 CODE >23:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DEF text24 CODE >25:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-DF0 text24 CODE >27:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-B2A text23 CODE >3:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B2A text23 CODE >5:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B2D text23 CODE >6:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B2E text23 CODE >7:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-F43 text22 CODE >109:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F43 text22 CODE >113:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F44 text22 CODE >116:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F4A text22 CODE >119:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F4D text22 CODE >120:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F4E text22 CODE >130:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F51 text22 CODE >135:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F5F text22 CODE >136:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F6C text22 CODE >141:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F6F text22 CODE >142:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F70 text22 CODE >144:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F73 text22 CODE >147:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F81 text22 CODE >148:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F85 text22 CODE >150:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F8A text22 CODE >152:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F8F text22 CODE >156:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F92 text22 CODE >157:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F93 text22 CODE >158:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F96 text22 CODE >160:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F99 text22 CODE >163:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-F9F text22 CODE >165:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-DF4 text21 CODE >54:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-DF5 text21 CODE >66:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E01 text21 CODE >67:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E06 text21 CODE >69:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E09 text21 CODE >70:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E0D text21 CODE >71:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E0D text21 CODE >72:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E10 text21 CODE >76:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E13 text21 CODE >80:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E21 text21 CODE >81:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E23 text21 CODE >83:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E24 text21 CODE >87:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E27 text21 CODE >89:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E28 text21 CODE >92:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E2B text21 CODE >94:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E39 text21 CODE >96:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E3B text21 CODE >98:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E3C text21 CODE >102:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E3F text21 CODE >104:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E40 text21 CODE >106:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E43 text21 CODE >107:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D1E text20 CODE >167:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D21 text20 CODE >183:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D29 text20 CODE >186:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D2F text20 CODE >188:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D30 text20 CODE >189:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D31 text20 CODE >190:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D32 text20 CODE >192:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D38 text20 CODE >194:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D39 text20 CODE >195:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D3A text20 CODE >196:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D3B text20 CODE >201:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D3E text20 CODE >202:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D3F text20 CODE >203:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D40 text20 CODE >204:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D43 text20 CODE >205:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D44 text20 CODE >208:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D49 text20 CODE >213:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D50 text20 CODE >214:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-D58 text20 CODE >224:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-C8E text19 CODE >54:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C8F text19 CODE >56:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C94 text19 CODE >57:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C9A text19 CODE >58:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-CA0 text19 CODE >59:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-CA6 text19 CODE >60:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-CAC text19 CODE >61:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-CB2 text19 CODE >62:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-CB8 text19 CODE >63:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-CBB text19 CODE >64:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C3C text18 CODE >43:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C3D text18 CODE >45:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C42 text18 CODE >46:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C48 text18 CODE >47:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C4E text18 CODE >48:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C54 text18 CODE >49:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C5A text18 CODE >50:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C60 text18 CODE >51:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C63 text18 CODE >52:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-BEF text17 CODE >345:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-BF2 text17 CODE >347:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-BF7 text17 CODE >355:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-BF7 text17 CODE >356:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-BF8 text17 CODE >357:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-BF9 text17 CODE >359:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-BFB text17 CODE >362:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-BFF text17 CODE >364:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-C00 text17 CODE >351:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-C0E text17 CODE >364:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-C0E text17 CODE >386:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-C0F text17 CODE >387:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-C14 text17 CODE >388:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-CBC text16 CODE >338:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CBC text16 CODE >341:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CBF text16 CODE >343:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CC1 text16 CODE >345:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CC6 text16 CODE >346:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CCA text16 CODE >348:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CCC text16 CODE >349:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CCD text16 CODE >353:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CD5 text16 CODE >355:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CEA text16 CODE >356:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-EEA text15 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-EEA text15 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-EEB text15 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-EED text15 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-EF2 text15 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-EF4 text15 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-EF6 text15 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-EFB text15 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-EFF text15 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F01 text15 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F05 text15 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F07 text15 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F09 text15 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F10 text15 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F14 text15 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F15 text15 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F1C text15 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F24 text15 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F2A text15 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F2B text15 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F32 text15 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F36 text15 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F39 text15 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-F3E text15 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
-D59 text14 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D59 text14 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D5A text14 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D5C text14 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D61 text14 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D63 text14 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D65 text14 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D6A text14 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D6E text14 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D70 text14 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D72 text14 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D79 text14 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D7D text14 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D7E text14 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D86 text14 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D8C text14 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D93 text14 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D97 text14 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D9A text14 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-D9F text14 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
-14A text13 CODE >323:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-14D text13 CODE >327:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-167 text13 CODE >328:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-17D text13 CODE >329:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-184 text13 CODE >331:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-18B text13 CODE >332:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-18F text13 CODE >334:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-199 text13 CODE >335:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-1A2 text13 CODE >336:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-1A9 text13 CODE >338:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E44 text12 CODE >225:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E47 text12 CODE >255:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E51 text12 CODE >258:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E5B text12 CODE >260:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E5F text12 CODE >261:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E6A text12 CODE >263:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E71 text12 CODE >265:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E75 text12 CODE >269:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E7D text12 CODE >275:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E8D text12 CODE >277:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-E93 text12 CODE >255:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
-1B2 text11 CODE >399:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-1B2 text11 CODE >401:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-1BE text11 CODE >402:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-1C6 text11 CODE >403:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-1D2 text11 CODE >404:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-1DA text11 CODE >405:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-1E2 text11 CODE >406:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-1EA text11 CODE >407:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-1F6 text11 CODE >408:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-1FE text11 CODE >409:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-206 text11 CODE >410:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-207 text11 CODE >412:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-20C text11 CODE >413:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-211 text11 CODE >414:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-216 text11 CODE >415:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-21B text11 CODE >416:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-220 text11 CODE >417:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-225 text11 CODE >418:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-229 text11 CODE >419:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-22A text11 CODE >410:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-248 text11 CODE >420:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CEB text10 CODE >390:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CEB text10 CODE >392:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CF7 text10 CODE >393:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CFF text10 CODE >394:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-D0B text10 CODE >395:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-D13 text10 CODE >396:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-D1D text10 CODE >397:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-36F text9 CODE >74:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-36F text9 CODE >76:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-374 text9 CODE >77:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-379 text9 CODE >76:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-37A text9 CODE >80:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-37F text9 CODE >84:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-383 text9 CODE >85:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-387 text9 CODE >86:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-38B text9 CODE >88:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-392 text9 CODE >89:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-398 text9 CODE >91:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3A0 text9 CODE >92:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3A5 text9 CODE >94:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3AA text9 CODE >96:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3AF text9 CODE >98:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3B3 text9 CODE >100:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3B9 text9 CODE >101:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3C4 text9 CODE >102:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3C7 text9 CODE >104:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3C9 text9 CODE >106:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3CF text9 CODE >107:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3D1 text9 CODE >108:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3D3 text9 CODE >111:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3D9 text9 CODE >119:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3DE text9 CODE >118:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3E3 text9 CODE >121:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3EA text9 CODE >122:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3F0 text9 CODE >124:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3F5 text9 CODE >126:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3FA text9 CODE >128:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-3FE text9 CODE >130:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-404 text9 CODE >131:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-40F text9 CODE >132:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-412 text9 CODE >134:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-414 text9 CODE >136:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-41A text9 CODE >137:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-41C text9 CODE >138:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-41E text9 CODE >141:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-423 text9 CODE >143:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-42B text9 CODE >144:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-430 text9 CODE >124:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-431 text9 CODE >149:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-436 text9 CODE >148:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-43B text9 CODE >151:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-442 text9 CODE >152:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-448 text9 CODE >154:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-44D text9 CODE >156:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-452 text9 CODE >158:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-456 text9 CODE >160:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-45C text9 CODE >161:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-467 text9 CODE >162:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-46A text9 CODE >164:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-46C text9 CODE >166:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-472 text9 CODE >167:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-474 text9 CODE >168:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-476 text9 CODE >171:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-47B text9 CODE >173:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-483 text9 CODE >174:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-488 text9 CODE >154:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-489 text9 CODE >179:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-4A1 text9 CODE >181:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-4D4 text9 CODE >182:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-507 text9 CODE >183:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-53A text9 CODE >185:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-548 text9 CODE >188:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-54D text9 CODE >189:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-552 text9 CODE >188:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-553 text9 CODE >193:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-55A text9 CODE >197:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-55E text9 CODE >198:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-562 text9 CODE >199:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-566 text9 CODE >200:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-56A text9 CODE >202:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-571 text9 CODE >203:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-577 text9 CODE >205:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-57F text9 CODE >206:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-584 text9 CODE >208:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-589 text9 CODE >210:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-58E text9 CODE >212:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-592 text9 CODE >214:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-598 text9 CODE >215:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5A3 text9 CODE >216:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5A7 text9 CODE >217:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5A8 text9 CODE >218:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5AA text9 CODE >220:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5B0 text9 CODE >221:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5B2 text9 CODE >222:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5B6 text9 CODE >225:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5BC text9 CODE >233:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5C1 text9 CODE >232:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5C6 text9 CODE >235:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5CD text9 CODE >236:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5D3 text9 CODE >238:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5D8 text9 CODE >240:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5DD text9 CODE >242:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5E1 text9 CODE >244:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5E7 text9 CODE >245:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5F2 text9 CODE >246:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5F6 text9 CODE >248:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5F8 text9 CODE >250:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-5FE text9 CODE >251:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-602 text9 CODE >252:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-606 text9 CODE >255:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-60B text9 CODE >257:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-613 text9 CODE >258:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-618 text9 CODE >238:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-619 text9 CODE >263:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-61E text9 CODE >262:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-623 text9 CODE >265:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-62A text9 CODE >266:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-630 text9 CODE >268:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-635 text9 CODE >270:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-63A text9 CODE >272:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-63E text9 CODE >274:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-644 text9 CODE >275:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-657 text9 CODE >276:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-65D text9 CODE >278:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-65F text9 CODE >280:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-665 text9 CODE >281:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-667 text9 CODE >282:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-676 text9 CODE >285:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-67B text9 CODE >287:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-683 text9 CODE >288:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-688 text9 CODE >268:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-689 text9 CODE >293:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-68E text9 CODE >292:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-693 text9 CODE >295:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-69A text9 CODE >296:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6A0 text9 CODE >298:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6A5 text9 CODE >300:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6AA text9 CODE >302:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6AE text9 CODE >304:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6B4 text9 CODE >305:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6BF text9 CODE >306:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6C3 text9 CODE >308:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6C5 text9 CODE >310:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6CB text9 CODE >311:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6CD text9 CODE >312:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6D1 text9 CODE >315:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6D6 text9 CODE >317:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6DE text9 CODE >318:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6E3 text9 CODE >298:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-6E4 text9 CODE >322:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-704 text9 CODE >324:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-737 text9 CODE >325:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-76A text9 CODE >326:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-79D text9 CODE >327:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-7D0 text9 CODE >329:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-7E2 text9 CODE >333:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-7E7 text9 CODE >334:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-7EC text9 CODE >333:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FA0 text8 CODE >436:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FA0 text8 CODE >440:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FA3 text8 CODE >441:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FAC text8 CODE >443:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FB9 text8 CODE >445:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FC0 text8 CODE >447:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FC2 text8 CODE >448:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FC6 text8 CODE >449:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FC6 text8 CODE >450:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FC9 text8 CODE >452:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FCE text8 CODE >454:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FD5 text8 CODE >455:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FD8 text8 CODE >456:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FDF text8 CODE >457:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FE2 text8 CODE >443:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FF3 text8 CODE >460:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FFC text8 CODE >461:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-FFF text8 CODE >462:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BB0 text7 CODE >422:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BB0 text7 CODE >424:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BB3 text7 CODE >425:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BB4 text7 CODE >426:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BB5 text7 CODE >428:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BB8 text7 CODE >430:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BC1 text7 CODE >432:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BC8 text7 CODE >434:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-B42 text6 CODE >81:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B42 text6 CODE >83:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B45 text6 CODE >84:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B48 text6 CODE >85:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
-B4B text6 CODE >86:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+7ED cinit CODE >893:C:\Users\Dave\AppData\Local\Temp\sg58.
+7ED cinit CODE >896:C:\Users\Dave\AppData\Local\Temp\sg58.
+7ED cinit CODE >963:C:\Users\Dave\AppData\Local\Temp\sg58.
+7EE cinit CODE >964:C:\Users\Dave\AppData\Local\Temp\sg58.
+7EF cinit CODE >965:C:\Users\Dave\AppData\Local\Temp\sg58.
+7F0 cinit CODE >997:C:\Users\Dave\AppData\Local\Temp\sg58.
+7F1 cinit CODE >998:C:\Users\Dave\AppData\Local\Temp\sg58.
+7F2 cinit CODE >999:C:\Users\Dave\AppData\Local\Temp\sg58.
+7F3 cinit CODE >1000:C:\Users\Dave\AppData\Local\Temp\sg58.
+7F4 cinit CODE >1001:C:\Users\Dave\AppData\Local\Temp\sg58.
+7F5 cinit CODE >1002:C:\Users\Dave\AppData\Local\Temp\sg58.
+7F6 cinit CODE >1003:C:\Users\Dave\AppData\Local\Temp\sg58.
+7F7 cinit CODE >1004:C:\Users\Dave\AppData\Local\Temp\sg58.
+7F8 cinit CODE >1005:C:\Users\Dave\AppData\Local\Temp\sg58.
+7F9 cinit CODE >1006:C:\Users\Dave\AppData\Local\Temp\sg58.
+7FC cinit CODE >1012:C:\Users\Dave\AppData\Local\Temp\sg58.
+7FC cinit CODE >1014:C:\Users\Dave\AppData\Local\Temp\sg58.
+7FD cinit CODE >1015:C:\Users\Dave\AppData\Local\Temp\sg58.
+CDE text30 CODE >54:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CDE text30 CODE >56:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CDF text30 CODE >58:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CE2 text30 CODE >60:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CE7 text30 CODE >61:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CE7 text30 CODE >62:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CE8 text30 CODE >64:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CEB text30 CODE >66:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CF1 text30 CODE >68:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CF3 text30 CODE >69:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CF7 text30 CODE >71:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CF8 text30 CODE >73:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+CFB text30 CODE >60:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+D03 text30 CODE >76:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+D06 text30 CODE >78:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BB9 text29 CODE >38:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+BB9 text29 CODE >40:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+BC2 text28 CODE >9:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BC2 text28 CODE >11:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BC3 text28 CODE >12:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BC6 text28 CODE >13:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BC7 text28 CODE >14:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BCA text28 CODE >15:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C43 text27 CODE >40:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C44 text27 CODE >43:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C49 text27 CODE >44:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C49 text27 CODE >45:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C52 text27 CODE >47:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C57 text27 CODE >49:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C5D text27 CODE >43:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C65 text27 CODE >51:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C68 text27 CODE >52:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BDF text26 CODE >32:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+BE0 text26 CODE >34:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+BE6 text26 CODE >35:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+BE9 text26 CODE >36:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+BCB text25 CODE >88:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BCB text25 CODE >90:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BCE text25 CODE >91:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BD1 text25 CODE >92:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BD4 text25 CODE >93:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C09 text24 CODE >17:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C09 text24 CODE >19:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C0C text24 CODE >20:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C0D text24 CODE >21:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C0E text24 CODE >22:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C11 text24 CODE >23:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C12 text24 CODE >24:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C15 text24 CODE >25:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C16 text24 CODE >26:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C19 text24 CODE >27:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BF9 text23 CODE >29:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BF9 text23 CODE >31:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BFC text23 CODE >32:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BFD text23 CODE >33:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C00 text23 CODE >34:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C01 text23 CODE >35:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C04 text23 CODE >36:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C05 text23 CODE >37:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+C08 text23 CODE >38:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+E04 text22 CODE >4:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E04 text22 CODE >6:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E05 text22 CODE >8:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E0A text22 CODE >9:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E10 text22 CODE >10:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E16 text22 CODE >11:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E1B text22 CODE >12:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E21 text22 CODE >13:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E29 text22 CODE >14:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E2E text22 CODE >16:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E30 text22 CODE >18:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E35 text22 CODE >19:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E3A text22 CODE >20:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E40 text22 CODE >21:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E46 text22 CODE >22:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E4C text22 CODE >23:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E4F text22 CODE >25:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+E50 text22 CODE >27:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+BBD text21 CODE >3:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BBD text21 CODE >5:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BC0 text21 CODE >6:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BC1 text21 CODE >7:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+FA3 text20 CODE >109:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FA3 text20 CODE >113:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FA4 text20 CODE >116:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FAA text20 CODE >119:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FAD text20 CODE >120:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FAE text20 CODE >130:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FB1 text20 CODE >135:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FBF text20 CODE >136:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FCC text20 CODE >141:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FCF text20 CODE >142:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FD0 text20 CODE >144:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FD3 text20 CODE >147:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FE1 text20 CODE >148:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FE5 text20 CODE >150:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FEA text20 CODE >152:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FEF text20 CODE >156:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FF2 text20 CODE >157:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FF3 text20 CODE >158:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FF6 text20 CODE >160:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FF9 text20 CODE >163:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+FFF text20 CODE >165:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E54 text19 CODE >54:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E55 text19 CODE >66:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E61 text19 CODE >67:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E66 text19 CODE >69:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E69 text19 CODE >70:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E6D text19 CODE >71:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E6D text19 CODE >72:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E70 text19 CODE >76:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E73 text19 CODE >80:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E81 text19 CODE >81:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E83 text19 CODE >83:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E84 text19 CODE >87:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E87 text19 CODE >89:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E88 text19 CODE >92:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E8B text19 CODE >94:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E99 text19 CODE >96:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E9B text19 CODE >98:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E9C text19 CODE >102:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E9F text19 CODE >104:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+EA0 text19 CODE >106:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+EA3 text19 CODE >107:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DC9 text18 CODE >167:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DCC text18 CODE >183:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DD4 text18 CODE >186:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DDA text18 CODE >188:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DDB text18 CODE >189:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DDC text18 CODE >190:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DDD text18 CODE >192:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DE3 text18 CODE >194:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DE4 text18 CODE >195:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DE5 text18 CODE >196:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DE6 text18 CODE >201:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DE9 text18 CODE >202:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DEA text18 CODE >203:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DEB text18 CODE >204:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DEE text18 CODE >205:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DEF text18 CODE >208:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DF4 text18 CODE >213:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+DFB text18 CODE >214:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+E03 text18 CODE >224:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+D08 text17 CODE >54:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+D09 text17 CODE >56:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+D0E text17 CODE >57:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+D14 text17 CODE >58:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+D1A text17 CODE >59:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+D20 text17 CODE >60:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+D26 text17 CODE >61:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+D2C text17 CODE >62:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+D32 text17 CODE >63:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+D35 text17 CODE >64:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+CB6 text16 CODE >43:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+CB7 text16 CODE >45:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+CBC text16 CODE >46:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+CC2 text16 CODE >47:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+CC8 text16 CODE >48:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+CCE text16 CODE >49:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+CD4 text16 CODE >50:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+CDA text16 CODE >51:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+CDD text16 CODE >52:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+C69 text15 CODE >345:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C6C text15 CODE >347:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C71 text15 CODE >355:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C71 text15 CODE >356:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C72 text15 CODE >357:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C73 text15 CODE >359:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C75 text15 CODE >362:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C79 text15 CODE >364:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C7A text15 CODE >351:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C88 text15 CODE >364:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C88 text15 CODE >386:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C89 text15 CODE >387:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+C8E text15 CODE >388:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+D36 text14 CODE >335:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D36 text14 CODE >338:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D39 text14 CODE >340:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D3B text14 CODE >342:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D40 text14 CODE >343:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D44 text14 CODE >345:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D46 text14 CODE >346:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D47 text14 CODE >350:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D4F text14 CODE >352:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D64 text14 CODE >353:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+F4A text13 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F4A text13 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F4B text13 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F4D text13 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F52 text13 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F54 text13 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F56 text13 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F5B text13 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F5F text13 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F61 text13 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F65 text13 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F67 text13 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F69 text13 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F70 text13 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F74 text13 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F75 text13 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F7C text13 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F84 text13 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F8A text13 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F8B text13 CODE >36:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F92 text13 CODE >37:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F96 text13 CODE >39:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F99 text13 CODE >40:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+F9E text13 CODE >41:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awdiv.c
+99 text12 CODE >6:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+99 text12 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+9A text12 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+9C text12 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+A1 text12 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+A3 text12 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+A5 text12 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+AA text12 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+AE text12 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+B0 text12 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+B2 text12 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+B9 text12 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+BD text12 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+BE text12 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+C6 text12 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+CC text12 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+D3 text12 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+D7 text12 CODE >32:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+DA text12 CODE >33:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+DF text12 CODE >34:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\awmod.c
+14A text11 CODE >323:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+14D text11 CODE >327:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+167 text11 CODE >328:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+17D text11 CODE >329:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+184 text11 CODE >331:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+18B text11 CODE >332:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+18F text11 CODE >334:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+199 text11 CODE >335:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+1A2 text11 CODE >336:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+1A9 text11 CODE >338:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+EA4 text10 CODE >225:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+EA7 text10 CODE >255:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+EB1 text10 CODE >258:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+EBB text10 CODE >260:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+EBF text10 CODE >261:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+ECA text10 CODE >263:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+ED1 text10 CODE >265:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+ED5 text10 CODE >269:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+EDD text10 CODE >275:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+EED text10 CODE >277:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+EF3 text10 CODE >255:C:\Users\Dave\Documents\PIC\LCDTime\lcd_hd44780_pic16.c
+1B2 text9 CODE >402:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+1B2 text9 CODE >404:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+1BE text9 CODE >405:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+1C6 text9 CODE >406:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+1D2 text9 CODE >407:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+1DA text9 CODE >408:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+1E2 text9 CODE >409:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+1EA text9 CODE >410:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+1F6 text9 CODE >411:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+1FE text9 CODE >412:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+206 text9 CODE >413:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+207 text9 CODE >415:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+20C text9 CODE >416:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+211 text9 CODE >417:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+216 text9 CODE >418:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+21B text9 CODE >419:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+220 text9 CODE >420:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+225 text9 CODE >421:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+229 text9 CODE >422:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+22A text9 CODE >413:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+248 text9 CODE >423:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D96 text8 CODE >388:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D96 text8 CODE >390:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+DA2 text8 CODE >391:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+DAA text8 CODE >392:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+DB6 text8 CODE >393:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+DBE text8 CODE >394:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+DC8 text8 CODE >400:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+36F text7 CODE >71:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+36F text7 CODE >73:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+374 text7 CODE >74:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+379 text7 CODE >73:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+37A text7 CODE >77:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+37F text7 CODE >81:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+383 text7 CODE >82:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+387 text7 CODE >83:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+38B text7 CODE >85:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+392 text7 CODE >86:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+398 text7 CODE >88:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3A0 text7 CODE >89:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3A5 text7 CODE >91:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3AA text7 CODE >93:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3AF text7 CODE >95:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3B3 text7 CODE >97:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3B9 text7 CODE >98:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3C4 text7 CODE >99:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3C7 text7 CODE >101:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3C9 text7 CODE >103:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3CF text7 CODE >104:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3D1 text7 CODE >105:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3D3 text7 CODE >108:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3D9 text7 CODE >116:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3DE text7 CODE >115:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3E3 text7 CODE >118:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3EA text7 CODE >119:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3F0 text7 CODE >121:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3F5 text7 CODE >123:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3FA text7 CODE >125:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+3FE text7 CODE >127:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+404 text7 CODE >128:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+40F text7 CODE >129:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+412 text7 CODE >131:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+414 text7 CODE >133:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+41A text7 CODE >134:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+41C text7 CODE >135:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+41E text7 CODE >138:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+423 text7 CODE >140:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+42B text7 CODE >141:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+430 text7 CODE >121:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+431 text7 CODE >146:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+436 text7 CODE >145:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+43B text7 CODE >148:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+442 text7 CODE >149:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+448 text7 CODE >151:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+44D text7 CODE >153:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+452 text7 CODE >155:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+456 text7 CODE >157:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+45C text7 CODE >158:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+467 text7 CODE >159:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+46A text7 CODE >161:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+46C text7 CODE >163:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+472 text7 CODE >164:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+474 text7 CODE >165:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+476 text7 CODE >168:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+47B text7 CODE >170:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+483 text7 CODE >171:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+488 text7 CODE >151:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+489 text7 CODE >176:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+4A1 text7 CODE >178:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+4D4 text7 CODE >179:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+507 text7 CODE >180:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+53A text7 CODE >182:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+548 text7 CODE >185:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+54D text7 CODE >186:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+552 text7 CODE >185:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+553 text7 CODE >190:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+55A text7 CODE >194:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+55E text7 CODE >195:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+562 text7 CODE >196:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+566 text7 CODE >197:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+56A text7 CODE >199:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+571 text7 CODE >200:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+577 text7 CODE >202:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+57F text7 CODE >203:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+584 text7 CODE >205:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+589 text7 CODE >207:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+58E text7 CODE >209:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+592 text7 CODE >211:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+598 text7 CODE >212:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5A3 text7 CODE >213:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5A7 text7 CODE >214:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5A8 text7 CODE >215:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5AA text7 CODE >217:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5B0 text7 CODE >218:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5B2 text7 CODE >219:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5B6 text7 CODE >222:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5BC text7 CODE >230:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5C1 text7 CODE >229:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5C6 text7 CODE >232:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5CD text7 CODE >233:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5D3 text7 CODE >235:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5D8 text7 CODE >237:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5DD text7 CODE >239:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5E1 text7 CODE >241:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5E7 text7 CODE >242:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5F2 text7 CODE >243:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5F6 text7 CODE >245:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5F8 text7 CODE >247:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+5FE text7 CODE >248:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+602 text7 CODE >249:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+606 text7 CODE >252:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+60B text7 CODE >254:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+613 text7 CODE >255:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+618 text7 CODE >235:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+619 text7 CODE >260:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+61E text7 CODE >259:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+623 text7 CODE >262:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+62A text7 CODE >263:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+630 text7 CODE >265:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+635 text7 CODE >267:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+63A text7 CODE >269:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+63E text7 CODE >271:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+644 text7 CODE >272:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+657 text7 CODE >273:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+65D text7 CODE >275:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+65F text7 CODE >277:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+665 text7 CODE >278:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+667 text7 CODE >279:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+676 text7 CODE >282:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+67B text7 CODE >284:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+683 text7 CODE >285:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+688 text7 CODE >265:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+689 text7 CODE >290:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+68E text7 CODE >289:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+693 text7 CODE >292:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+69A text7 CODE >293:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6A0 text7 CODE >295:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6A5 text7 CODE >297:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6AA text7 CODE >299:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6AE text7 CODE >301:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6B4 text7 CODE >302:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6BF text7 CODE >303:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6C3 text7 CODE >305:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6C5 text7 CODE >307:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6CB text7 CODE >308:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6CD text7 CODE >309:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6D1 text7 CODE >312:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6D6 text7 CODE >314:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6DE text7 CODE >315:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6E3 text7 CODE >295:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+6E4 text7 CODE >319:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+704 text7 CODE >321:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+737 text7 CODE >322:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+76A text7 CODE >323:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+79D text7 CODE >324:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+7D0 text7 CODE >326:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+7E2 text7 CODE >330:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+7E7 text7 CODE >331:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+7EC text7 CODE >330:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+BD5 text6 CODE >81:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BD5 text6 CODE >83:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BD8 text6 CODE >84:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BDB text6 CODE >85:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
+BDE text6 CODE >86:C:\Users\Dave\Documents\PIC\LCDTime\i2c.c
 E4 text5 CODE >80:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
 E5 text5 CODE >82:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
 EA text5 CODE >83:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
@@ -597,76 +569,72 @@ FB text5 CODE >86:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
 136 text5 CODE >91:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
 146 text5 CODE >92:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
 149 text5 CODE >93:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-E94 text4 CODE >66:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-E95 text4 CODE >68:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-E9A text4 CODE >69:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-EA0 text4 CODE >70:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-EA6 text4 CODE >71:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-EAB text4 CODE >72:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-EB0 text4 CODE >73:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-EB6 text4 CODE >74:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-EC6 text4 CODE >75:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-ED6 text4 CODE >76:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-EE6 text4 CODE >77:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-EE9 text4 CODE >78:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
-C15 text3 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
-C15 text3 CODE >43:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
-C19 text3 CODE >45:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
-C1B text3 CODE >46:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
-C23 text3 CODE >47:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
-C2A text3 CODE >48:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
-C31 text3 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
-C35 text3 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
-249 text2 CODE >358:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-249 text2 CODE >362:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-259 text2 CODE >364:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-282 text2 CODE >365:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-2A9 text2 CODE >366:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-2D0 text2 CODE >368:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-2DB text2 CODE >370:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-2DF text2 CODE >372:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-2F1 text2 CODE >374:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-2FB text2 CODE >375:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-322 text2 CODE >376:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-349 text2 CODE >377:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-B98 text1 CODE >381:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-B98 text1 CODE >383:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-B9F text1 CODE >384:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BA4 text1 CODE >386:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BAC text1 CODE >387:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BAF text1 CODE >388:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-99 maintext CODE >45:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-99 maintext CODE >47:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-9E maintext CODE >48:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-A4 maintext CODE >49:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-A9 maintext CODE >51:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-B0 maintext CODE >53:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-B5 maintext CODE >63:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-B6 maintext CODE >64:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-BB maintext CODE >57:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-C0 maintext CODE >59:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-C5 maintext CODE >61:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CA maintext CODE >63:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-CF maintext CODE >67:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-D4 maintext CODE >68:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-E3 maintext CODE >55:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
-B87 inittext CODE >985:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B87 inittext CODE >986:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B88 inittext CODE >987:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B89 inittext CODE >988:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B8A inittext CODE >989:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B8B inittext CODE >996:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B8B inittext CODE >997:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B8E inittext CODE >998:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B8F inittext CODE >999:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B90 inittext CODE >1000:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B91 inittext CODE >1001:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B92 inittext CODE >1002:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B93 inittext CODE >1003:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B94 inittext CODE >1004:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B95 inittext CODE >1005:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B96 inittext CODE >1006:C:\Users\Dave\AppData\Local\Temp\s4lg.
-B97 inittext CODE >1007:C:\Users\Dave\AppData\Local\Temp\s4lg.
+EF4 text4 CODE >66:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+EF5 text4 CODE >68:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+EFA text4 CODE >69:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+F00 text4 CODE >70:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+F06 text4 CODE >71:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+F0B text4 CODE >72:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+F10 text4 CODE >73:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+F16 text4 CODE >74:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+F26 text4 CODE >75:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+F36 text4 CODE >76:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+F46 text4 CODE >77:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+F49 text4 CODE >78:C:\Users\Dave\Documents\PIC\LCDTime\DS1307.c
+C8F text3 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
+C8F text3 CODE >43:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
+C93 text3 CODE >45:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
+C95 text3 CODE >46:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
+C9D text3 CODE >47:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
+CA4 text3 CODE >48:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
+CAB text3 CODE >49:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
+CAF text3 CODE >52:C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul16.c
+249 text2 CODE >355:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+249 text2 CODE >359:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+259 text2 CODE >361:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+282 text2 CODE >362:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+2A9 text2 CODE >363:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+2D0 text2 CODE >365:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+2DB text2 CODE >367:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+2DF text2 CODE >369:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+2F1 text2 CODE >371:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+2FB text2 CODE >372:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+322 text2 CODE >373:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+349 text2 CODE >374:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+C2B text1 CODE >378:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+C2B text1 CODE >380:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+C32 text1 CODE >381:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+C37 text1 CODE >383:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+C3F text1 CODE >384:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+C42 text1 CODE >385:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D65 maintext CODE >46:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D65 maintext CODE >48:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D6A maintext CODE >49:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D70 maintext CODE >50:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D75 maintext CODE >52:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D7C maintext CODE >58:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D81 maintext CODE >60:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D86 maintext CODE >62:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D8B maintext CODE >64:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D90 maintext CODE >66:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+D95 maintext CODE >56:C:\Users\Dave\Documents\PIC\LCDTime\LCDTime.c
+C1A inittext CODE >971:C:\Users\Dave\AppData\Local\Temp\sg58.
+C1A inittext CODE >972:C:\Users\Dave\AppData\Local\Temp\sg58.
+C1B inittext CODE >973:C:\Users\Dave\AppData\Local\Temp\sg58.
+C1C inittext CODE >974:C:\Users\Dave\AppData\Local\Temp\sg58.
+C1D inittext CODE >975:C:\Users\Dave\AppData\Local\Temp\sg58.
+C1E inittext CODE >982:C:\Users\Dave\AppData\Local\Temp\sg58.
+C1E inittext CODE >983:C:\Users\Dave\AppData\Local\Temp\sg58.
+C21 inittext CODE >984:C:\Users\Dave\AppData\Local\Temp\sg58.
+C22 inittext CODE >985:C:\Users\Dave\AppData\Local\Temp\sg58.
+C23 inittext CODE >986:C:\Users\Dave\AppData\Local\Temp\sg58.
+C24 inittext CODE >987:C:\Users\Dave\AppData\Local\Temp\sg58.
+C25 inittext CODE >988:C:\Users\Dave\AppData\Local\Temp\sg58.
+C26 inittext CODE >989:C:\Users\Dave\AppData\Local\Temp\sg58.
+C27 inittext CODE >990:C:\Users\Dave\AppData\Local\Temp\sg58.
+C28 inittext CODE >991:C:\Users\Dave\AppData\Local\Temp\sg58.
+C29 inittext CODE >992:C:\Users\Dave\AppData\Local\Temp\sg58.
+C2A inittext CODE >993:C:\Users\Dave\AppData\Local\Temp\sg58.
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -688,68 +656,67 @@ __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __HidataBANK0 0 0 ABS 0 idataBANK0 -
 __size_of_I2C_Ack 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_last_hour 4A 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
+_last_hour 47 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
-__end_of_I2C_Clock 1670 0 CODE 0 text30 dist/default/production\LCDTime.production.obj
+__end_of_I2C_Clock 1796 0 CODE 0 text28 dist/default/production\LCDTime.production.obj
 ltemp0 7E 0 ABS 0 - dist/default/production\LCDTime.production.obj
 ltemp1 82 0 ABS 0 - dist/default/production\LCDTime.production.obj
 ltemp2 86 0 ABS 0 - dist/default/production\LCDTime.production.obj
 ltemp3 80 0 ABS 0 - dist/default/production\LCDTime.production.obj
-__end_of_I2C_NoAck 1684 0 CODE 0 text27 dist/default/production\LCDTime.production.obj
-__end_of_I2C_Start 170E 0 CODE 0 text26 dist/default/production\LCDTime.production.obj
-__end_of_I2C_Write 17DE 0 CODE 0 text29 dist/default/production\LCDTime.production.obj
+__end_of_I2C_NoAck 17AA 0 CODE 0 text25 dist/default/production\LCDTime.production.obj
+__end_of_I2C_Start 1834 0 CODE 0 text24 dist/default/production\LCDTime.production.obj
+__end_of_I2C_Write 18D2 0 CODE 0 text27 dist/default/production\LCDTime.production.obj
 __Hstrings 0 0 ABS 0 strings -
 __size_of_I2C_Clock 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_I2C_NoAck 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Dave\AppData\Local\Temp\s4lg.obj
-_date 3C 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
-_hour 40 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
-_main 132 0 CODE 0 maintext dist/default/production\LCDTime.production.obj
-_year 48 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Dave\AppData\Local\Temp\sg58.obj
+_date 39 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
+_hour 3D 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
+_main 1ACA 0 CODE 0 maintext dist/default/production\LCDTime.production.obj
+_year 45 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
 __size_of_I2C_Start 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 btemp 7E 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_I2C_Write 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-__end_of_LCDWriteInt 364 0 CODE 0 text13 dist/default/production\LCDTime.production.obj
+__end_of_LCDWriteInt 364 0 CODE 0 text11 dist/default/production\LCDTime.production.obj
 DS1307_SetDate@dd 75 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 DS1307_SetDate@mm 76 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 DS1307_SetDate@nn 78 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 DS1307_SetDate@yy 77 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 ltemp 7E 0 ABS 0 - dist/default/production\LCDTime.production.obj
-start 0 0 CODE 0 init C:\Users\Dave\AppData\Local\Temp\s4lg.obj
+start 0 0 CODE 0 init C:\Users\Dave\AppData\Local\Temp\sg58.obj
 ttemp 7E 0 ABS 0 - dist/default/production\LCDTime.production.obj
 wtemp 7E 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of___awdiv 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of___awmod 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 ?___wmul 79 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-__end_of_DS1307_SetDate 1978 0 CODE 0 text19 dist/default/production\LCDTime.production.obj
-__end_of_DS1307_SetTime 18C8 0 CODE 0 text18 dist/default/production\LCDTime.production.obj
+__end_of_DS1307_SetDate 1A6C 0 CODE 0 text17 dist/default/production\LCDTime.production.obj
+__end_of_DS1307_SetTime 19BC 0 CODE 0 text16 dist/default/production\LCDTime.production.obj
 __size_of_LCDByte 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_LCDInit 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_I2C_Init 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_I2C_Read 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_I2C_Stop 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
-_I2C_Clock 165E 0 CODE 0 text30 dist/default/production\LCDTime.production.obj
-_I2C_NoAck 1670 0 CODE 0 text27 dist/default/production\LCDTime.production.obj
-_I2C_Start 16EC 0 CODE 0 text26 dist/default/production\LCDTime.production.obj
+_I2C_Clock 1784 0 CODE 0 text28 dist/default/production\LCDTime.production.obj
+_I2C_NoAck 1796 0 CODE 0 text25 dist/default/production\LCDTime.production.obj
+_I2C_Start 1812 0 CODE 0 text24 dist/default/production\LCDTime.production.obj
 __Hpowerup 0 0 CODE 0 powerup -
-_I2C_Write 1792 0 CODE 0 text29 dist/default/production\LCDTime.production.obj
+_I2C_Write 1886 0 CODE 0 text27 dist/default/production\LCDTime.production.obj
 ___awmod@sign 76 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 ttemp0 7E 0 ABS 0 - dist/default/production\LCDTime.production.obj
 ttemp1 81 0 ABS 0 - dist/default/production\LCDTime.production.obj
 ttemp2 84 0 ABS 0 - dist/default/production\LCDTime.production.obj
 ttemp3 87 0 ABS 0 - dist/default/production\LCDTime.production.obj
 ttemp4 7F 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_menuFunction 4C 0 BANK0 1 bssBANK0 dist/default/production\LCDTime.production.obj
+_menuFunction 49 0 BANK0 1 bssBANK0 dist/default/production\LCDTime.production.obj
 I2C_Write@i 73 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-intlevel0 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\s4lg.obj
-intlevel1 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\s4lg.obj
-intlevel2 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\s4lg.obj
-intlevel3 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\s4lg.obj
-intlevel4 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\s4lg.obj
-intlevel5 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\s4lg.obj
-__size_of_sendLED 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
+intlevel0 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\sg58.obj
+intlevel1 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\sg58.obj
+intlevel2 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\sg58.obj
+intlevel3 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\sg58.obj
+intlevel4 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\sg58.obj
+intlevel5 0 0 CODE 0 functab C:\Users\Dave\AppData\Local\Temp\sg58.obj
 wtemp0 7E 0 ABS 0 - dist/default/production\LCDTime.production.obj
 wtemp1 80 0 ABS 0 - dist/default/production\LCDTime.production.obj
 wtemp2 82 0 ABS 0 - dist/default/production\LCDTime.production.obj
@@ -761,53 +728,47 @@ __Hfunctab 0 0 CODE 0 functab -
 ___awdiv@sign 76 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 __Hclrtext 0 0 ABS 0 clrtext -
 ___wmul@multiplicand 7B 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-__end_of_LCDGotoXY 182A 0 CODE 0 text17 dist/default/production\LCDTime.production.obj
+__end_of_LCDGotoXY 191E 0 CODE 0 text15 dist/default/production\LCDTime.production.obj
 LCDWriteInt@c 23 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
 LCDWriteInt@d 25 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
 ___awdiv@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 __size_of_LCDGotoXY 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-__size_of_initLED 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_I2C_Init 1654 0 CODE 0 text23 dist/default/production\LCDTime.production.obj
-_I2C_Read 18C8 0 CODE 0 text32 dist/default/production\LCDTime.production.obj
-_I2C_Stop 16CC 0 CODE 0 text25 dist/default/production\LCDTime.production.obj
-__end_of_I2C_Ack 1698 0 CODE 0 text6 dist/default/production\LCDTime.production.obj
+_I2C_Init 177A 0 CODE 0 text21 dist/default/production\LCDTime.production.obj
+_I2C_Read 19BC 0 CODE 0 text30 dist/default/production\LCDTime.production.obj
+_I2C_Stop 17F2 0 CODE 0 text23 dist/default/production\LCDTime.production.obj
+__end_of_I2C_Ack 17BE 0 CODE 0 text6 dist/default/production\LCDTime.production.obj
 __size_of_LCDWriteString 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-__end_of___wmul 1878 0 CODE 0 text3 dist/default/production\LCDTime.production.obj
+__end_of___wmul 196C 0 CODE 0 text3 dist/default/production\LCDTime.production.obj
 LCDBusyLoop@status 74 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 __size_of_DS1307_Init 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_DS1307_Read 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __Lmaintext 0 0 ABS 0 maintext -
-__end_of_I2C_Init 165E 0 CODE 0 text23 dist/default/production\LCDTime.production.obj
-__end_of_I2C_Read 191C 0 CODE 0 text32 dist/default/production\LCDTime.production.obj
-__end_of_I2C_Stop 16EC 0 CODE 0 text25 dist/default/production\LCDTime.production.obj
+__end_of_I2C_Init 1784 0 CODE 0 text21 dist/default/production\LCDTime.production.obj
+__end_of_I2C_Read 1A10 0 CODE 0 text30 dist/default/production\LCDTime.production.obj
+__end_of_I2C_Stop 1812 0 CODE 0 text23 dist/default/production\LCDTime.production.obj
 ___awdiv@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-_LCDGotoXY 17DE 0 CODE 0 text17 dist/default/production\LCDTime.production.obj
-__end_of___awdiv 1E86 0 CODE 0 text15 dist/default/production\LCDTime.production.obj
-__end_of___awmod 1B48 0 CODE 0 text14 dist/default/production\LCDTime.production.obj
-_bButton 4B 0 BANK0 1 bssBANK0 dist/default/production\LCDTime.production.obj
-__end_of_doMenu FDA 0 CODE 0 text9 dist/default/production\LCDTime.production.obj
-_LCDBusyLoop 1E86 0 CODE 0 text22 dist/default/production\LCDTime.production.obj
-__end_of_LCDByte 1C88 0 CODE 0 text21 dist/default/production\LCDTime.production.obj
-__end_of_LCDInit 1AB2 0 CODE 0 text20 dist/default/production\LCDTime.production.obj
+_LCDGotoXY 18D2 0 CODE 0 text15 dist/default/production\LCDTime.production.obj
+__end_of___awdiv 1F46 0 CODE 0 text13 dist/default/production\LCDTime.production.obj
+__end_of___awmod 1C8 0 CODE 0 text12 dist/default/production\LCDTime.production.obj
+_bButton 48 0 BANK0 1 bssBANK0 dist/default/production\LCDTime.production.obj
+__end_of_doMenu FDA 0 CODE 0 text7 dist/default/production\LCDTime.production.obj
+_LCDBusyLoop 1F46 0 CODE 0 text20 dist/default/production\LCDTime.production.obj
+__end_of_LCDByte 1D48 0 CODE 0 text19 dist/default/production\LCDTime.production.obj
+__end_of_LCDInit 1C08 0 CODE 0 text18 dist/default/production\LCDTime.production.obj
 I2C_Read@i 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 LCDWriteString@cc 20 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
 start_initialization FDA 0 CODE 0 cinit dist/default/production\LCDTime.production.obj
 LCDWriteInt@val 27 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
-__end_of_sendLED 2000 0 CODE 0 text8 dist/default/production\LCDTime.production.obj
 __size_of_LCDWriteInt 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 _TRISBbits 86 0 ABS 0 - dist/default/production\LCDTime.production.obj
 _DS1307_GetDate 1C8 0 CODE 0 text5 dist/default/production\LCDTime.production.obj
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
-_DS1307_GetTime 1D28 0 CODE 0 text4 dist/default/production\LCDTime.production.obj
-_TRISC0 438 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_TRISC1 439 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_TRISC2 43A 0 ABS 0 - dist/default/production\LCDTime.production.obj
+_DS1307_GetTime 1DE8 0 CODE 0 text4 dist/default/production\LCDTime.production.obj
 _TRISD0 440 0 ABS 0 - dist/default/production\LCDTime.production.obj
 _TRISD1 441 0 ABS 0 - dist/default/production\LCDTime.production.obj
 LCDByte@temp 7B 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-__end_of_initLED 1792 0 CODE 0 text7 dist/default/production\LCDTime.production.obj
 DS1307_GetDate@d_ptr 75 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-___int_sp 0 0 STACK 2 stack C:\Users\Dave\AppData\Local\Temp\s4lg.obj
+___int_sp 0 0 STACK 2 stack C:\Users\Dave\AppData\Local\Temp\sg58.obj
 DS1307_GetDate@m_ptr 76 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 DS1307_GetDate@n_ptr 79 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 DS1307_GetDate@y_ptr 77 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
@@ -823,7 +784,7 @@ __end_of_ttable 4A 0 STRING 0 strings dist/default/production\LCDTime.production
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 4010 0 CONFIG 0 config -
-__end_of_showClock 1760 0 CODE 0 text1 dist/default/production\LCDTime.production.obj
+__end_of_showClock 1886 0 CODE 0 text1 dist/default/production\LCDTime.production.obj
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -833,7 +794,7 @@ LCDByte@c 7A 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.
 __Lidloc 0 0 IDLOC 0 idloc -
 __Lstack 0 0 STACK 2 stack -
 __size_of_showClock 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_readInputs 1978 0 CODE 0 text16 dist/default/production\LCDTime.production.obj
+_readInputs 1A6C 0 CODE 0 text14 dist/default/production\LCDTime.production.obj
 __Linittext 0 0 ABS 0 inittext -
 __Habs1 0 0 ABS 0 abs1 -
 __Hcode 0 0 ABS 0 code -
@@ -851,11 +812,11 @@ __Lsfr1 0 0 ABS 0 sfr1 -
 __Lsfr2 0 0 ABS 0 sfr2 -
 __Lsfr3 0 0 ABS 0 sfr3 -
 __Ltext 0 0 ABS 0 text -
-___wmul 182A 0 CODE 0 text3 dist/default/production\LCDTime.production.obj
+___wmul 191E 0 CODE 0 text3 dist/default/production\LCDTime.production.obj
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 I2C_Write@dat 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 __end_of_DS1307_GetDate 294 0 CODE 0 text5 dist/default/production\LCDTime.production.obj
-__end_of_DS1307_GetTime 1DD4 0 CODE 0 text4 dist/default/production\LCDTime.production.obj
+__end_of_DS1307_GetTime 1E94 0 CODE 0 text4 dist/default/production\LCDTime.production.obj
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
 _RB1 31 0 ABS 0 - dist/default/production\LCDTime.production.obj
 _RB2 32 0 ABS 0 - dist/default/production\LCDTime.production.obj
@@ -863,74 +824,67 @@ _RB4 34 0 ABS 0 - dist/default/production\LCDTime.production.obj
 _RB5 35 0 ABS 0 - dist/default/production\LCDTime.production.obj
 _RB6 36 0 ABS 0 - dist/default/production\LCDTime.production.obj
 _RB7 37 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_RC0 38 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_RC1 39 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_RC2 3A 0 ABS 0 - dist/default/production\LCDTime.production.obj
 _RD0 40 0 ABS 0 - dist/default/production\LCDTime.production.obj
 _RD1 41 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __S0 2008 0 ABS 0 - -
 __S1 7E 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
-_day 3E 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
+_day 3B 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
 readClock@a 26 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
 readClock@b 27 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
 readClock@c 28 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
 readClock@n 25 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
-sendLED@c 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-sendLED@i 74 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-_showClock 1730 0 CODE 0 text1 dist/default/production\LCDTime.production.obj
+_showClock 1856 0 CODE 0 text1 dist/default/production\LCDTime.production.obj
 __size_of_showDate 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_showTime 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 LCDGotoXY@x 20 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
 LCDGotoXY@y 7C 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 __size_of_DS1307_SetDate 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_DS1307_SetTime 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_doMenu 6DE 0 CODE 0 text9 dist/default/production\LCDTime.production.obj
+_doMenu 6DE 0 CODE 0 text7 dist/default/production\LCDTime.production.obj
 __CFG_BOREN$ON 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __Lintentry 0 0 CODE 0 intentry -
 __stringtab 6 0 STRING 0 strings dist/default/production\LCDTime.production.obj
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Dave\AppData\Local\Temp\s4lg.obj
-_DS1307_Init 1B48 0 CODE 0 text24 dist/default/production\LCDTime.production.obj
-_DS1307_Read 164C 0 CODE 0 text31 dist/default/production\LCDTime.production.obj
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Dave\AppData\Local\Temp\sg58.obj
+_DS1307_Init 1C08 0 CODE 0 text22 dist/default/production\LCDTime.production.obj
+_DS1307_Read 1772 0 CODE 0 text29 dist/default/production\LCDTime.production.obj
 DS1307_Init@s 76 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-__pdataBANK0 3C 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
+__pdataBANK0 39 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
 __size_of___wmul 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
-_I2C_Ack 1684 0 CODE 0 text6 dist/default/production\LCDTime.production.obj
-__end_of_readInputs 19D6 0 CODE 0 text16 dist/default/production\LCDTime.production.obj
+_I2C_Ack 17AA 0 CODE 0 text6 dist/default/production\LCDTime.production.obj
+__end_of_readInputs 1ACA 0 CODE 0 text14 dist/default/production\LCDTime.production.obj
 LCDWriteInt@field_length 7C 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 ___awmod@counter 75 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 I2C_Read@dat 73 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-_minute 42 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
-__ptext10 19D6 0 CODE 0 text10 dist/default/production\LCDTime.production.obj
-__ptext11 364 0 CODE 0 text11 dist/default/production\LCDTime.production.obj
-__ptext12 1C88 0 CODE 0 text12 dist/default/production\LCDTime.production.obj
-__ptext13 294 0 CODE 0 text13 dist/default/production\LCDTime.production.obj
-__ptext14 1AB2 0 CODE 0 text14 dist/default/production\LCDTime.production.obj
-__ptext15 1DD4 0 CODE 0 text15 dist/default/production\LCDTime.production.obj
-__ptext16 1978 0 CODE 0 text16 dist/default/production\LCDTime.production.obj
-__ptext17 17DE 0 CODE 0 text17 dist/default/production\LCDTime.production.obj
-__ptext18 1878 0 CODE 0 text18 dist/default/production\LCDTime.production.obj
-__ptext19 191C 0 CODE 0 text19 dist/default/production\LCDTime.production.obj
-__ptext20 1A3C 0 CODE 0 text20 dist/default/production\LCDTime.production.obj
-__ptext21 1BE8 0 CODE 0 text21 dist/default/production\LCDTime.production.obj
-__ptext22 1E86 0 CODE 0 text22 dist/default/production\LCDTime.production.obj
-__ptext23 1654 0 CODE 0 text23 dist/default/production\LCDTime.production.obj
-__ptext24 1B48 0 CODE 0 text24 dist/default/production\LCDTime.production.obj
-__ptext25 16CC 0 CODE 0 text25 dist/default/production\LCDTime.production.obj
-__ptext26 16EC 0 CODE 0 text26 dist/default/production\LCDTime.production.obj
-__ptext27 1670 0 CODE 0 text27 dist/default/production\LCDTime.production.obj
-__ptext28 1698 0 CODE 0 text28 dist/default/production\LCDTime.production.obj
-__ptext29 1792 0 CODE 0 text29 dist/default/production\LCDTime.production.obj
-__ptext30 165E 0 CODE 0 text30 dist/default/production\LCDTime.production.obj
-__ptext31 164C 0 CODE 0 text31 dist/default/production\LCDTime.production.obj
-__ptext32 18C8 0 CODE 0 text32 dist/default/production\LCDTime.production.obj
-___awdiv 1DD4 0 CODE 0 text15 dist/default/production\LCDTime.production.obj
-___awmod 1AB2 0 CODE 0 text14 dist/default/production\LCDTime.production.obj
-__pmaintext 132 0 CODE 0 maintext dist/default/production\LCDTime.production.obj
-_showDate 364 0 CODE 0 text11 dist/default/production\LCDTime.production.obj
-_showTime 19D6 0 CODE 0 text10 dist/default/production\LCDTime.production.obj
+_minute 3F 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
+__ptext10 1D48 0 CODE 0 text10 dist/default/production\LCDTime.production.obj
+__ptext11 294 0 CODE 0 text11 dist/default/production\LCDTime.production.obj
+__ptext12 132 0 CODE 0 text12 dist/default/production\LCDTime.production.obj
+__ptext13 1E94 0 CODE 0 text13 dist/default/production\LCDTime.production.obj
+__ptext14 1A6C 0 CODE 0 text14 dist/default/production\LCDTime.production.obj
+__ptext15 18D2 0 CODE 0 text15 dist/default/production\LCDTime.production.obj
+__ptext16 196C 0 CODE 0 text16 dist/default/production\LCDTime.production.obj
+__ptext17 1A10 0 CODE 0 text17 dist/default/production\LCDTime.production.obj
+__ptext18 1B92 0 CODE 0 text18 dist/default/production\LCDTime.production.obj
+__ptext19 1CA8 0 CODE 0 text19 dist/default/production\LCDTime.production.obj
+__ptext20 1F46 0 CODE 0 text20 dist/default/production\LCDTime.production.obj
+__ptext21 177A 0 CODE 0 text21 dist/default/production\LCDTime.production.obj
+__ptext22 1C08 0 CODE 0 text22 dist/default/production\LCDTime.production.obj
+__ptext23 17F2 0 CODE 0 text23 dist/default/production\LCDTime.production.obj
+__ptext24 1812 0 CODE 0 text24 dist/default/production\LCDTime.production.obj
+__ptext25 1796 0 CODE 0 text25 dist/default/production\LCDTime.production.obj
+__ptext26 17BE 0 CODE 0 text26 dist/default/production\LCDTime.production.obj
+__ptext27 1886 0 CODE 0 text27 dist/default/production\LCDTime.production.obj
+__ptext28 1784 0 CODE 0 text28 dist/default/production\LCDTime.production.obj
+__ptext29 1772 0 CODE 0 text29 dist/default/production\LCDTime.production.obj
+__ptext30 19BC 0 CODE 0 text30 dist/default/production\LCDTime.production.obj
+___awdiv 1E94 0 CODE 0 text13 dist/default/production\LCDTime.production.obj
+___awmod 132 0 CODE 0 text12 dist/default/production\LCDTime.production.obj
+__pmaintext 1ACA 0 CODE 0 maintext dist/default/production\LCDTime.production.obj
+_showDate 364 0 CODE 0 text9 dist/default/production\LCDTime.production.obj
+_showTime 1B2C 0 CODE 0 text8 dist/default/production\LCDTime.production.obj
 __size_of_doMenu 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 400E 0 CONFIG 0 config -
@@ -939,25 +893,24 @@ LCDByte@ln 79 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production
 __CFG_CP$OFF 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __CFG_WDTE$OFF 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __Hinittext 0 0 ABS 0 inittext -
-_LCDByte 1BE8 0 CODE 0 text21 dist/default/production\LCDTime.production.obj
-_LCDInit 1A3C 0 CODE 0 text20 dist/default/production\LCDTime.production.obj
+_LCDByte 1CA8 0 CODE 0 text19 dist/default/production\LCDTime.production.obj
+_LCDInit 1B92 0 CODE 0 text18 dist/default/production\LCDTime.production.obj
 ___wmul@multiplier 79 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-__end_of_showDate 492 0 CODE 0 text11 dist/default/production\LCDTime.production.obj
-__end_of_showTime 1A3C 0 CODE 0 text10 dist/default/production\LCDTime.production.obj
-_LCDWriteInt 294 0 CODE 0 text13 dist/default/production\LCDTime.production.obj
-_LCDWriteString 1C88 0 CODE 0 text12 dist/default/production\LCDTime.production.obj
+__end_of_showDate 492 0 CODE 0 text9 dist/default/production\LCDTime.production.obj
+__end_of_showTime 1B92 0 CODE 0 text8 dist/default/production\LCDTime.production.obj
+_LCDWriteInt 294 0 CODE 0 text11 dist/default/production\LCDTime.production.obj
+_LCDWriteString 1D48 0 CODE 0 text10 dist/default/production\LCDTime.production.obj
 _ttable 12 0 STRING 0 strings dist/default/production\LCDTime.production.obj
-__end_of_LCDBusyLoop 1F40 0 CODE 0 text22 dist/default/production\LCDTime.production.obj
-stackhi 0 0 ABS 0 - C:\Users\Dave\AppData\Local\Temp\s4lg.obj
-stacklo 0 0 ABS 0 - C:\Users\Dave\AppData\Local\Temp\s4lg.obj
-_seconds 46 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
-_sendLED 1F40 0 CODE 0 text8 dist/default/production\LCDTime.production.obj
+__end_of_LCDBusyLoop 2000 0 CODE 0 text20 dist/default/production\LCDTime.production.obj
+stackhi 0 0 ABS 0 - C:\Users\Dave\AppData\Local\Temp\sg58.obj
+stacklo 0 0 ABS 0 - C:\Users\Dave\AppData\Local\Temp\sg58.obj
+_seconds 43 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
 __end_of__stringtab 12 0 STRING 0 strings dist/default/production\LCDTime.production.obj
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
-init_fetch0 170E 0 CODE 0 inittext dist/default/production\LCDTime.production.obj
+init_fetch0 1834 0 CODE 0 inittext dist/default/production\LCDTime.production.obj
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __Lend_init 0 0 CODE 0 end_init -
 __CFG_LVP$ON 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
@@ -971,24 +924,23 @@ ___awdiv@quotient 77 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.pro
 readInputs@pinstate 73 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 __Hreset_vec 0 0 CODE 0 reset_vec -
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
-_initLED 1760 0 CODE 0 text7 dist/default/production\LCDTime.production.obj
 ___awmod@dividend 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-__ptext1 1730 0 CODE 0 text1 dist/default/production\LCDTime.production.obj
+__ptext1 1856 0 CODE 0 text1 dist/default/production\LCDTime.production.obj
 __ptext2 492 0 CODE 0 text2 dist/default/production\LCDTime.production.obj
-__ptext3 182A 0 CODE 0 text3 dist/default/production\LCDTime.production.obj
-__ptext4 1D28 0 CODE 0 text4 dist/default/production\LCDTime.production.obj
+__ptext3 191E 0 CODE 0 text3 dist/default/production\LCDTime.production.obj
+__ptext4 1DE8 0 CODE 0 text4 dist/default/production\LCDTime.production.obj
 __ptext5 1C8 0 CODE 0 text5 dist/default/production\LCDTime.production.obj
-__ptext6 1684 0 CODE 0 text6 dist/default/production\LCDTime.production.obj
-__ptext7 1760 0 CODE 0 text7 dist/default/production\LCDTime.production.obj
-__ptext8 1F40 0 CODE 0 text8 dist/default/production\LCDTime.production.obj
-__ptext9 6DE 0 CODE 0 text9 dist/default/production\LCDTime.production.obj
-doMenu@m_251 35 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
-__end_of_LCDWriteString 1D28 0 CODE 0 text12 dist/default/production\LCDTime.production.obj
+__ptext6 17AA 0 CODE 0 text6 dist/default/production\LCDTime.production.obj
+__ptext7 6DE 0 CODE 0 text7 dist/default/production\LCDTime.production.obj
+__ptext8 1B2C 0 CODE 0 text8 dist/default/production\LCDTime.production.obj
+__ptext9 364 0 CODE 0 text9 dist/default/production\LCDTime.production.obj
+doMenu@m_236 35 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
+__end_of_LCDWriteString 1DE8 0 CODE 0 text10 dist/default/production\LCDTime.production.obj
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
 __CFG_FOSC$XT 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_DS1307_Write 1698 0 CODE 0 text28 dist/default/production\LCDTime.production.obj
+_DS1307_Write 17BE 0 CODE 0 text26 dist/default/production\LCDTime.production.obj
 LCDInit@style 20 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
 DS1307_GetTime@h_ptr 78 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 __end_of_readClock 6DE 0 CODE 0 text2 dist/default/production\LCDTime.production.obj
@@ -999,7 +951,7 @@ ___awmod@divisor 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.prod
 __Lfunctab 0 0 CODE 0 functab -
 __size_of_readClock 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __end_of_monthDays 62 0 STRING 0 strings dist/default/production\LCDTime.production.obj
-__pidataBANK0 16AE 0 CODE 0 idataBANK0 dist/default/production\LCDTime.production.obj
+__pidataBANK0 17D4 0 CODE 0 idataBANK0 dist/default/production\LCDTime.production.obj
 LCDWriteString@msg 21 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
 DS1307_Write@dat 74 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 __Lclrtext 0 0 ABS 0 clrtext -
@@ -1014,8 +966,8 @@ __pcstackCOMMON 70 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.produ
 _readClock 492 0 CODE 0 text2 dist/default/production\LCDTime.production.obj
 __size_of_readInputs 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __Hend_init 6 0 CODE 0 end_init -
-init_ram0 1716 0 CODE 0 inittext dist/default/production\LCDTime.production.obj
-__end_of_main 1C8 0 CODE 0 maintext dist/default/production\LCDTime.production.obj
+init_ram0 183C 0 CODE 0 inittext dist/default/production\LCDTime.production.obj
+__end_of_main 1B2C 0 CODE 0 maintext dist/default/production\LCDTime.production.obj
 _monthDays 4A 0 STRING 0 strings dist/default/production\LCDTime.production.obj
 __size_of_DS1307_GetDate 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __size_of_DS1307_GetTime 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
@@ -1024,11 +976,11 @@ _TRISD 88 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
 __size_of_DS1307_Write 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_month 44 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
+_month 41 0 BANK0 1 dataBANK0 dist/default/production\LCDTime.production.obj
 __CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 LCDBusyLoop@busy 72 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 LCDBusyLoop@temp 73 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
-_state 4D 0 BANK0 1 bssBANK0 dist/default/production\LCDTime.production.obj
+_state 4A 0 BANK0 1 bssBANK0 dist/default/production\LCDTime.production.obj
 LCDByte@isdata 75 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 __HdataBANK0 0 0 ABS 0 dataBANK0 -
 DS1307_SetTime@hh 77 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
@@ -1036,15 +988,15 @@ DS1307_SetTime@mm 75 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.pro
 DS1307_SetTime@ss 76 0 COMMON 1 cstackCOMMON dist/default/production\LCDTime.production.obj
 __size_of_LCDBusyLoop 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
 __initialization FDA 0 CODE 0 cinit dist/default/production\LCDTime.production.obj
-__pbssBANK0 4B 0 BANK0 1 bssBANK0 dist/default/production\LCDTime.production.obj
+__pbssBANK0 48 0 BANK0 1 bssBANK0 dist/default/production\LCDTime.production.obj
 __CFG_WRT$OFF 0 0 ABS 0 - dist/default/production\LCDTime.production.obj
-_DS1307_SetDate 191C 0 CODE 0 text19 dist/default/production\LCDTime.production.obj
-_DS1307_SetTime 1878 0 CODE 0 text18 dist/default/production\LCDTime.production.obj
+_DS1307_SetDate 1A10 0 CODE 0 text17 dist/default/production\LCDTime.production.obj
+_DS1307_SetTime 196C 0 CODE 0 text16 dist/default/production\LCDTime.production.obj
 __pstrings 6 0 STRING 0 strings dist/default/production\LCDTime.production.obj
-__end_of_DS1307_Init 1BE8 0 CODE 0 text24 dist/default/production\LCDTime.production.obj
-__end_of_DS1307_Read 1654 0 CODE 0 text31 dist/default/production\LCDTime.production.obj
+__end_of_DS1307_Init 1CA8 0 CODE 0 text22 dist/default/production\LCDTime.production.obj
+__end_of_DS1307_Read 177A 0 CODE 0 text29 dist/default/production\LCDTime.production.obj
 ___wmul@product 20 0 BANK0 1 cstackBANK0 dist/default/production\LCDTime.production.obj
-__end_of_DS1307_Write 16AE 0 CODE 0 text28 dist/default/production\LCDTime.production.obj
+__end_of_DS1307_Write 17D4 0 CODE 0 text26 dist/default/production\LCDTime.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
@@ -1071,43 +1023,41 @@ __end_of_DS1307_Write 16AE 0 CODE 0 text28 dist/default/production\LCDTime.produ
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 7ED FDA 13 2
-text1 0 B98 1730 18 2
+text1 0 C2B 1856 18 2
 text2 0 249 492 126 2
-text3 0 C15 182A 27 2
-text4 0 E94 1D28 56 2
+text3 0 C8F 191E 27 2
+text4 0 EF4 1DE8 56 2
 text5 0 E4 1C8 66 2
-text6 0 B42 1684 A 2
-text7 0 BB0 1760 19 2
-text8 0 FA0 1F40 60 2
-text9 0 36F 6DE 47E 2
-text10 0 CEB 19D6 33 2
-text11 0 1B2 364 97 2
-text12 0 E44 1C88 50 2
-text13 0 14A 294 68 2
-text14 0 D59 1AB2 4B 2
-text15 0 EEA 1DD4 59 2
-text16 0 CBC 1978 2F 2
-text17 0 BEF 17DE 26 2
-text18 0 C3C 1878 28 2
-text19 0 C8E 191C 2E 2
-text20 0 D1E 1A3C 3B 2
-text21 0 DF4 1BE8 50 2
-text22 0 F43 1E86 5D 2
-text23 0 B2A 1654 5 2
-text24 0 DA4 1B48 50 2
-text25 0 B66 16CC 10 2
-text26 0 B76 16EC 11 2
-text27 0 B38 1670 A 2
-text28 0 B4C 1698 B 2
-text29 0 BC9 1792 26 2
-text30 0 B2F 165E 9 2
-text31 0 B26 164C 4 2
-text32 0 C64 18C8 2A 2
-maintext 0 99 132 4B 2
+text6 0 BD5 17AA A 2
+text7 0 36F 6DE 47E 2
+text8 0 D96 1B2C 33 2
+text9 0 1B2 364 97 2
+text10 0 EA4 1D48 50 2
+text11 0 14A 294 68 2
+text12 0 99 132 4B 2
+text13 0 F4A 1E94 59 2
+text14 0 D36 1A6C 2F 2
+text15 0 C69 18D2 26 2
+text16 0 CB6 196C 28 2
+text17 0 D08 1A10 2E 2
+text18 0 DC9 1B92 3B 2
+text19 0 E54 1CA8 50 2
+text20 0 FA3 1F46 5D 2
+text21 0 BBD 177A 5 2
+text22 0 E04 1C08 50 2
+text23 0 BF9 17F2 10 2
+text24 0 C09 1812 11 2
+text25 0 BCB 1796 A 2
+text26 0 BDF 17BE B 2
+text27 0 C43 1886 26 2
+text28 0 BC2 1784 9 2
+text29 0 BB9 1772 4 2
+text30 0 CDE 19BC 2A 2
+maintext 0 D65 1ACA 31 2
 cstackCOMMON 1 70 70 E 1
-cstackBANK0 1 20 20 2E 1
-inittext 0 B87 170E 11 2
+cstackBANK0 1 20 20 2B 1
+inittext 0 C1A 1834 11 2
 reset_vec 0 0 0 3 2
-idataBANK0 0 B57 16AE F 2
+idataBANK0 0 BEA 17D4 F 2
 strings 0 3 6 93 2
 config 0 2007 400E 1 2

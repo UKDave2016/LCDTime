@@ -1449,9 +1449,6 @@ void doMenu() ;
 void showTime() ;
 void showDate() ;
 
-void initLED() ;
-void sendLED(unsigned int c) ;
-
 # 56 "lcd_hd44780_pic16.h"
 void LCDInit(uint8_t style);
 void LCDWriteString(const char *msg);
@@ -1518,6 +1515,7 @@ const unsigned char ttable[7][4] = {
 {0x6, 0x5, 0x4, 0x0},
 };
 
+
 const unsigned char monthDays[12] = { 31,29,31,30,31,30,31,31,30,31,30,31 } ;
 unsigned char menuFunction = 0 ;
 
@@ -1529,7 +1527,7 @@ DS1307_Init() ;
 
 (LCDByte(0b00000001,0));
 
-initLED() ;
+
 
 while(1)
 {
@@ -1540,12 +1538,8 @@ showClock() ;
 readInputs() ;
 
 if (bButton)
-doMenu();
-else
 {
-initLED() ;
-_delay((unsigned long)((750)*(4000000/4000.0))) ;
-
+doMenu();
 }
 }
 }
@@ -1866,6 +1860,7 @@ LCDGotoXY(0,1) ;
 showDate() ;
 }
 
+
 void showTime()
 {
 LCDWriteInt(hour,2);
@@ -1873,6 +1868,8 @@ LCDWriteInt(hour,2);
 LCDWriteInt(minute,2);
 (LCDByte(':',1)) ;
 LCDWriteInt(seconds,2);
+
+# 400
 }
 
 void showDate()
@@ -1898,44 +1895,3 @@ case 7 : LCDWriteString("Sun") ; break ;
 } ;
 }
 
-void initLED()
-{
-TRISC0 = 0 ;
-TRISC1 = 0 ;
-TRISC2 = 0 ;
-
-RC1 = 1 ;
-
-sendLED(0x0C01) ;
-
-sendLED(0x0F01) ;
-
-}
-
-void sendLED(unsigned int c)
-{
-int i ;
-
-RC1 = 0 ;
-_delay((unsigned long)((4)*(4000000/4000.0)));
-
-for (i=0;i<16;i++)
-{
-_delay((unsigned long)((1)*(4000000/4000.0)));
-
-if (c & 0x8000)
-RC0 = 1 ;
-else
-RC0 = 0 ;
-
-c = c << 1 ;
-
-_delay((unsigned long)((1)*(4000000/4000.0))) ;
-RC2 = 1 ;
-_delay((unsigned long)((1)*(4000000/4000.0))) ;
-RC2 = 0 ;
-}
-
-_delay((unsigned long)((4)*(4000000/4000.0)));
-RC1 = 1 ;
-}
