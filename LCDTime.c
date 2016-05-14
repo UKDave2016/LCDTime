@@ -7,19 +7,26 @@
 
 #include "settings.h"
 
-#pragma config FOSC = XT        // Oscillator Selection bits
-#pragma config WDTE = OFF       // Watchdog Timer Enable bit
-#pragma config PWRTE = ON      // Power-up Timer Enable bit
-#pragma config BOREN = ON       // Brown-out Reset Enable bit
-#pragma config LVP = ON         // Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit (RB3/PGM pin has PGM function; low-voltage programming enabled)
-#pragma config CPD = OFF        // Data EEPROM Memory Code Protection bit (Data EEPROM code protection off)
-#pragma config WRT = OFF        // Flash Program Memory Write Enable bits (Write protection off; all program memory may be written to by EECON control)
-#pragma config CP = OFF         // Flash Program Memory Code Protection bit (Code protection off)
+
+
+// CONFIG
+#pragma config FOSC = XT        // Oscillator Selection bits (XT oscillator)
+#pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
+#pragma config PWRTE = ON       // Power-up Timer Enable bit (PWRT enabled)
+#pragma config CP = OFF         // FLASH Program Memory Code Protection bits (Code protection off)
+#pragma config BOREN = OFF      // Brown-out Reset Enable bit (BOR disabled)
+#pragma config LVP = ON         // Low Voltage In-Circuit Serial Programming Enable bit (RB3/PGM pin has PGM function; low-voltage programming enabled)
+#pragma config CPD = OFF        // Data EE Memory Code Protection (Code Protection off)
+#pragma config WRT = ON         // FLASH Program Memory Write Enable (Unprotected program memory may be written to by EECON control)
 
 // local storage of time from RTC
 int hour=6, minute=5, seconds=4, year=16, month=5, date=8, day = 1 ;
 // used to save a few cycles
 char last_hour = 0xee ;
+// running time (minutes)
+int runningTime = 0 ;
+// we always start with one minute of running time, it's not supposed to be that accurate :)
+int runningMinute = -1 ;
 
 // flag to show button has been pressed
 unsigned char bButton = 0 ;
@@ -64,11 +71,10 @@ void main(void)
     //clear the display
     LCDClear();
     
-   // initLED() ;
-    
     // infinite loop, read the clock, display on the LCD, check for the button, and if needed, process the menus
    while(1)
   {       
+      
       readClock();
       
       showClock() ;           
@@ -77,7 +83,7 @@ void main(void)
       
       if (bButton)
         doMenu();
-      else if (state)
+      else if (state & 0x30)
       {
           // rotate the encoder to select a menu function, well, that was the aim, but encoder reading
           // seems a tad slow or inaccurate.
@@ -121,7 +127,7 @@ void clearPrompt()
   next_menu_clear = 0 ;
   menuFunction = MENU_NONE ;
   LCDGotoXY(9,0);
-  LCDWriteString("      ");              
+  LCDWriteString("       ");              
 }
 
 void doMenu()
@@ -162,7 +168,7 @@ void doMenu()
                     hour = 0 ;
             }
             
-            if (state)
+            if (state & 0x30)
             {
                 LCDGotoXY(0,1) ;
                 showTime();
@@ -193,7 +199,7 @@ void doMenu()
                     minute = 0 ;
             }
             
-            if (state)
+            if (state & 0x30)
             {
                 LCDGotoXY(0,1) ;
                 showTime();
@@ -224,7 +230,7 @@ void doMenu()
                     seconds = 0 ;
             }
             
-            if (state)
+            if (state & 0x30)
             {
                 LCDGotoXY(0,1) ;
                 showTime();
@@ -239,6 +245,8 @@ void doMenu()
             s = ((seconds / 10) << 4) + seconds % 10 ;
 
             DS1307_SetTime(h,m,s) ;
+            
+            runningMinute = minute ;
         }
         
         while(bButton)
@@ -279,7 +287,7 @@ void doMenu()
                     date = 99 ;
             }
             
-            if (state)
+            if (state & 0x30)
             {
                 LCDGotoXY(0,1) ;
                 showDate();
@@ -310,7 +318,7 @@ void doMenu()
                     month = 12 ;
             }
             
-            if (state)
+            if (state & 0x30)
             {
                 LCDGotoXY(0,1) ;
                 showDate();
@@ -341,7 +349,7 @@ void doMenu()
                     date = monthDays[month-1] ;
             }
             
-            if (state)
+            if (state & 0x30)
             {
                 LCDGotoXY(0,1) ;
                 showDate();
@@ -372,7 +380,7 @@ void doMenu()
                     day = 7 ;
             }
             
-            if (state)
+            if (state & 0x30)
             {
                 LCDGotoXY(0,1) ;
                 showDate();
@@ -397,7 +405,6 @@ void doMenu()
 
 void readInputs()
 {
- 
     bButton = 0 ;
     
     if (BUTTON == 1)
@@ -438,6 +445,12 @@ void readClock()
         month = (b % 16) + ((b / 16 ) * 10) ;
         year = (c % 16) + ((c / 16 ) * 10) ;
     }
+    
+    if (minute != runningMinute)
+    {
+        runningMinute = minute ;
+        runningTime++ ;
+    }
 }
 
 void showClock()
@@ -447,6 +460,10 @@ void showClock()
     
     LCDGotoXY(0,1) ;
     showDate() ;
+    
+    // only show the running time when we arn't selecting a menu
+    if (menuFunction == MENU_NONE)
+        showRunningTime();
 }
 
 
@@ -480,4 +497,12 @@ void showDate()
     LCDData(daysOfTheWeek[d++]) ;
     LCDData(daysOfTheWeek[d++]) ;
     LCDData(daysOfTheWeek[d]) ;
+}
+
+void showRunningTime()
+{
+    LCDGotoXY(10,0) ;
+    LCDWriteInt(runningTime / 60,1);
+    LCDData(':') ;
+    LCDWriteInt(runningTime % 60,2);
 }
