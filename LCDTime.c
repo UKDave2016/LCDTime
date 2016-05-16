@@ -61,20 +61,36 @@ int next_menu_clear = 0 ;
 
 void main(void) 
 {
-    // init the RTC comms line
+    // initialise the RTC communication line
     I2C_Init() ;
-    // init the LCD display
+    // initialise the LCD display
     LCDInit(LS_NONE);
-    // init the actual RTC
+    // initialise the actual RTC
     DS1307_Init() ;
 
     //clear the display
     LCDClear();
     
+    // read back our running time
+    DS1307_readRam(&runningTime,0,2) ;
+    
+    LCDWriteString("Starting counter");
+    LCDGotoXY(0,1) ;
+    LCDWriteString("at ");
+    LCDWriteInt(runningTime,5);
+    LCDWriteString(" minutes");
+    __delay_ms(750) ;
+    __delay_ms(750) ;
+    __delay_ms(750) ;
+    __delay_ms(750) ;
+
+    // compensate for our handling on the first run of the readClock routine
+    runningTime-- ;
+
+    LCDClear();
     // infinite loop, read the clock, display on the LCD, check for the button, and if needed, process the menus
    while(1)
   {       
-      
       readClock();
       
       showClock() ;           
@@ -450,6 +466,9 @@ void readClock()
     {
         runningMinute = minute ;
         runningTime++ ;
+        
+        // write our running total to clock memory
+        DS1307_writeRam(&runningTime,0,2) ;
     }
 }
 

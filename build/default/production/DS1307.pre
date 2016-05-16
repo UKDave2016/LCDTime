@@ -1449,10 +1449,14 @@ void doMenu() ;
 void showTime() ;
 void showDate() ;
 
+void showRunningTime();
+
+void clearPrompt() ;
+
 # 56 "lcd_hd44780_pic16.h"
 void LCDInit(uint8_t style);
 void LCDWriteString(const char *msg);
-void LCDWriteInt(unsigned char val,int8_t field_length);
+void LCDWriteInt(int val,int8_t field_length);
 void LCDGotoXY(uint8_t x,uint8_t y);
 
 
@@ -1480,6 +1484,9 @@ void DS1307_SetTime(unsigned char hh, unsigned char mm, unsigned char ss) ;
 void DS1307_SetDate(unsigned char nn,unsigned char dd, unsigned char mm, unsigned char yy) ;
 void DS1307_GetTime(unsigned char *h_ptr,unsigned char *m_ptr,unsigned char *s_ptr) ;
 void DS1307_GetDate(unsigned char *n_ptr,unsigned char *d_ptr,unsigned char *m_ptr,unsigned char *y_ptr) ;
+
+void DS1307_readRam(unsigned char *ptr, int offset, int length) ;
+void DS1307_writeRam(unsigned char *ptr, int offset, int length) ;
 
 # 4 "DS1307.c"
 int DS1307_Init()
@@ -1570,6 +1577,32 @@ DS1307_Write(0xD1);
 *d_ptr = DS1307_Read(); I2C_Ack();
 *m_ptr = DS1307_Read(); I2C_Ack();
 *y_ptr = DS1307_Read(); I2C_NoAck();
+I2C_Stop();
+}
+
+void DS1307_readRam(unsigned char *ptr, int offset, int length)
+{
+I2C_Start();
+DS1307_Write(0xD0);
+DS1307_Write(0x08 + offset);
+I2C_Stop();
+I2C_Start();
+DS1307_Write(0xD1);
+while(length-- > 1)
+*ptr++ = DS1307_Read(); I2C_Ack();
+*ptr = DS1307_Read(); I2C_NoAck();
+I2C_Stop();
+}
+
+void DS1307_writeRam(unsigned char *ptr, int offset, int length)
+{
+I2C_Start();
+DS1307_Write(0xD0);
+DS1307_Write(0x08 + offset);
+
+while(length-- > 0)
+DS1307_Write(*ptr++);
+
 I2C_Stop();
 }
 

@@ -1007,9 +1007,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCDTime.h: 38: void doMenu() ;
 [; ;LCDTime.h: 40: void showTime() ;
 [; ;LCDTime.h: 41: void showDate() ;
+[; ;LCDTime.h: 43: void showRunningTime();
+[; ;LCDTime.h: 45: void clearPrompt() ;
 [; ;lcd_hd44780_pic16.h: 56: void LCDInit(uint8_t style);
 [; ;lcd_hd44780_pic16.h: 57: void LCDWriteString(const char *msg);
-[; ;lcd_hd44780_pic16.h: 58: void LCDWriteInt(unsigned char val,int8_t field_length);
+[; ;lcd_hd44780_pic16.h: 58: void LCDWriteInt(int val,int8_t field_length);
 [; ;lcd_hd44780_pic16.h: 59: void LCDGotoXY(uint8_t x,uint8_t y);
 [; ;lcd_hd44780_pic16.h: 62: void LCDByte(uint8_t,uint8_t);
 [; ;lcd_hd44780_pic16.h: 66: void LCDBusyLoop();
@@ -1028,6 +1030,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DS1307.h: 40: void DS1307_SetDate(unsigned char nn,unsigned char dd, unsigned char mm, unsigned char yy) ;
 [; ;DS1307.h: 41: void DS1307_GetTime(unsigned char *h_ptr,unsigned char *m_ptr,unsigned char *s_ptr) ;
 [; ;DS1307.h: 42: void DS1307_GetDate(unsigned char *n_ptr,unsigned char *d_ptr,unsigned char *m_ptr,unsigned char *y_ptr) ;
+[; ;DS1307.h: 44: void DS1307_readRam(unsigned char *ptr, int offset, int length) ;
+[; ;DS1307.h: 45: void DS1307_writeRam(unsigned char *ptr, int offset, int length) ;
 "4 DS1307.c
 [v _DS1307_Init `(i ~T0 @X0 1 ef ]
 "5
@@ -1329,4 +1333,99 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DS1307.c: 93: }
 "93
 [e :UE 99 ]
+}
+"95
+[v _DS1307_readRam `(v ~T0 @X0 1 ef3`*uc`i`i ]
+"96
+{
+[; ;DS1307.c: 95: void DS1307_readRam(unsigned char *ptr, int offset, int length)
+[; ;DS1307.c: 96: {
+[e :U _DS1307_readRam ]
+"95
+[v _ptr `*uc ~T0 @X0 1 r1 ]
+[v _offset `i ~T0 @X0 1 r2 ]
+[v _length `i ~T0 @X0 1 r3 ]
+"96
+[f ]
+[; ;DS1307.c: 97: I2C_Start();
+"97
+[e ( _I2C_Start ..  ]
+[; ;DS1307.c: 98: DS1307_Write(0xD0);
+"98
+[e ( _DS1307_Write (1 -> -> 208 `i `uc ]
+[; ;DS1307.c: 99: DS1307_Write(0x08 + offset);
+"99
+[e ( _DS1307_Write (1 -> + -> 8 `i _offset `uc ]
+[; ;DS1307.c: 100: I2C_Stop();
+"100
+[e ( _I2C_Stop ..  ]
+[; ;DS1307.c: 101: I2C_Start();
+"101
+[e ( _I2C_Start ..  ]
+[; ;DS1307.c: 102: DS1307_Write(0xD1);
+"102
+[e ( _DS1307_Write (1 -> -> 209 `i `uc ]
+[; ;DS1307.c: 103: while(length-- > 1)
+"103
+[e $U 101  ]
+[e :U 102 ]
+[; ;DS1307.c: 104: *ptr++ = DS1307_Read(); I2C_Ack();
+"104
+[e = *U ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ( _DS1307_Read ..  ]
+[e :U 101 ]
+"103
+[e $ > -- _length -> 1 `i -> 1 `i 102  ]
+[e :U 103 ]
+"104
+[e ( _I2C_Ack ..  ]
+[; ;DS1307.c: 105: *ptr = DS1307_Read(); I2C_NoAck();
+"105
+[e = *U _ptr ( _DS1307_Read ..  ]
+[e ( _I2C_NoAck ..  ]
+[; ;DS1307.c: 106: I2C_Stop();
+"106
+[e ( _I2C_Stop ..  ]
+[; ;DS1307.c: 107: }
+"107
+[e :UE 100 ]
+}
+"109
+[v _DS1307_writeRam `(v ~T0 @X0 1 ef3`*uc`i`i ]
+"110
+{
+[; ;DS1307.c: 109: void DS1307_writeRam(unsigned char *ptr, int offset, int length)
+[; ;DS1307.c: 110: {
+[e :U _DS1307_writeRam ]
+"109
+[v _ptr `*uc ~T0 @X0 1 r1 ]
+[v _offset `i ~T0 @X0 1 r2 ]
+[v _length `i ~T0 @X0 1 r3 ]
+"110
+[f ]
+[; ;DS1307.c: 111: I2C_Start();
+"111
+[e ( _I2C_Start ..  ]
+[; ;DS1307.c: 112: DS1307_Write(0xD0);
+"112
+[e ( _DS1307_Write (1 -> -> 208 `i `uc ]
+[; ;DS1307.c: 113: DS1307_Write(0x08 + offset);
+"113
+[e ( _DS1307_Write (1 -> + -> 8 `i _offset `uc ]
+[; ;DS1307.c: 115: while(length-- > 0)
+"115
+[e $U 105  ]
+[e :U 106 ]
+[; ;DS1307.c: 116: DS1307_Write(*ptr++);
+"116
+[e ( _DS1307_Write (1 *U ++ _ptr * -> -> 1 `i `x -> -> # *U _ptr `i `x ]
+[e :U 105 ]
+"115
+[e $ > -- _length -> 1 `i -> 0 `i 106  ]
+[e :U 107 ]
+[; ;DS1307.c: 118: I2C_Stop();
+"118
+[e ( _I2C_Stop ..  ]
+[; ;DS1307.c: 119: }
+"119
+[e :UE 104 ]
 }

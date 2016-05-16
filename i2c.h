@@ -21,7 +21,7 @@
 
 /* 
  * File:   
- * Author: 
+ * Author:  Dave Meaker
  * Comments:
  * Revision history: 
  */

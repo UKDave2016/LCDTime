@@ -21,7 +21,7 @@
 
 /* 
  * File:   
- * Author: 
+ * Author:  Dave Meaker
  * Comments:
  * Revision history: 
  */
@@ -37,10 +37,8 @@
 #include "LCDTime.h"
 #include "lcd_hd44780_pic16.h"
 #include "myutils.h"
-#include "custom_char.h"
 #include "i2c.h"
 #include "DS1307.h"
-//#include "LED7221.h"
 
 /************************************************
 	LCD CONNECTIONS
@@ -51,12 +49,12 @@
 #define LCD_DATA_POS    4
 
 //Register Select (RS)
-#define LCD_RS_PORT     B
-#define LCD_RS_POS      7
+#define LCD_RS_PORT     D
+#define LCD_RS_POS      3
 
 //Read/Write (RW)
-#define LCD_RW_PORT     B
-#define LCD_RW_POS      6
+#define LCD_RW_PORT     D
+#define LCD_RW_POS      2
 
 //Enable signal (E)
 #define LCD_E_PORT      B
@@ -117,10 +115,12 @@
 #define SEC_ADDRESS 0x00 // Address to access Ds1307 SECONDS register 
 #define DATE_ADDRESS 0x03 // Address to access Ds1307 DATE register 
 #define CONTROL 0x07 // Address to access Ds1307 CONTROL register
+#define DS_RAM 0x08 // start address for the ram in the DS1307, 56 * 8bits
 
-#define MENU_NONE   0
-#define MENU_TIME   1
-#define MENU_DATE   2
+#define MENU_NONE   1
+#define MENU_TIME   2
+#define MENU_DATE   3
+#define MENU_LAST   4
 
 #define LED_DIN     RC0
 #define LED_LOAD    RC1

@@ -224,58 +224,11 @@ void LCDInit(uint8_t style)
 }
 void LCDWriteString(const char *msg)
 {
-	/*****************************************************************
-
-	This function Writes a given string to lcd at the current cursor
-	location.
-
-	Arguments:
-	msg: a null terminated C style string to print
-
-	Their are 8 custom char in the LCD they can be defined using
-	"LCD Custom Character Builder" PC Software.
-
-	You can print custom character using the % symbol. For example
-	to print custom char number 0 (which is a degree symbol), you
-	need to write
-
-	LCDWriteString("Temp is 30%0C");
-                                  ^^
-                                   |----> %0 will be replaced by
-                                          custom char 0.
-
-	So it will be printed like.
-
-		Temp is 30°C
-
-	In the same way you can insert any symbols numbered 0-7
-
-
-	*****************************************************************/
- while(*msg!='\0')
- {
- 	//Custom Char Support
-	if(*msg=='%')
-	{
-		msg++;
-		int8_t cc=*msg-'0';
-
-		if(cc>=0 && cc<=7)
-		{
-			LCDData(cc);
-		}
-		else
-		{
-			LCDData('%');
-			LCDData(*msg);
-		}
-	}
-	else
-	{
-		LCDData(*msg);
-	}
-	msg++;
- }
+    while(*msg!='\0')
+    {
+        LCDData(*msg);
+        msg++;
+    }
 }
 
 //void LCDWriteInt(int val,int8_t field_length)
@@ -320,22 +273,56 @@ void LCDWriteString(const char *msg)
 //	}
 //}
 
-void LCDWriteInt(unsigned char val,int8_t field_length)
+// field_length = minimum number of characters to print
+void LCDWriteInt(int val,int8_t field_length)
 {
-    unsigned int c,d ;
+    char str[6] = { "-----\0" } ;
+    int characters = 0 ;
+    int from = 5 ;
+    char c ;
     
-    c = 0x30 + (val % 10) ;
-    val=val/10;
-    d = 0x30 + val ;
+    field_length = 5 - field_length ;
+
+    c = val / 10000 ;
+    if (c)
+    {
+        val -= c * 10000 ;
+        from = 0 ;
+    }
+    str[0] = c + 0x30 ;
+    c = val / 1000 ;
+    if (c)
+    {
+        val -= c * 1000 ;
+        if (from == 5)
+            from = 1 ;
+    }
+    str[1] = c + 0x30 ;
+    c = val / 100 ;
+    if (c)
+    {
+        val -= c * 100 ;
+        if (from == 5)
+            from = 2 ;
+    }
+    str[2] = c + 0x30 ;
+    c = val / 10 ;
+    if (c)
+    {
+        val -= c * 10 ;
+        if (from == 5)
+            from = 3 ;
+    }
+    str[3] = c + 0x30 ;
+    if (from == 5)
+        from = 4 ;
+    str[4] = (char)(val + 0x30) ;
+
+    if (from < field_length)
+        field_length = from ;
     
-    if (d > 0x39)
-        LCDData('?') ;
-	else
-        LCDData(d);    
-    if (c > 0x39)
-        LCDData('?') ;
-	else
-        LCDData(c);
+    LCDWriteString(&str[field_length]) ;
+    
 }
 /********************************************************************
 

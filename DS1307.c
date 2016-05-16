@@ -92,3 +92,29 @@ DS1307_Write(0xD1); // connect to DS1307( under Read mode) // by sending its ID 
 I2C_Stop(); // Stop I2C communication after reading the Time 
 } 
 
+void DS1307_readRam(unsigned char *ptr, int offset, int length)
+{
+    I2C_Start(); // Start I2C communication   
+    DS1307_Write(DS1307_ID); // connect to DS1307 by sending its ID on I2c Bus 
+    DS1307_Write(DS_RAM + offset); // Request DAY RAM address at 04H   
+    I2C_Stop(); // Stop I2C communication after selecting Sec Register   
+    I2C_Start(); // Start I2C communication 
+    DS1307_Write(0xD1); // connect to DS1307( under Read mode) //by sending its ID on I2c Bus   
+    while(length-- > 1)
+        *ptr++ = DS1307_Read(); I2C_Ack(); // read second and return Positive ACK 
+    *ptr = DS1307_Read(); I2C_NoAck();
+    I2C_Stop();
+}
+
+void DS1307_writeRam(unsigned char *ptr, int offset, int length)
+{
+    I2C_Start(); // Start I2C communication   
+    DS1307_Write(DS1307_ID); // connect to DS1307 by sending its ID on I2c Bus 
+    DS1307_Write(DS_RAM + offset); // Request DAY RAM address at 04H   
+    
+    while(length-- > 0)
+        DS1307_Write(*ptr++);
+
+    I2C_Stop();    
+}
+

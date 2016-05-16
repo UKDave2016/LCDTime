@@ -8,8 +8,8 @@
 #ifndef LCD_HD44780_PIC16_H
 #define	LCD_HD44780_PIC16_H
 
-#include <xc.h>
-#include <stdint.h>
+//#include <xc.h>
+//#include <stdint.h>
 
 #ifdef	__cplusplus
 extern "C" {
@@ -55,7 +55,7 @@ Uncomment Just one of them
 
 void LCDInit(uint8_t style);
 void LCDWriteString(const char *msg);
-void LCDWriteInt(unsigned char val,int8_t field_length);
+void LCDWriteInt(int val,int8_t field_length);
 void LCDGotoXY(uint8_t x,uint8_t y);
 
 //Low level

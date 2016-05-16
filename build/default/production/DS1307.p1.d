@@ -6,5 +6,4 @@ DS1307.h  \
 i2c.h  \
 LCDTime.h  \
 lcd_hd44780_pic16.h  \
-myutils.h  \
-custom_char.h 
+myutils.h 

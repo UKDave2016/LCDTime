@@ -1001,12 +1001,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCDTime.h: 38: void doMenu() ;
 [; ;LCDTime.h: 40: void showTime() ;
 [; ;LCDTime.h: 41: void showDate() ;
-[; ;LCDTime.h: 43: void initLED() ;
-[; ;LCDTime.h: 44: void sendLED(unsigned int c) ;
-[; ;LCDTime.h: 45: void setLED(int,int) ;
+[; ;LCDTime.h: 43: void showRunningTime();
+[; ;LCDTime.h: 45: void clearPrompt() ;
 [; ;lcd_hd44780_pic16.h: 56: void LCDInit(uint8_t style);
 [; ;lcd_hd44780_pic16.h: 57: void LCDWriteString(const char *msg);
-[; ;lcd_hd44780_pic16.h: 58: void LCDWriteInt(unsigned char val,int8_t field_length);
+[; ;lcd_hd44780_pic16.h: 58: void LCDWriteInt(int val,int8_t field_length);
 [; ;lcd_hd44780_pic16.h: 59: void LCDGotoXY(uint8_t x,uint8_t y);
 [; ;lcd_hd44780_pic16.h: 62: void LCDByte(uint8_t,uint8_t);
 [; ;lcd_hd44780_pic16.h: 66: void LCDBusyLoop();
@@ -1025,6 +1024,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DS1307.h: 40: void DS1307_SetDate(unsigned char nn,unsigned char dd, unsigned char mm, unsigned char yy) ;
 [; ;DS1307.h: 41: void DS1307_GetTime(unsigned char *h_ptr,unsigned char *m_ptr,unsigned char *s_ptr) ;
 [; ;DS1307.h: 42: void DS1307_GetDate(unsigned char *n_ptr,unsigned char *d_ptr,unsigned char *m_ptr,unsigned char *y_ptr) ;
+[; ;DS1307.h: 44: void DS1307_readRam(unsigned char *ptr, int offset, int length) ;
+[; ;DS1307.h: 45: void DS1307_writeRam(unsigned char *ptr, int offset, int length) ;
 "3 i2c.c
 [v _I2C_Init `(v ~T0 @X0 1 ef ]
 "4

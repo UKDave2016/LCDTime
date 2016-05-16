@@ -21,7 +21,7 @@
 
 /* 
  * File:   
- * Author: 
+ * Author:  Dave Meaker
  * Comments:
  * Revision history: 
  */
@@ -40,6 +40,9 @@ void doMenu() ;
 void showTime() ;
 void showDate() ;
 
+void showRunningTime();
+
+void clearPrompt() ;
 
 // TODO Insert declarations or function prototypes (right here) to leverage 
 // live documentation

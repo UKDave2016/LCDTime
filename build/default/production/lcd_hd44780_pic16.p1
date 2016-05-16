@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"2340 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f877.h
-[v _RB7 `Vb ~T0 @X0 0 e@55 ]
+"2382 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f877.h
+[v _RD3 `Vb ~T0 @X0 0 e@67 ]
 [v F1018 `(v ~T0 @X0 1 tf1`ul ]
 "152 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h
 [v __delay `JF1018 ~T0 @X0 0 e ]
@@ -13,8 +13,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCDBusyLoop `(v ~T0 @X0 0 ef ]
 "1454 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f877.h
 [v _TRISD `Vuc ~T0 @X0 0 e@136 ]
-"2338
-[v _RB6 `Vb ~T0 @X0 0 e@54 ]
+"2380
+[v _RD2 `Vb ~T0 @X0 0 e@66 ]
 "1338
 [s S58 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S58 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
@@ -23,6 +23,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S57 . . ]
 "1349
 [v _TRISBbits `VS57 ~T0 @X0 0 e@134 ]
+"1460
+[s S62 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S62 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"1459
+[u S61 `S62 1 ]
+[n S61 . . ]
+"1471
+[v _TRISDbits `VS61 ~T0 @X0 0 e@136 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1013,9 +1021,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LCDTime.h: 38: void doMenu() ;
 [; ;LCDTime.h: 40: void showTime() ;
 [; ;LCDTime.h: 41: void showDate() ;
+[; ;LCDTime.h: 43: void showRunningTime();
+[; ;LCDTime.h: 45: void clearPrompt() ;
 [; ;lcd_hd44780_pic16.h: 56: void LCDInit(uint8_t style);
 [; ;lcd_hd44780_pic16.h: 57: void LCDWriteString(const char *msg);
-[; ;lcd_hd44780_pic16.h: 58: void LCDWriteInt(unsigned char val,int8_t field_length);
+[; ;lcd_hd44780_pic16.h: 58: void LCDWriteInt(int val,int8_t field_length);
 [; ;lcd_hd44780_pic16.h: 59: void LCDGotoXY(uint8_t x,uint8_t y);
 [; ;lcd_hd44780_pic16.h: 62: void LCDByte(uint8_t,uint8_t);
 [; ;lcd_hd44780_pic16.h: 66: void LCDBusyLoop();
@@ -1034,6 +1044,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DS1307.h: 40: void DS1307_SetDate(unsigned char nn,unsigned char dd, unsigned char mm, unsigned char yy) ;
 [; ;DS1307.h: 41: void DS1307_GetTime(unsigned char *h_ptr,unsigned char *m_ptr,unsigned char *s_ptr) ;
 [; ;DS1307.h: 42: void DS1307_GetDate(unsigned char *n_ptr,unsigned char *d_ptr,unsigned char *m_ptr,unsigned char *y_ptr) ;
+[; ;DS1307.h: 44: void DS1307_readRam(unsigned char *ptr, int offset, int length) ;
+[; ;DS1307.h: 45: void DS1307_writeRam(unsigned char *ptr, int offset, int length) ;
 "54 lcd_hd44780_pic16.c
 [v _LCDByte `(v ~T0 @X0 1 ef2`uc`uc ]
 "55
@@ -1062,16 +1074,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd_hd44780_pic16.c: 69: if(isdata==0)
 "69
 [e $ ! == -> _isdata `i -> 0 `i 92  ]
-[; ;lcd_hd44780_pic16.c: 70: (RB7=0);
+[; ;lcd_hd44780_pic16.c: 70: (RD3=0);
 "70
-[e = _RB7 -> -> 0 `i `b ]
+[e = _RD3 -> -> 0 `i `b ]
 [e $U 93  ]
 "71
 [e :U 92 ]
 [; ;lcd_hd44780_pic16.c: 71: else
-[; ;lcd_hd44780_pic16.c: 72: (RB7=1);
+[; ;lcd_hd44780_pic16.c: 72: (RD3=1);
 "72
-[e = _RB7 -> -> 1 `i `b ]
+[e = _RD3 -> -> 1 `i `b ]
 [e :U 93 ]
 [; ;lcd_hd44780_pic16.c: 74: _delay((unsigned long)((0.5)*(4000000/4000000.0)));
 "74
@@ -1136,12 +1148,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd_hd44780_pic16.c: 116: TRISD|=(0x0f<<4);
 "116
 [e =| _TRISD -> << -> 15 `i -> 4 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 119: (RB6=1);
+[; ;lcd_hd44780_pic16.c: 119: (RD2=1);
 "119
-[e = _RB6 -> -> 1 `i `b ]
-[; ;lcd_hd44780_pic16.c: 120: (RB7=0);
+[e = _RD2 -> -> 1 `i `b ]
+[; ;lcd_hd44780_pic16.c: 120: (RD3=0);
 "120
-[e = _RB7 -> -> 0 `i `b ]
+[e = _RD3 -> -> 0 `i `b ]
 [; ;lcd_hd44780_pic16.c: 124: _delay((unsigned long)((0.5)*(4000000/4000000.0)));
 "124
 [e ( __delay (1 -> * .0.5 / -> -> 4000000 `l `d .4000000.0 `ul ]
@@ -1204,9 +1216,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd_hd44780_pic16.c: 158: }while(busy);
 [e $ != -> _busy `i -> -> -> 0 `i `uc `i 97  ]
 [e :U 96 ]
-[; ;lcd_hd44780_pic16.c: 160: (RB6=0);
+[; ;lcd_hd44780_pic16.c: 160: (RD2=0);
 "160
-[e = _RB6 -> -> 0 `i `b ]
+[e = _RD2 -> -> 0 `i `b ]
 [; ;lcd_hd44780_pic16.c: 163: TRISD&=(~(0x0F<<4));
 "163
 [e =& _TRISD -> ~ << -> 15 `i -> 4 `i `uc ]
@@ -1234,24 +1246,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd_hd44780_pic16.c: 188: TRISBbits.TRISB5=0;
 "188
 [e = . . _TRISBbits 0 5 -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 189: TRISBbits.TRISB7=0;
+[; ;lcd_hd44780_pic16.c: 189: TRISDbits.TRISD3=0;
 "189
-[e = . . _TRISBbits 0 7 -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 190: TRISBbits.TRISB6=0;
+[e = . . _TRISDbits 0 3 -> -> 0 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 190: TRISDbits.TRISD2=0;
 "190
-[e = . . _TRISBbits 0 6 -> -> 0 `i `uc ]
+[e = . . _TRISDbits 0 2 -> -> 0 `i `uc ]
 [; ;lcd_hd44780_pic16.c: 192: PORTD&=(~(0x0F<<4));
 "192
 [e =& _PORTD -> ~ << -> 15 `i -> 4 `i `uc ]
 [; ;lcd_hd44780_pic16.c: 194: (RB5=0);
 "194
 [e = _RB5 -> -> 0 `i `b ]
-[; ;lcd_hd44780_pic16.c: 195: (RB6=0);
+[; ;lcd_hd44780_pic16.c: 195: (RD2=0);
 "195
-[e = _RB6 -> -> 0 `i `b ]
-[; ;lcd_hd44780_pic16.c: 196: (RB7=0);
+[e = _RD2 -> -> 0 `i `b ]
+[; ;lcd_hd44780_pic16.c: 196: (RD3=0);
 "196
-[e = _RB7 -> -> 0 `i `b ]
+[e = _RD3 -> -> 0 `i `b ]
 [; ;lcd_hd44780_pic16.c: 199: _delay((unsigned long)((0.5)*(4000000/4000000.0)));
 "199
 [e ( __delay (1 -> * .0.5 / -> -> 4000000 `l `d .4000000.0 `ul ]
@@ -1294,219 +1306,271 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _msg `*Cuc ~T0 @X0 1 r1 ]
 "226
 [f ]
-[; ;lcd_hd44780_pic16.c: 255: while(*msg!='\0')
-"255
+[; ;lcd_hd44780_pic16.c: 227: while(*msg!='\0')
+"227
 [e $U 100  ]
 [e :U 101 ]
-[; ;lcd_hd44780_pic16.c: 256: {
-"256
+[; ;lcd_hd44780_pic16.c: 228: {
+"228
 {
-[; ;lcd_hd44780_pic16.c: 258: if(*msg=='%')
-"258
-[e $ ! == -> *U _msg `ui -> 37 `ui 103  ]
-[; ;lcd_hd44780_pic16.c: 259: {
-"259
-{
-[; ;lcd_hd44780_pic16.c: 260: msg++;
-"260
-[e ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
-"261
-[v _cc `c ~T0 @X0 1 a ]
-[; ;lcd_hd44780_pic16.c: 261: int8_t cc=*msg-'0';
-[e = _cc -> - -> *U _msg `ui -> 48 `ui `c ]
-[; ;lcd_hd44780_pic16.c: 263: if(cc>=0 && cc<=7)
-"263
-[e $ ! && >= -> _cc `i -> 0 `i <= -> _cc `i -> 7 `i 104  ]
-[; ;lcd_hd44780_pic16.c: 264: {
-"264
-{
-[; ;lcd_hd44780_pic16.c: 265: (LCDByte(cc,1));
-"265
-[e ( _LCDByte (2 , -> _cc `uc -> -> 1 `i `uc ]
-"266
-}
-[; ;lcd_hd44780_pic16.c: 266: }
-[e $U 105  ]
-"267
-[e :U 104 ]
-[; ;lcd_hd44780_pic16.c: 267: else
-[; ;lcd_hd44780_pic16.c: 268: {
-"268
-{
-[; ;lcd_hd44780_pic16.c: 269: (LCDByte('%',1));
-"269
-[e ( _LCDByte (2 , -> -> 37 `ui `uc -> -> 1 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 270: (LCDByte(*msg,1));
-"270
+[; ;lcd_hd44780_pic16.c: 229: (LCDByte(*msg,1));
+"229
 [e ( _LCDByte (2 , *U _msg -> -> 1 `i `uc ]
-"271
-}
-[e :U 105 ]
-"272
-}
-[; ;lcd_hd44780_pic16.c: 271: }
-[; ;lcd_hd44780_pic16.c: 272: }
-[e $U 106  ]
-"273
-[e :U 103 ]
-[; ;lcd_hd44780_pic16.c: 273: else
-[; ;lcd_hd44780_pic16.c: 274: {
-"274
-{
-[; ;lcd_hd44780_pic16.c: 275: (LCDByte(*msg,1));
-"275
-[e ( _LCDByte (2 , *U _msg -> -> 1 `i `uc ]
-"276
-}
-[e :U 106 ]
-[; ;lcd_hd44780_pic16.c: 276: }
-[; ;lcd_hd44780_pic16.c: 277: msg++;
-"277
+[; ;lcd_hd44780_pic16.c: 230: msg++;
+"230
 [e ++ _msg * -> -> 1 `i `x -> -> # *U _msg `i `x ]
-"278
+"231
 }
 [e :U 100 ]
-"255
+"227
 [e $ != -> *U _msg `ui -> 0 `ui 101  ]
 [e :U 102 ]
-[; ;lcd_hd44780_pic16.c: 278: }
-[; ;lcd_hd44780_pic16.c: 279: }
-"279
+[; ;lcd_hd44780_pic16.c: 231: }
+[; ;lcd_hd44780_pic16.c: 232: }
+"232
 [e :UE 99 ]
 }
-"323
-[v _LCDWriteInt `(v ~T0 @X0 1 ef2`uc`c ]
-"324
+"277
+[v _LCDWriteInt `(v ~T0 @X0 1 ef2`i`c ]
+"278
 {
-[; ;lcd_hd44780_pic16.c: 323: void LCDWriteInt(unsigned char val,int8_t field_length)
-[; ;lcd_hd44780_pic16.c: 324: {
+[; ;lcd_hd44780_pic16.c: 277: void LCDWriteInt(int val,int8_t field_length)
+[; ;lcd_hd44780_pic16.c: 278: {
 [e :U _LCDWriteInt ]
-"323
-[v _val `uc ~T0 @X0 1 r1 ]
+"277
+[v _val `i ~T0 @X0 1 r1 ]
 [v _field_length `c ~T0 @X0 1 r2 ]
-"324
+"278
 [f ]
-"325
-[v _c `ui ~T0 @X0 1 a ]
-[v _d `ui ~T0 @X0 1 a ]
-[; ;lcd_hd44780_pic16.c: 325: unsigned int c,d ;
-[; ;lcd_hd44780_pic16.c: 327: c = 0x30 + (val % 10) ;
-"327
-[e = _c -> + -> 48 `i % -> _val `i -> 10 `i `ui ]
-[; ;lcd_hd44780_pic16.c: 328: val=val/10;
-"328
-[e = _val -> / -> _val `i -> 10 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 329: d = 0x30 + val ;
-"329
-[e = _d -> + -> 48 `i -> _val `i `ui ]
-[; ;lcd_hd44780_pic16.c: 331: if (d > 0x39)
-"331
-[e $ ! > _d -> -> 57 `i `ui 108  ]
-[; ;lcd_hd44780_pic16.c: 332: (LCDByte('?',1)) ;
-"332
-[e ( _LCDByte (2 , -> -> 63 `ui `uc -> -> 1 `i `uc ]
-[e $U 109  ]
-"333
-[e :U 108 ]
-[; ;lcd_hd44780_pic16.c: 333: else
-[; ;lcd_hd44780_pic16.c: 334: (LCDByte(d,1));
-"334
-[e ( _LCDByte (2 , -> _d `uc -> -> 1 `i `uc ]
-[e :U 109 ]
-[; ;lcd_hd44780_pic16.c: 335: if (c > 0x39)
-"335
-[e $ ! > _c -> -> 57 `i `ui 110  ]
-[; ;lcd_hd44780_pic16.c: 336: (LCDByte('?',1)) ;
-"336
-[e ( _LCDByte (2 , -> -> 63 `ui `uc -> -> 1 `i `uc ]
-[e $U 111  ]
-"337
-[e :U 110 ]
-[; ;lcd_hd44780_pic16.c: 337: else
-[; ;lcd_hd44780_pic16.c: 338: (LCDByte(c,1));
-"338
-[e ( _LCDByte (2 , -> _c `uc -> -> 1 `i `uc ]
-[e :U 111 ]
-[; ;lcd_hd44780_pic16.c: 339: }
-"339
-[e :UE 107 ]
-}
-"345
-[v _LCDGotoXY `(v ~T0 @X0 1 ef2`uc`uc ]
-"346
+[v F1143 `uc ~T0 @X0 -> 6 `i s ]
+[i F1143
+:U ..
+-> 45 `c
+-> 45 `c
+-> 45 `c
+-> 45 `c
+-> 45 `c
+-> 0 `c
+..
+]
+"279
+[v _str `uc ~T0 @X0 -> 6 `i a ]
+[; ;lcd_hd44780_pic16.c: 279: char str[6] = { "-----\0" } ;
+[e = _str F1143 ]
+"280
+[v _characters `i ~T0 @X0 1 a ]
+[; ;lcd_hd44780_pic16.c: 280: int characters = 0 ;
+[e = _characters -> 0 `i ]
+"281
+[v _from `i ~T0 @X0 1 a ]
+[; ;lcd_hd44780_pic16.c: 281: int from = 5 ;
+[e = _from -> 5 `i ]
+"282
+[v _c `uc ~T0 @X0 1 a ]
+[; ;lcd_hd44780_pic16.c: 282: char c ;
+[; ;lcd_hd44780_pic16.c: 284: field_length = 5 - field_length ;
+"284
+[e = _field_length -> - -> 5 `i -> _field_length `i `c ]
+[; ;lcd_hd44780_pic16.c: 286: c = val / 10000 ;
+"286
+[e = _c -> / _val -> 10000 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 287: if (c)
+"287
+[e $ ! != -> _c `i -> -> -> 0 `i `uc `i 104  ]
+[; ;lcd_hd44780_pic16.c: 288: {
+"288
 {
-[; ;lcd_hd44780_pic16.c: 345: void LCDGotoXY(uint8_t x,uint8_t y)
-[; ;lcd_hd44780_pic16.c: 346: {
+[; ;lcd_hd44780_pic16.c: 289: val -= c * 10000 ;
+"289
+[e =- _val * -> _c `i -> 10000 `i ]
+[; ;lcd_hd44780_pic16.c: 290: from = 0 ;
+"290
+[e = _from -> 0 `i ]
+"291
+}
+[e :U 104 ]
+[; ;lcd_hd44780_pic16.c: 291: }
+[; ;lcd_hd44780_pic16.c: 292: str[0] = c + 0x30 ;
+"292
+[e = *U + &U _str * -> -> -> 0 `i `ui `ux -> -> # *U &U _str `ui `ux -> + -> _c `i -> 48 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 293: c = val / 1000 ;
+"293
+[e = _c -> / _val -> 1000 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 294: if (c)
+"294
+[e $ ! != -> _c `i -> -> -> 0 `i `uc `i 105  ]
+[; ;lcd_hd44780_pic16.c: 295: {
+"295
+{
+[; ;lcd_hd44780_pic16.c: 296: val -= c * 1000 ;
+"296
+[e =- _val * -> _c `i -> 1000 `i ]
+[; ;lcd_hd44780_pic16.c: 297: if (from == 5)
+"297
+[e $ ! == _from -> 5 `i 106  ]
+[; ;lcd_hd44780_pic16.c: 298: from = 1 ;
+"298
+[e = _from -> 1 `i ]
+[e :U 106 ]
+"299
+}
+[e :U 105 ]
+[; ;lcd_hd44780_pic16.c: 299: }
+[; ;lcd_hd44780_pic16.c: 300: str[1] = c + 0x30 ;
+"300
+[e = *U + &U _str * -> -> -> 1 `i `ui `ux -> -> # *U &U _str `ui `ux -> + -> _c `i -> 48 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 301: c = val / 100 ;
+"301
+[e = _c -> / _val -> 100 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 302: if (c)
+"302
+[e $ ! != -> _c `i -> -> -> 0 `i `uc `i 107  ]
+[; ;lcd_hd44780_pic16.c: 303: {
+"303
+{
+[; ;lcd_hd44780_pic16.c: 304: val -= c * 100 ;
+"304
+[e =- _val * -> _c `i -> 100 `i ]
+[; ;lcd_hd44780_pic16.c: 305: if (from == 5)
+"305
+[e $ ! == _from -> 5 `i 108  ]
+[; ;lcd_hd44780_pic16.c: 306: from = 2 ;
+"306
+[e = _from -> 2 `i ]
+[e :U 108 ]
+"307
+}
+[e :U 107 ]
+[; ;lcd_hd44780_pic16.c: 307: }
+[; ;lcd_hd44780_pic16.c: 308: str[2] = c + 0x30 ;
+"308
+[e = *U + &U _str * -> -> -> 2 `i `ui `ux -> -> # *U &U _str `ui `ux -> + -> _c `i -> 48 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 309: c = val / 10 ;
+"309
+[e = _c -> / _val -> 10 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 310: if (c)
+"310
+[e $ ! != -> _c `i -> -> -> 0 `i `uc `i 109  ]
+[; ;lcd_hd44780_pic16.c: 311: {
+"311
+{
+[; ;lcd_hd44780_pic16.c: 312: val -= c * 10 ;
+"312
+[e =- _val * -> _c `i -> 10 `i ]
+[; ;lcd_hd44780_pic16.c: 313: if (from == 5)
+"313
+[e $ ! == _from -> 5 `i 110  ]
+[; ;lcd_hd44780_pic16.c: 314: from = 3 ;
+"314
+[e = _from -> 3 `i ]
+[e :U 110 ]
+"315
+}
+[e :U 109 ]
+[; ;lcd_hd44780_pic16.c: 315: }
+[; ;lcd_hd44780_pic16.c: 316: str[3] = c + 0x30 ;
+"316
+[e = *U + &U _str * -> -> -> 3 `i `ui `ux -> -> # *U &U _str `ui `ux -> + -> _c `i -> 48 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 317: if (from == 5)
+"317
+[e $ ! == _from -> 5 `i 111  ]
+[; ;lcd_hd44780_pic16.c: 318: from = 4 ;
+"318
+[e = _from -> 4 `i ]
+[e :U 111 ]
+[; ;lcd_hd44780_pic16.c: 319: str[4] = (char)(val + 0x30) ;
+"319
+[e = *U + &U _str * -> -> -> 4 `i `ui `ux -> -> # *U &U _str `ui `ux -> + _val -> 48 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 321: if (from < field_length)
+"321
+[e $ ! < _from -> _field_length `i 112  ]
+[; ;lcd_hd44780_pic16.c: 322: field_length = from ;
+"322
+[e = _field_length -> _from `c ]
+[e :U 112 ]
+[; ;lcd_hd44780_pic16.c: 324: LCDWriteString(&str[field_length]) ;
+"324
+[e ( _LCDWriteString (1 -> &U *U + &U _str * -> -> _field_length `uc `ux -> -> # *U &U _str `ui `ux `*Cuc ]
+[; ;lcd_hd44780_pic16.c: 326: }
+"326
+[e :UE 103 ]
+}
+"332
+[v _LCDGotoXY `(v ~T0 @X0 1 ef2`uc`uc ]
+"333
+{
+[; ;lcd_hd44780_pic16.c: 332: void LCDGotoXY(uint8_t x,uint8_t y)
+[; ;lcd_hd44780_pic16.c: 333: {
 [e :U _LCDGotoXY ]
-"345
+"332
 [v _x `uc ~T0 @X0 1 r1 ]
 [v _y `uc ~T0 @X0 1 r2 ]
-"346
+"333
 [f ]
-[; ;lcd_hd44780_pic16.c: 347: if(x>=20) return;
-"347
-[e $ ! >= -> _x `i -> 20 `i 113  ]
-[e $UE 112  ]
-[e :U 113 ]
-[; ;lcd_hd44780_pic16.c: 351: switch(y)
-"351
-[e $U 115  ]
-[; ;lcd_hd44780_pic16.c: 352: {
-"352
+[; ;lcd_hd44780_pic16.c: 334: if(x>=20) return;
+"334
+[e $ ! >= -> _x `i -> 20 `i 114  ]
+[e $UE 113  ]
+[e :U 114 ]
+[; ;lcd_hd44780_pic16.c: 338: switch(y)
+"338
+[e $U 116  ]
+[; ;lcd_hd44780_pic16.c: 339: {
+"339
 {
-[; ;lcd_hd44780_pic16.c: 353: case 0:
-"353
-[e :U 116 ]
-[; ;lcd_hd44780_pic16.c: 354: break;
-"354
-[e $U 114  ]
-[; ;lcd_hd44780_pic16.c: 355: case 1:
-"355
+[; ;lcd_hd44780_pic16.c: 340: case 0:
+"340
 [e :U 117 ]
-[; ;lcd_hd44780_pic16.c: 356: x|=0b01000000;
-"356
-[e =| _x -> -> 64 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 357: break;
-"357
-[e $U 114  ]
-[; ;lcd_hd44780_pic16.c: 358: case 2:
-"358
+[; ;lcd_hd44780_pic16.c: 341: break;
+"341
+[e $U 115  ]
+[; ;lcd_hd44780_pic16.c: 342: case 1:
+"342
 [e :U 118 ]
-[; ;lcd_hd44780_pic16.c: 359: x+=0x14;
-"359
-[e =+ _x -> -> 20 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 360: break;
-"360
-[e $U 114  ]
-[; ;lcd_hd44780_pic16.c: 361: case 3:
-"361
+[; ;lcd_hd44780_pic16.c: 343: x|=0b01000000;
+"343
+[e =| _x -> -> 64 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 344: break;
+"344
+[e $U 115  ]
+[; ;lcd_hd44780_pic16.c: 345: case 2:
+"345
 [e :U 119 ]
-[; ;lcd_hd44780_pic16.c: 362: x+=0x54;
-"362
+[; ;lcd_hd44780_pic16.c: 346: x+=0x14;
+"346
+[e =+ _x -> -> 20 `i `uc ]
+[; ;lcd_hd44780_pic16.c: 347: break;
+"347
+[e $U 115  ]
+[; ;lcd_hd44780_pic16.c: 348: case 3:
+"348
+[e :U 120 ]
+[; ;lcd_hd44780_pic16.c: 349: x+=0x54;
+"349
 [e =+ _x -> -> 84 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 363: break;
-"363
-[e $U 114  ]
-"364
+[; ;lcd_hd44780_pic16.c: 350: break;
+"350
+[e $U 115  ]
+"351
 }
-[; ;lcd_hd44780_pic16.c: 364: }
-[e $U 114  ]
+[; ;lcd_hd44780_pic16.c: 351: }
+[e $U 115  ]
+"338
+[e :U 116 ]
+[e [\ _y , $ -> -> 0 `i `uc 117
+ , $ -> -> 1 `i `uc 118
+ , $ -> -> 2 `i `uc 119
+ , $ -> -> 3 `i `uc 120
+ 115 ]
 "351
 [e :U 115 ]
-[e [\ _y , $ -> -> 0 `i `uc 116
- , $ -> -> 1 `i `uc 117
- , $ -> -> 2 `i `uc 118
- , $ -> -> 3 `i `uc 119
- 114 ]
-"364
-[e :U 114 ]
-[; ;lcd_hd44780_pic16.c: 386: x|=0b10000000;
-"386
+[; ;lcd_hd44780_pic16.c: 373: x|=0b10000000;
+"373
 [e =| _x -> -> 128 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 387: (LCDByte(x,0));
-"387
+[; ;lcd_hd44780_pic16.c: 374: (LCDByte(x,0));
+"374
 [e ( _LCDByte (2 , _x -> -> 0 `i `uc ]
-[; ;lcd_hd44780_pic16.c: 388: }
-"388
-[e :UE 112 ]
+[; ;lcd_hd44780_pic16.c: 375: }
+"375
+[e :UE 113 ]
 }

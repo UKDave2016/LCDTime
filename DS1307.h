@@ -21,7 +21,7 @@
 
 /* 
  * File:   
- * Author: 
+ * Author:  Dave Meaker
  * Comments:
  * Revision history: 
  */
@@ -41,6 +41,8 @@ void DS1307_SetDate(unsigned char nn,unsigned char dd, unsigned char mm, unsigne
 void DS1307_GetTime(unsigned char *h_ptr,unsigned char *m_ptr,unsigned char *s_ptr) ;
 void DS1307_GetDate(unsigned char *n_ptr,unsigned char *d_ptr,unsigned char *m_ptr,unsigned char *y_ptr) ;
 
+void DS1307_readRam(unsigned char *ptr, int offset, int length) ;
+void DS1307_writeRam(unsigned char *ptr, int offset, int length) ;
 
 // TODO Insert declarations or function prototypes (right here) to leverage 
 // live documentation

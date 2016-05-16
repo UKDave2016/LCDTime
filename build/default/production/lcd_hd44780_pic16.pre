@@ -1449,10 +1449,14 @@ void doMenu() ;
 void showTime() ;
 void showDate() ;
 
+void showRunningTime();
+
+void clearPrompt() ;
+
 # 56 "lcd_hd44780_pic16.h"
 void LCDInit(uint8_t style);
 void LCDWriteString(const char *msg);
-void LCDWriteInt(unsigned char val,int8_t field_length);
+void LCDWriteInt(int val,int8_t field_length);
 void LCDGotoXY(uint8_t x,uint8_t y);
 
 
@@ -1481,6 +1485,9 @@ void DS1307_SetDate(unsigned char nn,unsigned char dd, unsigned char mm, unsigne
 void DS1307_GetTime(unsigned char *h_ptr,unsigned char *m_ptr,unsigned char *s_ptr) ;
 void DS1307_GetDate(unsigned char *n_ptr,unsigned char *d_ptr,unsigned char *m_ptr,unsigned char *y_ptr) ;
 
+void DS1307_readRam(unsigned char *ptr, int offset, int length) ;
+void DS1307_writeRam(unsigned char *ptr, int offset, int length) ;
+
 # 54 "lcd_hd44780_pic16.c"
 void LCDByte(uint8_t c,uint8_t isdata)
 {
@@ -1493,9 +1500,9 @@ hn=c>>4;
 ln=(c & 0x0F);
 
 if(isdata==0)
-(RB7=0);
+(RD3=0);
 else
-(RB7=1);
+(RD3=1);
 
 _delay((unsigned long)((0.5)*(4000000/4000000.0)));
 
@@ -1542,8 +1549,8 @@ uint8_t busy,status=0x00,temp;
 TRISD|=(0x0f<<4);
 
 
-(RB6=1);
-(RB7=0);
+(RD2=1);
+(RD3=0);
 
 
 
@@ -1583,7 +1590,7 @@ _delay((unsigned long)((0.5)*(4000000/4000000.0)));
 _delay((unsigned long)((1)*(4000000/4000000.0)));
 }while(busy);
 
-(RB6=0);
+(RD2=0);
 
 
 TRISD&=(~(0x0F<<4));
@@ -1600,14 +1607,14 @@ _delay((unsigned long)((30)*(4000000/4000.0)));
 TRISD&=(~(0x0F<<4));
 
 TRISBbits.TRISB5=0;
-TRISBbits.TRISB7=0;
-TRISBbits.TRISB6=0;
+TRISDbits.TRISD3=0;
+TRISDbits.TRISD2=0;
 
 PORTD&=(~(0x0F<<4));
 
 (RB5=0);
-(RB6=0);
-(RB7=0);
+(RD2=0);
+(RD3=0);
 
 
 _delay((unsigned long)((0.5)*(4000000/4000000.0)));
@@ -1631,54 +1638,66 @@ LCDBusyLoop();
 }
 void LCDWriteString(const char *msg)
 {
-
-# 255
 while(*msg!='\0')
 {
-
-if(*msg=='%')
-{
-msg++;
-int8_t cc=*msg-'0';
-
-if(cc>=0 && cc<=7)
-{
-(LCDByte(cc,1));
-}
-else
-{
-(LCDByte('%',1));
 (LCDByte(*msg,1));
-}
-}
-else
-{
-(LCDByte(*msg,1));
-}
 msg++;
 }
 }
 
-# 323
-void LCDWriteInt(unsigned char val,int8_t field_length)
+# 277
+void LCDWriteInt(int val,int8_t field_length)
 {
-unsigned int c,d ;
+char str[6] = { "-----\0" } ;
+int characters = 0 ;
+int from = 5 ;
+char c ;
 
-c = 0x30 + (val % 10) ;
-val=val/10;
-d = 0x30 + val ;
+field_length = 5 - field_length ;
 
-if (d > 0x39)
-(LCDByte('?',1)) ;
-else
-(LCDByte(d,1));
-if (c > 0x39)
-(LCDByte('?',1)) ;
-else
-(LCDByte(c,1));
+c = val / 10000 ;
+if (c)
+{
+val -= c * 10000 ;
+from = 0 ;
+}
+str[0] = c + 0x30 ;
+c = val / 1000 ;
+if (c)
+{
+val -= c * 1000 ;
+if (from == 5)
+from = 1 ;
+}
+str[1] = c + 0x30 ;
+c = val / 100 ;
+if (c)
+{
+val -= c * 100 ;
+if (from == 5)
+from = 2 ;
+}
+str[2] = c + 0x30 ;
+c = val / 10 ;
+if (c)
+{
+val -= c * 10 ;
+if (from == 5)
+from = 3 ;
+}
+str[3] = c + 0x30 ;
+if (from == 5)
+from = 4 ;
+str[4] = (char)(val + 0x30) ;
+
+if (from < field_length)
+field_length = from ;
+
+LCDWriteString(&str[field_length]) ;
+
 }
 
-# 345
+# 332
 void LCDGotoXY(uint8_t x,uint8_t y)
 {
 if(x>=20) return;
@@ -1700,7 +1719,7 @@ x+=0x54;
 break;
 }
 
-# 386
+# 373
 x|=0b10000000;
 (LCDByte(x,0));
 }
