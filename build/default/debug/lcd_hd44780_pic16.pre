@@ -1468,7 +1468,8 @@ void LCDBusyLoop();
 
 # 37 "i2c.h"
 void I2C_Init() ;
-void I2C_Clock(void) ;
+
+void I2C_Wait();
 void I2C_Start() ;
 void I2C_Stop(void);
 void I2C_Write(unsigned char dat) ;
@@ -1488,11 +1489,11 @@ void DS1307_GetDate(unsigned char *n_ptr,unsigned char *d_ptr,unsigned char *m_p
 void DS1307_readRam(unsigned char *ptr, int offset, int length) ;
 void DS1307_writeRam(unsigned char *ptr, int offset, int length) ;
 
-# 54 "lcd_hd44780_pic16.c"
+# 12 "lcd_hd44780_pic16.c"
 void LCDByte(uint8_t c,uint8_t isdata)
 {
 
-# 63
+# 21
 uint8_t hn,ln;
 uint8_t temp;
 
@@ -1600,7 +1601,7 @@ TRISD&=(~(0x0F<<4));
 void LCDInit(uint8_t style)
 {
 
-# 183
+# 141
 _delay((unsigned long)((30)*(4000000/4000.0)));
 
 
@@ -1634,7 +1635,7 @@ LCDBusyLoop();
 (LCDByte(0b00101000,0));
 (LCDByte(0b00001100|style,0));
 
-# 224
+# 182
 }
 void LCDWriteString(const char *msg)
 {
@@ -1645,7 +1646,7 @@ msg++;
 }
 }
 
-# 277
+# 235
 void LCDWriteInt(int val,int8_t field_length)
 {
 char str[6] = { "-----\0" } ;
@@ -1697,7 +1698,7 @@ LCDWriteString(&str[field_length]) ;
 
 }
 
-# 332
+# 290
 void LCDGotoXY(uint8_t x,uint8_t y)
 {
 if(x>=20) return;
@@ -1719,7 +1720,7 @@ x+=0x54;
 break;
 }
 
-# 373
+# 331
 x|=0b10000000;
 (LCDByte(x,0));
 }

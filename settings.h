@@ -61,12 +61,12 @@
 #define LCD_E_POS       5
 
 // i2c clock pin
-#define I2C_CLK_PORT    D
-#define I2C_CLK_POS     1
+#define I2C_CLK_PORT    C //D
+#define I2C_CLK_POS     3 // 1
 
 // i2c data pin
-#define I2C_DAT_PORT    D
-#define I2C_DAT_POS     0
+#define I2C_DAT_PORT    C //D
+#define I2C_DAT_POS     4 //0
 
 
 #define LCD_DATA_PORT 	PORT(LCD_DATA)

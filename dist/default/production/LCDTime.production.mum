@@ -1,7 +1,7 @@
 
 Memory Summary:
-    Program space        used   FDCh (  4060) of  2000h words   ( 49.6%)
-    Data space           used    58h (    88) of   170h bytes   ( 23.9%)
+    Program space        used   FCDh (  4045) of  2000h words   ( 49.4%)
+    Data space           used    5Ah (    90) of   170h bytes   ( 24.5%)
     EEPROM space         used     0h (     0) of   100h bytes   (  0.0%)
     Data stack space     used     0h (     0) of    60h bytes   (  0.0%)
     Configuration bits   used     1h (     1) of     1h word    (100.0%)

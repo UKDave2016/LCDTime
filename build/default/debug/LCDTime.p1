@@ -10,6 +10,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LCDByte `(v ~T0 @X0 0 ef2`uc`uc ]
 "44 DS1307.h
 [v _DS1307_readRam `(v ~T0 @X0 0 ef3`*uc`i`i ]
+"57 lcd_hd44780_pic16.h
+[v _LCDWriteString `(v ~T0 @X0 0 ef1`*Cuc ]
+"59
+[v _LCDGotoXY `(v ~T0 @X0 0 ef2`uc`uc ]
+"58
+[v _LCDWriteInt `(v ~T0 @X0 0 ef2`i`c ]
+[v F1018 `(v ~T0 @X0 1 tf1`ul ]
+"152 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h
+[v __delay `JF1018 ~T0 @X0 0 e ]
+[p i __delay ]
 "34 LCDTime.h
 [v _readClock `(v ~T0 @X0 0 ef ]
 "35
@@ -18,11 +28,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _readInputs `(v ~T0 @X0 0 ef ]
 "38
 [v _doMenu `(v ~T0 @X0 0 ef ]
-"59 lcd_hd44780_pic16.h
-[v _LCDGotoXY `(v ~T0 @X0 0 ef2`uc`uc ]
-"57
-[v _LCDWriteString `(v ~T0 @X0 0 ef1`*Cuc ]
-"45 LCDTime.h
+"45
 [v _clearPrompt `(v ~T0 @X0 0 ef ]
 "40
 [v _showTime `(v ~T0 @X0 0 ef ]
@@ -34,11 +40,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _DS1307_SetDate `(v ~T0 @X0 0 ef4`uc`uc`uc`uc ]
 "2334 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f877.h
 [v _RB4 `Vb ~T0 @X0 0 e@52 ]
-[v F1018 `(v ~T0 @X0 1 tf1`ul ]
-"152 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic.h
-[v __delay `JF1018 ~T0 @X0 0 e ]
-[p i __delay ]
-"2328 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic16f877.h
+"2328
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
 "2330
 [v _RB2 `Vb ~T0 @X0 0 e@50 ]
@@ -50,8 +52,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _DS1307_writeRam `(v ~T0 @X0 0 ef3`*uc`i`i ]
 "43 LCDTime.h
 [v _showRunningTime `(v ~T0 @X0 0 ef ]
-"58 lcd_hd44780_pic16.h
-[v _LCDWriteInt `(v ~T0 @X0 0 ef2`i`c ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -1051,13 +1051,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;lcd_hd44780_pic16.h: 62: void LCDByte(uint8_t,uint8_t);
 [; ;lcd_hd44780_pic16.h: 66: void LCDBusyLoop();
 [; ;i2c.h: 37: void I2C_Init() ;
-[; ;i2c.h: 38: void I2C_Clock(void) ;
-[; ;i2c.h: 39: void I2C_Start() ;
-[; ;i2c.h: 40: void I2C_Stop(void);
-[; ;i2c.h: 41: void I2C_Write(unsigned char dat) ;
-[; ;i2c.h: 42: unsigned char I2C_Read(void) ;
-[; ;i2c.h: 43: void I2C_Ack();
-[; ;i2c.h: 44: void I2C_NoAck() ;
+[; ;i2c.h: 39: void I2C_Wait();
+[; ;i2c.h: 40: void I2C_Start() ;
+[; ;i2c.h: 41: void I2C_Stop(void);
+[; ;i2c.h: 42: void I2C_Write(unsigned char dat) ;
+[; ;i2c.h: 43: unsigned char I2C_Read(void) ;
+[; ;i2c.h: 44: void I2C_Ack();
+[; ;i2c.h: 45: void I2C_NoAck() ;
 [; ;DS1307.h: 36: int DS1307_Init() ;
 [; ;DS1307.h: 37: void DS1307_Write(unsigned char dat) ;
 [; ;DS1307.h: 38: unsigned char DS1307_Read() ;
@@ -1067,23 +1067,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;DS1307.h: 42: void DS1307_GetDate(unsigned char *n_ptr,unsigned char *d_ptr,unsigned char *m_ptr,unsigned char *y_ptr) ;
 [; ;DS1307.h: 44: void DS1307_readRam(unsigned char *ptr, int offset, int length) ;
 [; ;DS1307.h: 45: void DS1307_writeRam(unsigned char *ptr, int offset, int length) ;
-"13 LCDTime.c
+"11 LCDTime.c
 [p x FOSC=XT ]
-"14
+"12
 [p x WDTE=OFF ]
-"15
+"13
 [p x PWRTE=ON ]
-"16
+"14
 [p x CP=OFF ]
-"17
+"15
 [p x BOREN=OFF ]
-"18
+"16
 [p x LVP=ON ]
-"19
+"17
 [p x CPD=OFF ]
-"20
+"18
 [p x WRT=ON ]
-"23
+"21
 [v _hour `i ~T0 @X0 1 e ]
 [i _hour
 -> 6 `i
@@ -1112,86 +1112,86 @@ Version 3.2 HI-TECH Software Intermediate Code
 [i _day
 -> 1 `i
 ]
-[; ;LCDTime.c: 23: int hour=6, minute=5, seconds=4, year=16, month=5, date=8, day = 1 ;
-"25
+[; ;LCDTime.c: 21: int hour=6, minute=5, seconds=4, year=16, month=5, date=8, day = 1 ;
+"23
 [v _last_hour `uc ~T0 @X0 1 e ]
 [i _last_hour
 -> -> 238 `i `uc
 ]
-[; ;LCDTime.c: 25: char last_hour = 0xee ;
-"27
+[; ;LCDTime.c: 23: char last_hour = 0xee ;
+"25
 [v _runningTime `i ~T0 @X0 1 e ]
 [i _runningTime
 -> 0 `i
 ]
-[; ;LCDTime.c: 27: int runningTime = 0 ;
-"29
+[; ;LCDTime.c: 25: int runningTime = 0 ;
+"27
 [v _runningMinute `i ~T0 @X0 1 e ]
 [i _runningMinute
 -U -> 1 `i
 ]
-[; ;LCDTime.c: 29: int runningMinute = -1 ;
-"32
+[; ;LCDTime.c: 27: int runningMinute = -1 ;
+"30
 [v _bButton `uc ~T0 @X0 1 e ]
 [i _bButton
 -> -> 0 `i `uc
 ]
-[; ;LCDTime.c: 32: unsigned char bButton = 0 ;
-"34
+[; ;LCDTime.c: 30: unsigned char bButton = 0 ;
+"32
 [v _state `uc ~T0 @X0 1 e ]
 [i _state
 -> -> 0 `i `uc
 ]
-[; ;LCDTime.c: 34: unsigned char state = 0x0;
-[v F1127 `Cuc ~T0 @X0 -> 4 `i t ]
-"37
-[v _ttable `F1127 ~T0 @X0 -> 7 `i e ]
+[; ;LCDTime.c: 32: unsigned char state = 0x0;
+[v F1126 `Cuc ~T0 @X0 -> 4 `i t ]
+"35
+[v _ttable `F1126 ~T0 @X0 -> 7 `i e ]
 [i _ttable
 :U ..
 :U ..
-"38
+"36
 -> -> 0 `i `uc
 -> -> 2 `i `uc
 -> -> 4 `i `uc
 -> -> 0 `i `uc
 ..
 :U ..
-"40
+"38
 -> -> 3 `i `uc
 -> -> 0 `i `uc
 -> -> 1 `i `uc
 -> | -> 0 `i -> 16 `i `uc
 ..
 :U ..
-"42
+"40
 -> -> 3 `i `uc
 -> -> 2 `i `uc
 -> -> 0 `i `uc
 -> -> 0 `i `uc
 ..
 :U ..
-"44
+"42
 -> -> 3 `i `uc
 -> -> 2 `i `uc
 -> -> 1 `i `uc
 -> -> 0 `i `uc
 ..
 :U ..
-"46
+"44
 -> -> 6 `i `uc
 -> -> 0 `i `uc
 -> -> 4 `i `uc
 -> -> 0 `i `uc
 ..
 :U ..
-"48
+"46
 -> -> 6 `i `uc
 -> -> 5 `i `uc
 -> -> 0 `i `uc
 -> | -> 0 `i -> 32 `i `uc
 ..
 :U ..
-"50
+"48
 -> -> 6 `i `uc
 -> -> 5 `i `uc
 -> -> 4 `i `uc
@@ -1199,16 +1199,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-[; ;LCDTime.c: 37: const unsigned char ttable[7][4] = {
-[; ;LCDTime.c: 38: {0x0, 0x2, 0x4, 0x0},
-[; ;LCDTime.c: 40: {0x3, 0x0, 0x1, 0x0 | 0x10},
-[; ;LCDTime.c: 42: {0x3, 0x2, 0x0, 0x0},
-[; ;LCDTime.c: 44: {0x3, 0x2, 0x1, 0x0},
-[; ;LCDTime.c: 46: {0x6, 0x0, 0x4, 0x0},
-[; ;LCDTime.c: 48: {0x6, 0x5, 0x0, 0x0 | 0x20},
-[; ;LCDTime.c: 50: {0x6, 0x5, 0x4, 0x0},
-[; ;LCDTime.c: 51: };
-"54
+[; ;LCDTime.c: 35: const unsigned char ttable[7][4] = {
+[; ;LCDTime.c: 36: {0x0, 0x2, 0x4, 0x0},
+[; ;LCDTime.c: 38: {0x3, 0x0, 0x1, 0x0 | 0x10},
+[; ;LCDTime.c: 40: {0x3, 0x2, 0x0, 0x0},
+[; ;LCDTime.c: 42: {0x3, 0x2, 0x1, 0x0},
+[; ;LCDTime.c: 44: {0x6, 0x0, 0x4, 0x0},
+[; ;LCDTime.c: 46: {0x6, 0x5, 0x0, 0x0 | 0x20},
+[; ;LCDTime.c: 48: {0x6, 0x5, 0x4, 0x0},
+[; ;LCDTime.c: 49: };
+"52
 [v _daysOfTheWeek `Cuc ~T0 @X0 -> 0 `x e ]
 [i _daysOfTheWeek
 :U ..
@@ -1236,8 +1236,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;LCDTime.c: 54: const char daysOfTheWeek[] = "MonTueWedThuFriSatSun" ;
-"55
+[; ;LCDTime.c: 52: const char daysOfTheWeek[] = "MonTueWedThuFriSatSun" ;
+"53
 [v _setText `Cuc ~T0 @X0 -> 5 `i e ]
 [i _setText
 :U ..
@@ -1248,8 +1248,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-[; ;LCDTime.c: 55: const char setText[5] = {"Set \0"};
-"57
+[; ;LCDTime.c: 53: const char setText[5] = {"Set \0"};
+"55
 [v _monthDays `Cuc ~T0 @X0 -> 12 `i e ]
 [i _monthDays
 :U ..
@@ -1267,1276 +1267,1312 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 31 `i `uc
 ..
 ]
-[; ;LCDTime.c: 57: const unsigned char monthDays[12] = { 31,29,31,30,31,30,31,31,30,31,30,31 } ;
-"59
+[; ;LCDTime.c: 55: const unsigned char monthDays[12] = { 31,29,31,30,31,30,31,31,30,31,30,31 } ;
+"57
 [v _menuFunction `uc ~T0 @X0 1 e ]
 [i _menuFunction
 -> -> 1 `i `uc
 ]
-[; ;LCDTime.c: 59: unsigned char menuFunction = 1 ;
-"60
+[; ;LCDTime.c: 57: unsigned char menuFunction = 1 ;
+"58
 [v _next_menu_clear `i ~T0 @X0 1 e ]
 [i _next_menu_clear
 -> 0 `i
 ]
-[; ;LCDTime.c: 60: int next_menu_clear = 0 ;
-"62
+[; ;LCDTime.c: 58: int next_menu_clear = 0 ;
+"60
 [v _main `(v ~T0 @X0 1 ef ]
-"63
+"61
 {
-[; ;LCDTime.c: 62: void main(void)
-[; ;LCDTime.c: 63: {
+[; ;LCDTime.c: 60: void main(void)
+[; ;LCDTime.c: 61: {
 [e :U _main ]
 [f ]
-[; ;LCDTime.c: 65: I2C_Init() ;
-"65
+[; ;LCDTime.c: 63: I2C_Init() ;
+"63
 [e ( _I2C_Init ..  ]
-[; ;LCDTime.c: 67: LCDInit(0B00000000);
-"67
+[; ;LCDTime.c: 65: LCDInit(0B00000000);
+"65
 [e ( _LCDInit (1 -> -> 0 `i `uc ]
-[; ;LCDTime.c: 69: DS1307_Init() ;
-"69
+[; ;LCDTime.c: 67: DS1307_Init() ;
+"67
 [e ( _DS1307_Init ..  ]
-[; ;LCDTime.c: 72: (LCDByte(0b00000001,0));
-"72
+[; ;LCDTime.c: 70: (LCDByte(0b00000001,0));
+"70
 [e ( _LCDByte (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 74: DS1307_readRam(&runningTime,0,2) ;
-"74
+[; ;LCDTime.c: 73: DS1307_readRam(&runningTime,0,2) ;
+"73
 [e ( _DS1307_readRam (3 , , -> &U _runningTime `*uc -> 0 `i -> 2 `i ]
-[; ;LCDTime.c: 77: while(1)
+[; ;LCDTime.c: 75: LCDWriteString("Starting counter");
+"75
+[e ( _LCDWriteString (1 :s 1C ]
+[; ;LCDTime.c: 76: LCDGotoXY(0,1) ;
+"76
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 77: LCDWriteString("at ");
 "77
-[e :U 93 ]
-[; ;LCDTime.c: 78: {
+[e ( _LCDWriteString (1 :s 2C ]
+[; ;LCDTime.c: 78: LCDWriteInt(runningTime,5);
 "78
-{
-[; ;LCDTime.c: 80: readClock();
+[e ( _LCDWriteInt (2 , _runningTime -> -> 5 `i `c ]
+[; ;LCDTime.c: 79: LCDWriteString(" minutes");
+"79
+[e ( _LCDWriteString (1 :s 3C ]
+[; ;LCDTime.c: 80: _delay((unsigned long)((750)*(4000000/4000.0))) ;
 "80
-[e ( _readClock ..  ]
-[; ;LCDTime.c: 82: showClock() ;
+[e ( __delay (1 -> * -> -> 750 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;LCDTime.c: 81: _delay((unsigned long)((750)*(4000000/4000.0))) ;
+"81
+[e ( __delay (1 -> * -> -> 750 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;LCDTime.c: 82: _delay((unsigned long)((750)*(4000000/4000.0))) ;
 "82
-[e ( _showClock ..  ]
-[; ;LCDTime.c: 84: readInputs() ;
-"84
-[e ( _readInputs ..  ]
-[; ;LCDTime.c: 86: if (bButton)
+[e ( __delay (1 -> * -> -> 750 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;LCDTime.c: 83: _delay((unsigned long)((750)*(4000000/4000.0))) ;
+"83
+[e ( __delay (1 -> * -> -> 750 `i `d / -> -> 4000000 `l `d .4000.0 `ul ]
+[; ;LCDTime.c: 86: runningTime-- ;
 "86
+[e -- _runningTime -> 1 `i ]
+[; ;LCDTime.c: 88: (LCDByte(0b00000001,0));
+"88
+[e ( _LCDByte (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+[; ;LCDTime.c: 90: while(1)
+"90
+[e :U 93 ]
+[; ;LCDTime.c: 91: {
+"91
+{
+[; ;LCDTime.c: 92: readClock();
+"92
+[e ( _readClock ..  ]
+[; ;LCDTime.c: 94: showClock() ;
+"94
+[e ( _showClock ..  ]
+[; ;LCDTime.c: 96: readInputs() ;
+"96
+[e ( _readInputs ..  ]
+[; ;LCDTime.c: 98: if (bButton)
+"98
 [e $ ! != -> _bButton `i -> -> -> 0 `i `uc `i 95  ]
-[; ;LCDTime.c: 87: doMenu();
-"87
+[; ;LCDTime.c: 99: doMenu();
+"99
 [e ( _doMenu ..  ]
 [e $U 96  ]
-"88
+"100
 [e :U 95 ]
-[; ;LCDTime.c: 88: else if (state & 0x30)
+[; ;LCDTime.c: 100: else if (state & 0x30)
 [e $ ! != & -> _state `i -> 48 `i -> 0 `i 97  ]
-[; ;LCDTime.c: 89: {
-"89
+[; ;LCDTime.c: 101: {
+"101
 {
-[; ;LCDTime.c: 95: if (state & 0x10)
-"95
+[; ;LCDTime.c: 107: if (state & 0x10)
+"107
 [e $ ! != & -> _state `i -> 16 `i -> 0 `i 98  ]
-[; ;LCDTime.c: 96: {
-"96
+[; ;LCDTime.c: 108: {
+"108
 {
-[; ;LCDTime.c: 97: menuFunction++ ;
-"97
+[; ;LCDTime.c: 109: menuFunction++ ;
+"109
 [e ++ _menuFunction -> -> 1 `i `uc ]
-[; ;LCDTime.c: 98: if (menuFunction == 4)
-"98
+[; ;LCDTime.c: 110: if (menuFunction == 4)
+"110
 [e $ ! == -> _menuFunction `i -> 4 `i 99  ]
-[; ;LCDTime.c: 99: menuFunction = 1 ;
-"99
+[; ;LCDTime.c: 111: menuFunction = 1 ;
+"111
 [e = _menuFunction -> -> 1 `i `uc ]
 [e :U 99 ]
-"100
+"112
 }
-[; ;LCDTime.c: 100: }
+[; ;LCDTime.c: 112: }
 [e $U 100  ]
-"101
+"113
 [e :U 98 ]
-[; ;LCDTime.c: 101: else if (state & 0x20)
+[; ;LCDTime.c: 113: else if (state & 0x20)
 [e $ ! != & -> _state `i -> 32 `i -> 0 `i 101  ]
-[; ;LCDTime.c: 102: {
-"102
+[; ;LCDTime.c: 114: {
+"114
 {
-[; ;LCDTime.c: 103: menuFunction-- ;
-"103
+[; ;LCDTime.c: 115: menuFunction-- ;
+"115
 [e -- _menuFunction -> -> 1 `i `uc ]
-[; ;LCDTime.c: 104: if (menuFunction < 1)
-"104
+[; ;LCDTime.c: 116: if (menuFunction < 1)
+"116
 [e $ ! < -> _menuFunction `i -> 1 `i 102  ]
-[; ;LCDTime.c: 105: menuFunction = 4-1 ;
-"105
+[; ;LCDTime.c: 117: menuFunction = 4-1 ;
+"117
 [e = _menuFunction -> - -> 4 `i -> 1 `i `uc ]
 [e :U 102 ]
-"106
+"118
 }
 [e :U 101 ]
-"108
-[e :U 100 ]
-[; ;LCDTime.c: 106: }
-[; ;LCDTime.c: 108: if (menuFunction != 1)
-[e $ ! != -> _menuFunction `i -> 1 `i 103  ]
-[; ;LCDTime.c: 109: {
-"109
-{
-[; ;LCDTime.c: 110: next_menu_clear = minute * 60 + seconds + 20 ;
-"110
-[e = _next_menu_clear + + * _minute -> 60 `i _seconds -> 20 `i ]
-[; ;LCDTime.c: 111: LCDGotoXY(9,0);
-"111
-[e ( _LCDGotoXY (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 112: if (menuFunction == 2)
-"112
-[e $ ! == -> _menuFunction `i -> 2 `i 104  ]
-[; ;LCDTime.c: 113: LCDWriteString("Time ?");
-"113
-[e ( _LCDWriteString (1 :s 1C ]
-[e :U 104 ]
-[; ;LCDTime.c: 114: if (menuFunction == 3)
-"114
-[e $ ! == -> _menuFunction `i -> 3 `i 105  ]
-[; ;LCDTime.c: 115: LCDWriteString("Date ?");
-"115
-[e ( _LCDWriteString (1 :s 2C ]
-[e :U 105 ]
-"116
-}
-[; ;LCDTime.c: 116: }
-[e $U 106  ]
-"117
-[e :U 103 ]
-[; ;LCDTime.c: 117: else
-[; ;LCDTime.c: 118: clearPrompt();
-"118
-[e ( _clearPrompt ..  ]
-[e :U 106 ]
-"119
-}
-[; ;LCDTime.c: 119: }
-[e $U 107  ]
 "120
-[e :U 97 ]
-[; ;LCDTime.c: 120: else if (next_menu_clear && ((minute * 60 + seconds) > next_menu_clear))
-[e $ ! && != _next_menu_clear -> 0 `i > + * _minute -> 60 `i _seconds _next_menu_clear 108  ]
+[e :U 100 ]
+[; ;LCDTime.c: 118: }
+[; ;LCDTime.c: 120: if (menuFunction != 1)
+[e $ ! != -> _menuFunction `i -> 1 `i 103  ]
 [; ;LCDTime.c: 121: {
 "121
 {
-[; ;LCDTime.c: 122: clearPrompt();
+[; ;LCDTime.c: 122: next_menu_clear = minute * 60 + seconds + 20 ;
 "122
-[e ( _clearPrompt ..  ]
+[e = _next_menu_clear + + * _minute -> 60 `i _seconds -> 20 `i ]
+[; ;LCDTime.c: 123: LCDGotoXY(9,0);
 "123
+[e ( _LCDGotoXY (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
+[; ;LCDTime.c: 124: if (menuFunction == 2)
+"124
+[e $ ! == -> _menuFunction `i -> 2 `i 104  ]
+[; ;LCDTime.c: 125: LCDWriteString("Time ?");
+"125
+[e ( _LCDWriteString (1 :s 4C ]
+[e :U 104 ]
+[; ;LCDTime.c: 126: if (menuFunction == 3)
+"126
+[e $ ! == -> _menuFunction `i -> 3 `i 105  ]
+[; ;LCDTime.c: 127: LCDWriteString("Date ?");
+"127
+[e ( _LCDWriteString (1 :s 5C ]
+[e :U 105 ]
+"128
+}
+[; ;LCDTime.c: 128: }
+[e $U 106  ]
+"129
+[e :U 103 ]
+[; ;LCDTime.c: 129: else
+[; ;LCDTime.c: 130: clearPrompt();
+"130
+[e ( _clearPrompt ..  ]
+[e :U 106 ]
+"131
+}
+[; ;LCDTime.c: 131: }
+[e $U 107  ]
+"132
+[e :U 97 ]
+[; ;LCDTime.c: 132: else if (next_menu_clear && ((minute * 60 + seconds) > next_menu_clear))
+[e $ ! && != _next_menu_clear -> 0 `i > + * _minute -> 60 `i _seconds _next_menu_clear 108  ]
+[; ;LCDTime.c: 133: {
+"133
+{
+[; ;LCDTime.c: 134: clearPrompt();
+"134
+[e ( _clearPrompt ..  ]
+"135
 }
 [e :U 108 ]
-"124
+"136
 [e :U 107 ]
 [e :U 96 ]
 }
 [e :U 92 ]
-"77
+"90
 [e $U 93  ]
 [e :U 94 ]
-[; ;LCDTime.c: 123: }
-[; ;LCDTime.c: 124: }
-[; ;LCDTime.c: 125: }
-"125
+[; ;LCDTime.c: 135: }
+[; ;LCDTime.c: 136: }
+[; ;LCDTime.c: 137: }
+"137
 [e :UE 91 ]
 }
-"127
+"139
 [v _clearPrompt `(v ~T0 @X0 1 ef ]
-"128
+"140
 {
-[; ;LCDTime.c: 127: void clearPrompt()
-[; ;LCDTime.c: 128: {
+[; ;LCDTime.c: 139: void clearPrompt()
+[; ;LCDTime.c: 140: {
 [e :U _clearPrompt ]
 [f ]
-[; ;LCDTime.c: 129: next_menu_clear = 0 ;
-"129
+[; ;LCDTime.c: 141: next_menu_clear = 0 ;
+"141
 [e = _next_menu_clear -> 0 `i ]
-[; ;LCDTime.c: 130: menuFunction = 1 ;
-"130
+[; ;LCDTime.c: 142: menuFunction = 1 ;
+"142
 [e = _menuFunction -> -> 1 `i `uc ]
-[; ;LCDTime.c: 131: LCDGotoXY(9,0);
-"131
+[; ;LCDTime.c: 143: LCDGotoXY(9,0);
+"143
 [e ( _LCDGotoXY (2 , -> -> 9 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 132: LCDWriteString("       ");
-"132
-[e ( _LCDWriteString (1 :s 3C ]
-[; ;LCDTime.c: 133: }
-"133
+[; ;LCDTime.c: 144: LCDWriteString("       ");
+"144
+[e ( _LCDWriteString (1 :s 6C ]
+[; ;LCDTime.c: 145: }
+"145
 [e :UE 109 ]
 }
-"135
+"147
 [v _doMenu `(v ~T0 @X0 1 ef ]
-"136
+"148
 {
-[; ;LCDTime.c: 135: void doMenu()
-[; ;LCDTime.c: 136: {
+[; ;LCDTime.c: 147: void doMenu()
+[; ;LCDTime.c: 148: {
 [e :U _doMenu ]
 [f ]
-[; ;LCDTime.c: 137: while(bButton)
-"137
+[; ;LCDTime.c: 149: while(bButton)
+"149
 [e $U 111  ]
 [e :U 112 ]
-[; ;LCDTime.c: 138: readInputs();
-"138
+[; ;LCDTime.c: 150: readInputs();
+"150
 [e ( _readInputs ..  ]
 [e :U 111 ]
-"137
+"149
 [e $ != -> _bButton `i -> -> -> 0 `i `uc `i 112  ]
 [e :U 113 ]
-[; ;LCDTime.c: 141: if (menuFunction == 1 | menuFunction == 2)
-"141
+[; ;LCDTime.c: 153: if (menuFunction == 1 | menuFunction == 2)
+"153
 [e $ ! | == -> _menuFunction `i -> 1 `i == -> _menuFunction `i -> 2 `i 114  ]
-[; ;LCDTime.c: 142: {
-"142
+[; ;LCDTime.c: 154: {
+"154
 {
-"143
+"155
 [v _h `i ~T0 @X0 1 a ]
 [v _m `i ~T0 @X0 1 a ]
 [v _s `i ~T0 @X0 1 a ]
-[; ;LCDTime.c: 143: int h,m,s ;
-[; ;LCDTime.c: 145: h = hour ;
-"145
+[; ;LCDTime.c: 155: int h,m,s ;
+[; ;LCDTime.c: 157: h = hour ;
+"157
 [e = _h _hour ]
-[; ;LCDTime.c: 146: m = minute ;
-"146
+[; ;LCDTime.c: 158: m = minute ;
+"158
 [e = _m _minute ]
-[; ;LCDTime.c: 147: s = seconds ;
-"147
+[; ;LCDTime.c: 159: s = seconds ;
+"159
 [e = _s _seconds ]
-[; ;LCDTime.c: 149: (LCDByte(0b00000001,0));
-"149
+[; ;LCDTime.c: 161: (LCDByte(0b00000001,0));
+"161
 [e ( _LCDByte (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 150: LCDWriteString(setText);
-"150
+[; ;LCDTime.c: 162: LCDWriteString(setText);
+"162
 [e ( _LCDWriteString (1 &U _setText ]
-[; ;LCDTime.c: 151: LCDWriteString("Hours");
-"151
-[e ( _LCDWriteString (1 :s 4C ]
-[; ;LCDTime.c: 153: LCDGotoXY(0,1) ;
-"153
+[; ;LCDTime.c: 163: LCDWriteString("Hours");
+"163
+[e ( _LCDWriteString (1 :s 7C ]
+[; ;LCDTime.c: 165: LCDGotoXY(0,1) ;
+"165
 [e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 154: showTime();
-"154
+[; ;LCDTime.c: 166: showTime();
+"166
 [e ( _showTime ..  ]
-[; ;LCDTime.c: 156: while(!bButton)
-"156
+[; ;LCDTime.c: 168: while(!bButton)
+"168
 [e $U 115  ]
 [e :U 116 ]
-[; ;LCDTime.c: 157: {
-"157
+[; ;LCDTime.c: 169: {
+"169
 {
-[; ;LCDTime.c: 158: readInputs();
-"158
+[; ;LCDTime.c: 170: readInputs();
+"170
 [e ( _readInputs ..  ]
-[; ;LCDTime.c: 160: if (state & 0x10)
-"160
+[; ;LCDTime.c: 172: if (state & 0x10)
+"172
 [e $ ! != & -> _state `i -> 16 `i -> 0 `i 118  ]
-[; ;LCDTime.c: 161: {
-"161
+[; ;LCDTime.c: 173: {
+"173
 {
-[; ;LCDTime.c: 162: hour++;
-"162
+[; ;LCDTime.c: 174: hour++;
+"174
 [e ++ _hour -> 1 `i ]
-[; ;LCDTime.c: 163: if (hour > 23)
-"163
+[; ;LCDTime.c: 175: if (hour > 23)
+"175
 [e $ ! > _hour -> 23 `i 119  ]
-[; ;LCDTime.c: 164: hour = 0 ;
-"164
+[; ;LCDTime.c: 176: hour = 0 ;
+"176
 [e = _hour -> 0 `i ]
 [e :U 119 ]
-"165
-}
-[; ;LCDTime.c: 165: }
-[e $U 120  ]
-"166
-[e :U 118 ]
-[; ;LCDTime.c: 166: else if (state & 0x20)
-[e $ ! != & -> _state `i -> 32 `i -> 0 `i 121  ]
-[; ;LCDTime.c: 167: {
-"167
-{
-[; ;LCDTime.c: 168: hour--;
-"168
-[e -- _hour -> 1 `i ]
-[; ;LCDTime.c: 169: if (hour < 0)
-"169
-[e $ ! < _hour -> 0 `i 122  ]
-[; ;LCDTime.c: 170: hour = 0 ;
-"170
-[e = _hour -> 0 `i ]
-[e :U 122 ]
-"171
-}
-[e :U 121 ]
-"173
-[e :U 120 ]
-[; ;LCDTime.c: 171: }
-[; ;LCDTime.c: 173: if (state & 0x30)
-[e $ ! != & -> _state `i -> 48 `i -> 0 `i 123  ]
-[; ;LCDTime.c: 174: {
-"174
-{
-[; ;LCDTime.c: 175: LCDGotoXY(0,1) ;
-"175
-[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 176: showTime();
-"176
-[e ( _showTime ..  ]
 "177
 }
-[e :U 123 ]
+[; ;LCDTime.c: 177: }
+[e $U 120  ]
 "178
+[e :U 118 ]
+[; ;LCDTime.c: 178: else if (state & 0x20)
+[e $ ! != & -> _state `i -> 32 `i -> 0 `i 121  ]
+[; ;LCDTime.c: 179: {
+"179
+{
+[; ;LCDTime.c: 180: hour--;
+"180
+[e -- _hour -> 1 `i ]
+[; ;LCDTime.c: 181: if (hour < 0)
+"181
+[e $ ! < _hour -> 0 `i 122  ]
+[; ;LCDTime.c: 182: hour = 0 ;
+"182
+[e = _hour -> 0 `i ]
+[e :U 122 ]
+"183
+}
+[e :U 121 ]
+"185
+[e :U 120 ]
+[; ;LCDTime.c: 183: }
+[; ;LCDTime.c: 185: if (state & 0x30)
+[e $ ! != & -> _state `i -> 48 `i -> 0 `i 123  ]
+[; ;LCDTime.c: 186: {
+"186
+{
+[; ;LCDTime.c: 187: LCDGotoXY(0,1) ;
+"187
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 188: showTime();
+"188
+[e ( _showTime ..  ]
+"189
+}
+[e :U 123 ]
+"190
 }
 [e :U 115 ]
-"156
+"168
 [e $ ! != -> _bButton `i -> -> -> 0 `i `uc `i 116  ]
 [e :U 117 ]
-[; ;LCDTime.c: 177: }
-[; ;LCDTime.c: 178: }
-[; ;LCDTime.c: 180: while(bButton)
-"180
+[; ;LCDTime.c: 189: }
+[; ;LCDTime.c: 190: }
+[; ;LCDTime.c: 192: while(bButton)
+"192
 [e $U 124  ]
 [e :U 125 ]
-[; ;LCDTime.c: 181: readInputs();
-"181
+[; ;LCDTime.c: 193: readInputs();
+"193
 [e ( _readInputs ..  ]
 [e :U 124 ]
-"180
+"192
 [e $ != -> _bButton `i -> -> -> 0 `i `uc `i 125  ]
 [e :U 126 ]
-[; ;LCDTime.c: 183: LCDGotoXY(0,0) ;
-"183
+[; ;LCDTime.c: 195: LCDGotoXY(0,0) ;
+"195
 [e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 184: LCDWriteString(setText);
-"184
+[; ;LCDTime.c: 196: LCDWriteString(setText);
+"196
 [e ( _LCDWriteString (1 &U _setText ]
-[; ;LCDTime.c: 185: LCDWriteString("Minutes");
-"185
-[e ( _LCDWriteString (1 :s 5C ]
-[; ;LCDTime.c: 187: while(!bButton)
-"187
+[; ;LCDTime.c: 197: LCDWriteString("Minutes");
+"197
+[e ( _LCDWriteString (1 :s 8C ]
+[; ;LCDTime.c: 199: while(!bButton)
+"199
 [e $U 127  ]
 [e :U 128 ]
-[; ;LCDTime.c: 188: {
-"188
+[; ;LCDTime.c: 200: {
+"200
 {
-[; ;LCDTime.c: 189: readInputs();
-"189
+[; ;LCDTime.c: 201: readInputs();
+"201
 [e ( _readInputs ..  ]
-[; ;LCDTime.c: 191: if (state & 0x10)
-"191
+[; ;LCDTime.c: 203: if (state & 0x10)
+"203
 [e $ ! != & -> _state `i -> 16 `i -> 0 `i 130  ]
-[; ;LCDTime.c: 192: {
-"192
+[; ;LCDTime.c: 204: {
+"204
 {
-[; ;LCDTime.c: 193: minute++;
-"193
+[; ;LCDTime.c: 205: minute++;
+"205
 [e ++ _minute -> 1 `i ]
-[; ;LCDTime.c: 194: if (minute > 59)
-"194
+[; ;LCDTime.c: 206: if (minute > 59)
+"206
 [e $ ! > _minute -> 59 `i 131  ]
-[; ;LCDTime.c: 195: minute = 0 ;
-"195
+[; ;LCDTime.c: 207: minute = 0 ;
+"207
 [e = _minute -> 0 `i ]
 [e :U 131 ]
-"196
-}
-[; ;LCDTime.c: 196: }
-[e $U 132  ]
-"197
-[e :U 130 ]
-[; ;LCDTime.c: 197: else if (state & 0x20)
-[e $ ! != & -> _state `i -> 32 `i -> 0 `i 133  ]
-[; ;LCDTime.c: 198: {
-"198
-{
-[; ;LCDTime.c: 199: minute--;
-"199
-[e -- _minute -> 1 `i ]
-[; ;LCDTime.c: 200: if (minute < 0)
-"200
-[e $ ! < _minute -> 0 `i 134  ]
-[; ;LCDTime.c: 201: minute = 0 ;
-"201
-[e = _minute -> 0 `i ]
-[e :U 134 ]
-"202
-}
-[e :U 133 ]
-"204
-[e :U 132 ]
-[; ;LCDTime.c: 202: }
-[; ;LCDTime.c: 204: if (state & 0x30)
-[e $ ! != & -> _state `i -> 48 `i -> 0 `i 135  ]
-[; ;LCDTime.c: 205: {
-"205
-{
-[; ;LCDTime.c: 206: LCDGotoXY(0,1) ;
-"206
-[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 207: showTime();
-"207
-[e ( _showTime ..  ]
 "208
 }
-[e :U 135 ]
+[; ;LCDTime.c: 208: }
+[e $U 132  ]
 "209
+[e :U 130 ]
+[; ;LCDTime.c: 209: else if (state & 0x20)
+[e $ ! != & -> _state `i -> 32 `i -> 0 `i 133  ]
+[; ;LCDTime.c: 210: {
+"210
+{
+[; ;LCDTime.c: 211: minute--;
+"211
+[e -- _minute -> 1 `i ]
+[; ;LCDTime.c: 212: if (minute < 0)
+"212
+[e $ ! < _minute -> 0 `i 134  ]
+[; ;LCDTime.c: 213: minute = 0 ;
+"213
+[e = _minute -> 0 `i ]
+[e :U 134 ]
+"214
+}
+[e :U 133 ]
+"216
+[e :U 132 ]
+[; ;LCDTime.c: 214: }
+[; ;LCDTime.c: 216: if (state & 0x30)
+[e $ ! != & -> _state `i -> 48 `i -> 0 `i 135  ]
+[; ;LCDTime.c: 217: {
+"217
+{
+[; ;LCDTime.c: 218: LCDGotoXY(0,1) ;
+"218
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 219: showTime();
+"219
+[e ( _showTime ..  ]
+"220
+}
+[e :U 135 ]
+"221
 }
 [e :U 127 ]
-"187
+"199
 [e $ ! != -> _bButton `i -> -> -> 0 `i `uc `i 128  ]
 [e :U 129 ]
-[; ;LCDTime.c: 208: }
-[; ;LCDTime.c: 209: }
-[; ;LCDTime.c: 211: while(bButton)
-"211
+[; ;LCDTime.c: 220: }
+[; ;LCDTime.c: 221: }
+[; ;LCDTime.c: 223: while(bButton)
+"223
 [e $U 136  ]
 [e :U 137 ]
-[; ;LCDTime.c: 212: readInputs();
-"212
+[; ;LCDTime.c: 224: readInputs();
+"224
 [e ( _readInputs ..  ]
 [e :U 136 ]
-"211
+"223
 [e $ != -> _bButton `i -> -> -> 0 `i `uc `i 137  ]
 [e :U 138 ]
-[; ;LCDTime.c: 214: LCDGotoXY(0,0) ;
-"214
+[; ;LCDTime.c: 226: LCDGotoXY(0,0) ;
+"226
 [e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 215: LCDWriteString(setText);
-"215
+[; ;LCDTime.c: 227: LCDWriteString(setText);
+"227
 [e ( _LCDWriteString (1 &U _setText ]
-[; ;LCDTime.c: 216: LCDWriteString("Seconds");
-"216
-[e ( _LCDWriteString (1 :s 6C ]
-[; ;LCDTime.c: 218: while(!bButton)
-"218
+[; ;LCDTime.c: 228: LCDWriteString("Seconds");
+"228
+[e ( _LCDWriteString (1 :s 9C ]
+[; ;LCDTime.c: 230: while(!bButton)
+"230
 [e $U 139  ]
 [e :U 140 ]
-[; ;LCDTime.c: 219: {
-"219
+[; ;LCDTime.c: 231: {
+"231
 {
-[; ;LCDTime.c: 220: readInputs();
-"220
+[; ;LCDTime.c: 232: readInputs();
+"232
 [e ( _readInputs ..  ]
-[; ;LCDTime.c: 222: if (state & 0x10)
-"222
+[; ;LCDTime.c: 234: if (state & 0x10)
+"234
 [e $ ! != & -> _state `i -> 16 `i -> 0 `i 142  ]
-[; ;LCDTime.c: 223: {
-"223
+[; ;LCDTime.c: 235: {
+"235
 {
-[; ;LCDTime.c: 224: seconds++;
-"224
+[; ;LCDTime.c: 236: seconds++;
+"236
 [e ++ _seconds -> 1 `i ]
-[; ;LCDTime.c: 225: if (seconds > 59)
-"225
+[; ;LCDTime.c: 237: if (seconds > 59)
+"237
 [e $ ! > _seconds -> 59 `i 143  ]
-[; ;LCDTime.c: 226: seconds = 0 ;
-"226
+[; ;LCDTime.c: 238: seconds = 0 ;
+"238
 [e = _seconds -> 0 `i ]
 [e :U 143 ]
-"227
-}
-[; ;LCDTime.c: 227: }
-[e $U 144  ]
-"228
-[e :U 142 ]
-[; ;LCDTime.c: 228: else if (state & 0x20)
-[e $ ! != & -> _state `i -> 32 `i -> 0 `i 145  ]
-[; ;LCDTime.c: 229: {
-"229
-{
-[; ;LCDTime.c: 230: seconds--;
-"230
-[e -- _seconds -> 1 `i ]
-[; ;LCDTime.c: 231: if (seconds < 0)
-"231
-[e $ ! < _seconds -> 0 `i 146  ]
-[; ;LCDTime.c: 232: seconds = 0 ;
-"232
-[e = _seconds -> 0 `i ]
-[e :U 146 ]
-"233
-}
-[e :U 145 ]
-"235
-[e :U 144 ]
-[; ;LCDTime.c: 233: }
-[; ;LCDTime.c: 235: if (state & 0x30)
-[e $ ! != & -> _state `i -> 48 `i -> 0 `i 147  ]
-[; ;LCDTime.c: 236: {
-"236
-{
-[; ;LCDTime.c: 237: LCDGotoXY(0,1) ;
-"237
-[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 238: showTime();
-"238
-[e ( _showTime ..  ]
 "239
 }
-[e :U 147 ]
-"240
-}
-[e :U 139 ]
-"218
-[e $ ! != -> _bButton `i -> -> -> 0 `i `uc `i 140  ]
-[e :U 141 ]
 [; ;LCDTime.c: 239: }
-[; ;LCDTime.c: 240: }
-[; ;LCDTime.c: 243: if (h != hour || m != minute || s != seconds)
-"243
-[e $ ! || || != _h _hour != _m _minute != _s _seconds 148  ]
-[; ;LCDTime.c: 244: {
-"244
+[e $U 144  ]
+"240
+[e :U 142 ]
+[; ;LCDTime.c: 240: else if (state & 0x20)
+[e $ ! != & -> _state `i -> 32 `i -> 0 `i 145  ]
+[; ;LCDTime.c: 241: {
+"241
 {
-[; ;LCDTime.c: 245: h = ((hour / 10) << 4) + hour % 10 ;
+[; ;LCDTime.c: 242: seconds--;
+"242
+[e -- _seconds -> 1 `i ]
+[; ;LCDTime.c: 243: if (seconds < 0)
+"243
+[e $ ! < _seconds -> 0 `i 146  ]
+[; ;LCDTime.c: 244: seconds = 0 ;
+"244
+[e = _seconds -> 0 `i ]
+[e :U 146 ]
 "245
-[e = _h + << / _hour -> 10 `i -> 4 `i % _hour -> 10 `i ]
-[; ;LCDTime.c: 246: m = ((minute / 10) << 4) + minute % 10 ;
-"246
-[e = _m + << / _minute -> 10 `i -> 4 `i % _minute -> 10 `i ]
-[; ;LCDTime.c: 247: s = ((seconds / 10) << 4) + seconds % 10 ;
+}
+[e :U 145 ]
 "247
-[e = _s + << / _seconds -> 10 `i -> 4 `i % _seconds -> 10 `i ]
-[; ;LCDTime.c: 249: DS1307_SetTime(h,m,s) ;
+[e :U 144 ]
+[; ;LCDTime.c: 245: }
+[; ;LCDTime.c: 247: if (state & 0x30)
+[e $ ! != & -> _state `i -> 48 `i -> 0 `i 147  ]
+[; ;LCDTime.c: 248: {
+"248
+{
+[; ;LCDTime.c: 249: LCDGotoXY(0,1) ;
 "249
-[e ( _DS1307_SetTime (3 , , -> _h `uc -> _m `uc -> _s `uc ]
-[; ;LCDTime.c: 251: runningMinute = minute ;
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 250: showTime();
+"250
+[e ( _showTime ..  ]
 "251
-[e = _runningMinute _minute ]
+}
+[e :U 147 ]
 "252
 }
-[e :U 148 ]
+[e :U 139 ]
+"230
+[e $ ! != -> _bButton `i -> -> -> 0 `i `uc `i 140  ]
+[e :U 141 ]
+[; ;LCDTime.c: 251: }
 [; ;LCDTime.c: 252: }
-[; ;LCDTime.c: 254: while(bButton)
-"254
+[; ;LCDTime.c: 255: if (h != hour || m != minute || s != seconds)
+"255
+[e $ ! || || != _h _hour != _m _minute != _s _seconds 148  ]
+[; ;LCDTime.c: 256: {
+"256
+{
+[; ;LCDTime.c: 257: h = ((hour / 10) << 4) + hour % 10 ;
+"257
+[e = _h + << / _hour -> 10 `i -> 4 `i % _hour -> 10 `i ]
+[; ;LCDTime.c: 258: m = ((minute / 10) << 4) + minute % 10 ;
+"258
+[e = _m + << / _minute -> 10 `i -> 4 `i % _minute -> 10 `i ]
+[; ;LCDTime.c: 259: s = ((seconds / 10) << 4) + seconds % 10 ;
+"259
+[e = _s + << / _seconds -> 10 `i -> 4 `i % _seconds -> 10 `i ]
+[; ;LCDTime.c: 261: DS1307_SetTime(h,m,s) ;
+"261
+[e ( _DS1307_SetTime (3 , , -> _h `uc -> _m `uc -> _s `uc ]
+[; ;LCDTime.c: 263: runningMinute = minute ;
+"263
+[e = _runningMinute _minute ]
+"264
+}
+[e :U 148 ]
+[; ;LCDTime.c: 264: }
+[; ;LCDTime.c: 266: while(bButton)
+"266
 [e $U 149  ]
 [e :U 150 ]
-[; ;LCDTime.c: 255: readInputs();
-"255
+[; ;LCDTime.c: 267: readInputs();
+"267
 [e ( _readInputs ..  ]
 [e :U 149 ]
-"254
+"266
 [e $ != -> _bButton `i -> -> -> 0 `i `uc `i 150  ]
 [e :U 151 ]
-"256
+"268
 }
 [e :U 114 ]
-[; ;LCDTime.c: 256: }
-[; ;LCDTime.c: 259: if (menuFunction == 1 | menuFunction == 3)
-"259
+[; ;LCDTime.c: 268: }
+[; ;LCDTime.c: 271: if (menuFunction == 1 | menuFunction == 3)
+"271
 [e $ ! | == -> _menuFunction `i -> 1 `i == -> _menuFunction `i -> 3 `i 152  ]
-[; ;LCDTime.c: 260: {
-"260
+[; ;LCDTime.c: 272: {
+"272
 {
-"261
+"273
 [v _n `i ~T0 @X0 1 a ]
 [v _d `i ~T0 @X0 1 a ]
 [v _m `i ~T0 @X0 1 a ]
 [v _y `i ~T0 @X0 1 a ]
-[; ;LCDTime.c: 261: int n,d,m,y ;
-[; ;LCDTime.c: 263: n = day ;
-"263
-[e = _n _day ]
-[; ;LCDTime.c: 264: d = date ;
-"264
-[e = _d _date ]
-[; ;LCDTime.c: 265: m = month ;
-"265
-[e = _m _month ]
-[; ;LCDTime.c: 266: y = year ;
-"266
-[e = _y _year ]
-[; ;LCDTime.c: 268: (LCDByte(0b00000001,0));
-"268
-[e ( _LCDByte (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 269: LCDWriteString(setText);
-"269
-[e ( _LCDWriteString (1 &U _setText ]
-[; ;LCDTime.c: 270: LCDWriteString("Year");
-"270
-[e ( _LCDWriteString (1 :s 7C ]
-[; ;LCDTime.c: 272: LCDGotoXY(0,1) ;
-"272
-[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 273: showDate();
-"273
-[e ( _showDate ..  ]
-[; ;LCDTime.c: 275: while(!bButton)
+[; ;LCDTime.c: 273: int n,d,m,y ;
+[; ;LCDTime.c: 275: n = day ;
 "275
+[e = _n _day ]
+[; ;LCDTime.c: 276: d = date ;
+"276
+[e = _d _date ]
+[; ;LCDTime.c: 277: m = month ;
+"277
+[e = _m _month ]
+[; ;LCDTime.c: 278: y = year ;
+"278
+[e = _y _year ]
+[; ;LCDTime.c: 280: (LCDByte(0b00000001,0));
+"280
+[e ( _LCDByte (2 , -> -> 1 `i `uc -> -> 0 `i `uc ]
+[; ;LCDTime.c: 281: LCDWriteString(setText);
+"281
+[e ( _LCDWriteString (1 &U _setText ]
+[; ;LCDTime.c: 282: LCDWriteString("Year");
+"282
+[e ( _LCDWriteString (1 :s 10C ]
+[; ;LCDTime.c: 284: LCDGotoXY(0,1) ;
+"284
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 285: showDate();
+"285
+[e ( _showDate ..  ]
+[; ;LCDTime.c: 287: while(!bButton)
+"287
 [e $U 153  ]
 [e :U 154 ]
-[; ;LCDTime.c: 276: {
-"276
+[; ;LCDTime.c: 288: {
+"288
 {
-[; ;LCDTime.c: 277: readInputs();
-"277
+[; ;LCDTime.c: 289: readInputs();
+"289
 [e ( _readInputs ..  ]
-[; ;LCDTime.c: 279: if (state & 0x10)
-"279
+[; ;LCDTime.c: 291: if (state & 0x10)
+"291
 [e $ ! != & -> _state `i -> 16 `i -> 0 `i 156  ]
-[; ;LCDTime.c: 280: {
-"280
+[; ;LCDTime.c: 292: {
+"292
 {
-[; ;LCDTime.c: 281: year++;
-"281
+[; ;LCDTime.c: 293: year++;
+"293
 [e ++ _year -> 1 `i ]
-[; ;LCDTime.c: 282: if (year > 99)
-"282
+[; ;LCDTime.c: 294: if (year > 99)
+"294
 [e $ ! > _year -> 99 `i 157  ]
-[; ;LCDTime.c: 283: year = 0 ;
-"283
+[; ;LCDTime.c: 295: year = 0 ;
+"295
 [e = _year -> 0 `i ]
 [e :U 157 ]
-"284
-}
-[; ;LCDTime.c: 284: }
-[e $U 158  ]
-"285
-[e :U 156 ]
-[; ;LCDTime.c: 285: else if (state & 0x20)
-[e $ ! != & -> _state `i -> 32 `i -> 0 `i 159  ]
-[; ;LCDTime.c: 286: {
-"286
-{
-[; ;LCDTime.c: 287: year--;
-"287
-[e -- _year -> 1 `i ]
-[; ;LCDTime.c: 288: if (year < 0)
-"288
-[e $ ! < _year -> 0 `i 160  ]
-[; ;LCDTime.c: 289: date = 99 ;
-"289
-[e = _date -> 99 `i ]
-[e :U 160 ]
-"290
-}
-[e :U 159 ]
-"292
-[e :U 158 ]
-[; ;LCDTime.c: 290: }
-[; ;LCDTime.c: 292: if (state & 0x30)
-[e $ ! != & -> _state `i -> 48 `i -> 0 `i 161  ]
-[; ;LCDTime.c: 293: {
-"293
-{
-[; ;LCDTime.c: 294: LCDGotoXY(0,1) ;
-"294
-[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 295: showDate();
-"295
-[e ( _showDate ..  ]
 "296
 }
-[e :U 161 ]
+[; ;LCDTime.c: 296: }
+[e $U 158  ]
 "297
+[e :U 156 ]
+[; ;LCDTime.c: 297: else if (state & 0x20)
+[e $ ! != & -> _state `i -> 32 `i -> 0 `i 159  ]
+[; ;LCDTime.c: 298: {
+"298
+{
+[; ;LCDTime.c: 299: year--;
+"299
+[e -- _year -> 1 `i ]
+[; ;LCDTime.c: 300: if (year < 0)
+"300
+[e $ ! < _year -> 0 `i 160  ]
+[; ;LCDTime.c: 301: date = 99 ;
+"301
+[e = _date -> 99 `i ]
+[e :U 160 ]
+"302
+}
+[e :U 159 ]
+"304
+[e :U 158 ]
+[; ;LCDTime.c: 302: }
+[; ;LCDTime.c: 304: if (state & 0x30)
+[e $ ! != & -> _state `i -> 48 `i -> 0 `i 161  ]
+[; ;LCDTime.c: 305: {
+"305
+{
+[; ;LCDTime.c: 306: LCDGotoXY(0,1) ;
+"306
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 307: showDate();
+"307
+[e ( _showDate ..  ]
+"308
+}
+[e :U 161 ]
+"309
 }
 [e :U 153 ]
-"275
+"287
 [e $ ! != -> _bButton `i -> -> -> 0 `i `uc `i 154  ]
 [e :U 155 ]
-[; ;LCDTime.c: 296: }
-[; ;LCDTime.c: 297: }
-[; ;LCDTime.c: 299: while(bButton)
-"299
+[; ;LCDTime.c: 308: }
+[; ;LCDTime.c: 309: }
+[; ;LCDTime.c: 311: while(bButton)
+"311
 [e $U 162  ]
 [e :U 163 ]
-[; ;LCDTime.c: 300: readInputs();
-"300
+[; ;LCDTime.c: 312: readInputs();
+"312
 [e ( _readInputs ..  ]
 [e :U 162 ]
-"299
+"311
 [e $ != -> _bButton `i -> -> -> 0 `i `uc `i 163  ]
 [e :U 164 ]
-[; ;LCDTime.c: 302: LCDGotoXY(0,0) ;
-"302
+[; ;LCDTime.c: 314: LCDGotoXY(0,0) ;
+"314
 [e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 303: LCDWriteString(setText);
-"303
+[; ;LCDTime.c: 315: LCDWriteString(setText);
+"315
 [e ( _LCDWriteString (1 &U _setText ]
-[; ;LCDTime.c: 304: LCDWriteString("Month");
-"304
-[e ( _LCDWriteString (1 :s 8C ]
-[; ;LCDTime.c: 306: while(!bButton)
-"306
+[; ;LCDTime.c: 316: LCDWriteString("Month");
+"316
+[e ( _LCDWriteString (1 :s 11C ]
+[; ;LCDTime.c: 318: while(!bButton)
+"318
 [e $U 165  ]
 [e :U 166 ]
-[; ;LCDTime.c: 307: {
-"307
+[; ;LCDTime.c: 319: {
+"319
 {
-[; ;LCDTime.c: 308: readInputs();
-"308
+[; ;LCDTime.c: 320: readInputs();
+"320
 [e ( _readInputs ..  ]
-[; ;LCDTime.c: 310: if (state & 0x10)
-"310
+[; ;LCDTime.c: 322: if (state & 0x10)
+"322
 [e $ ! != & -> _state `i -> 16 `i -> 0 `i 168  ]
-[; ;LCDTime.c: 311: {
-"311
+[; ;LCDTime.c: 323: {
+"323
 {
-[; ;LCDTime.c: 312: month++;
-"312
+[; ;LCDTime.c: 324: month++;
+"324
 [e ++ _month -> 1 `i ]
-[; ;LCDTime.c: 313: if (month > 12)
-"313
+[; ;LCDTime.c: 325: if (month > 12)
+"325
 [e $ ! > _month -> 12 `i 169  ]
-[; ;LCDTime.c: 314: month = 1 ;
-"314
+[; ;LCDTime.c: 326: month = 1 ;
+"326
 [e = _month -> 1 `i ]
 [e :U 169 ]
-"315
-}
-[; ;LCDTime.c: 315: }
-[e $U 170  ]
-"316
-[e :U 168 ]
-[; ;LCDTime.c: 316: else if (state & 0x20)
-[e $ ! != & -> _state `i -> 32 `i -> 0 `i 171  ]
-[; ;LCDTime.c: 317: {
-"317
-{
-[; ;LCDTime.c: 318: month--;
-"318
-[e -- _month -> 1 `i ]
-[; ;LCDTime.c: 319: if (!month)
-"319
-[e $ ! ! != _month -> 0 `i 172  ]
-[; ;LCDTime.c: 320: month = 12 ;
-"320
-[e = _month -> 12 `i ]
-[e :U 172 ]
-"321
-}
-[e :U 171 ]
-"323
-[e :U 170 ]
-[; ;LCDTime.c: 321: }
-[; ;LCDTime.c: 323: if (state & 0x30)
-[e $ ! != & -> _state `i -> 48 `i -> 0 `i 173  ]
-[; ;LCDTime.c: 324: {
-"324
-{
-[; ;LCDTime.c: 325: LCDGotoXY(0,1) ;
-"325
-[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 326: showDate();
-"326
-[e ( _showDate ..  ]
 "327
 }
-[e :U 173 ]
+[; ;LCDTime.c: 327: }
+[e $U 170  ]
 "328
+[e :U 168 ]
+[; ;LCDTime.c: 328: else if (state & 0x20)
+[e $ ! != & -> _state `i -> 32 `i -> 0 `i 171  ]
+[; ;LCDTime.c: 329: {
+"329
+{
+[; ;LCDTime.c: 330: month--;
+"330
+[e -- _month -> 1 `i ]
+[; ;LCDTime.c: 331: if (!month)
+"331
+[e $ ! ! != _month -> 0 `i 172  ]
+[; ;LCDTime.c: 332: month = 12 ;
+"332
+[e = _month -> 12 `i ]
+[e :U 172 ]
+"333
+}
+[e :U 171 ]
+"335
+[e :U 170 ]
+[; ;LCDTime.c: 333: }
+[; ;LCDTime.c: 335: if (state & 0x30)
+[e $ ! != & -> _state `i -> 48 `i -> 0 `i 173  ]
+[; ;LCDTime.c: 336: {
+"336
+{
+[; ;LCDTime.c: 337: LCDGotoXY(0,1) ;
+"337
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 338: showDate();
+"338
+[e ( _showDate ..  ]
+"339
+}
+[e :U 173 ]
+"340
 }
 [e :U 165 ]
-"306
+"318
 [e $ ! != -> _bButton `i -> -> -> 0 `i `uc `i 166  ]
 [e :U 167 ]
-[; ;LCDTime.c: 327: }
-[; ;LCDTime.c: 328: }
-[; ;LCDTime.c: 330: while(bButton)
-"330
+[; ;LCDTime.c: 339: }
+[; ;LCDTime.c: 340: }
+[; ;LCDTime.c: 342: while(bButton)
+"342
 [e $U 174  ]
 [e :U 175 ]
-[; ;LCDTime.c: 331: readInputs();
-"331
+[; ;LCDTime.c: 343: readInputs();
+"343
 [e ( _readInputs ..  ]
 [e :U 174 ]
-"330
+"342
 [e $ != -> _bButton `i -> -> -> 0 `i `uc `i 175  ]
 [e :U 176 ]
-[; ;LCDTime.c: 333: LCDGotoXY(0,0) ;
-"333
+[; ;LCDTime.c: 345: LCDGotoXY(0,0) ;
+"345
 [e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 334: LCDWriteString(setText);
-"334
+[; ;LCDTime.c: 346: LCDWriteString(setText);
+"346
 [e ( _LCDWriteString (1 &U _setText ]
-[; ;LCDTime.c: 335: LCDWriteString("Date ");
-"335
-[e ( _LCDWriteString (1 :s 9C ]
-[; ;LCDTime.c: 337: while(!bButton)
-"337
+[; ;LCDTime.c: 347: LCDWriteString("Date ");
+"347
+[e ( _LCDWriteString (1 :s 12C ]
+[; ;LCDTime.c: 349: while(!bButton)
+"349
 [e $U 177  ]
 [e :U 178 ]
-[; ;LCDTime.c: 338: {
-"338
+[; ;LCDTime.c: 350: {
+"350
 {
-[; ;LCDTime.c: 339: readInputs();
-"339
+[; ;LCDTime.c: 351: readInputs();
+"351
 [e ( _readInputs ..  ]
-[; ;LCDTime.c: 341: if (state & 0x10)
-"341
+[; ;LCDTime.c: 353: if (state & 0x10)
+"353
 [e $ ! != & -> _state `i -> 16 `i -> 0 `i 180  ]
-[; ;LCDTime.c: 342: {
-"342
+[; ;LCDTime.c: 354: {
+"354
 {
-[; ;LCDTime.c: 343: date++;
-"343
+[; ;LCDTime.c: 355: date++;
+"355
 [e ++ _date -> 1 `i ]
-[; ;LCDTime.c: 344: if (date > monthDays[month-1])
-"344
+[; ;LCDTime.c: 356: if (date > monthDays[month-1])
+"356
 [e $ ! > _date -> *U + &U _monthDays * -> -> - _month -> 1 `i `ui `ux -> -> # *U &U _monthDays `ui `ux `i 181  ]
-[; ;LCDTime.c: 345: date = 1 ;
-"345
+[; ;LCDTime.c: 357: date = 1 ;
+"357
 [e = _date -> 1 `i ]
 [e :U 181 ]
-"346
-}
-[; ;LCDTime.c: 346: }
-[e $U 182  ]
-"347
-[e :U 180 ]
-[; ;LCDTime.c: 347: else if (state & 0x20)
-[e $ ! != & -> _state `i -> 32 `i -> 0 `i 183  ]
-[; ;LCDTime.c: 348: {
-"348
-{
-[; ;LCDTime.c: 349: date--;
-"349
-[e -- _date -> 1 `i ]
-[; ;LCDTime.c: 350: if (date < 0)
-"350
-[e $ ! < _date -> 0 `i 184  ]
-[; ;LCDTime.c: 351: date = monthDays[month-1] ;
-"351
-[e = _date -> *U + &U _monthDays * -> -> - _month -> 1 `i `ui `ux -> -> # *U &U _monthDays `ui `ux `i ]
-[e :U 184 ]
-"352
-}
-[e :U 183 ]
-"354
-[e :U 182 ]
-[; ;LCDTime.c: 352: }
-[; ;LCDTime.c: 354: if (state & 0x30)
-[e $ ! != & -> _state `i -> 48 `i -> 0 `i 185  ]
-[; ;LCDTime.c: 355: {
-"355
-{
-[; ;LCDTime.c: 356: LCDGotoXY(0,1) ;
-"356
-[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 357: showDate();
-"357
-[e ( _showDate ..  ]
 "358
 }
-[e :U 185 ]
+[; ;LCDTime.c: 358: }
+[e $U 182  ]
 "359
+[e :U 180 ]
+[; ;LCDTime.c: 359: else if (state & 0x20)
+[e $ ! != & -> _state `i -> 32 `i -> 0 `i 183  ]
+[; ;LCDTime.c: 360: {
+"360
+{
+[; ;LCDTime.c: 361: date--;
+"361
+[e -- _date -> 1 `i ]
+[; ;LCDTime.c: 362: if (date < 0)
+"362
+[e $ ! < _date -> 0 `i 184  ]
+[; ;LCDTime.c: 363: date = monthDays[month-1] ;
+"363
+[e = _date -> *U + &U _monthDays * -> -> - _month -> 1 `i `ui `ux -> -> # *U &U _monthDays `ui `ux `i ]
+[e :U 184 ]
+"364
+}
+[e :U 183 ]
+"366
+[e :U 182 ]
+[; ;LCDTime.c: 364: }
+[; ;LCDTime.c: 366: if (state & 0x30)
+[e $ ! != & -> _state `i -> 48 `i -> 0 `i 185  ]
+[; ;LCDTime.c: 367: {
+"367
+{
+[; ;LCDTime.c: 368: LCDGotoXY(0,1) ;
+"368
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 369: showDate();
+"369
+[e ( _showDate ..  ]
+"370
+}
+[e :U 185 ]
+"371
 }
 [e :U 177 ]
-"337
+"349
 [e $ ! != -> _bButton `i -> -> -> 0 `i `uc `i 178  ]
 [e :U 179 ]
-[; ;LCDTime.c: 358: }
-[; ;LCDTime.c: 359: }
-[; ;LCDTime.c: 361: while(bButton)
-"361
+[; ;LCDTime.c: 370: }
+[; ;LCDTime.c: 371: }
+[; ;LCDTime.c: 373: while(bButton)
+"373
 [e $U 186  ]
 [e :U 187 ]
-[; ;LCDTime.c: 362: readInputs();
-"362
+[; ;LCDTime.c: 374: readInputs();
+"374
 [e ( _readInputs ..  ]
 [e :U 186 ]
-"361
+"373
 [e $ != -> _bButton `i -> -> -> 0 `i `uc `i 187  ]
 [e :U 188 ]
-[; ;LCDTime.c: 364: LCDGotoXY(0,0) ;
-"364
+[; ;LCDTime.c: 376: LCDGotoXY(0,0) ;
+"376
 [e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 365: LCDWriteString(setText);
-"365
+[; ;LCDTime.c: 377: LCDWriteString(setText);
+"377
 [e ( _LCDWriteString (1 &U _setText ]
-[; ;LCDTime.c: 366: LCDWriteString("Day  ");
-"366
-[e ( _LCDWriteString (1 :s 10C ]
-[; ;LCDTime.c: 368: while(!bButton)
-"368
+[; ;LCDTime.c: 378: LCDWriteString("Day  ");
+"378
+[e ( _LCDWriteString (1 :s 13C ]
+[; ;LCDTime.c: 380: while(!bButton)
+"380
 [e $U 189  ]
 [e :U 190 ]
-[; ;LCDTime.c: 369: {
-"369
+[; ;LCDTime.c: 381: {
+"381
 {
-[; ;LCDTime.c: 370: readInputs();
-"370
+[; ;LCDTime.c: 382: readInputs();
+"382
 [e ( _readInputs ..  ]
-[; ;LCDTime.c: 372: if (state & 0x10)
-"372
+[; ;LCDTime.c: 384: if (state & 0x10)
+"384
 [e $ ! != & -> _state `i -> 16 `i -> 0 `i 192  ]
-[; ;LCDTime.c: 373: {
-"373
+[; ;LCDTime.c: 385: {
+"385
 {
-[; ;LCDTime.c: 374: day++;
-"374
+[; ;LCDTime.c: 386: day++;
+"386
 [e ++ _day -> 1 `i ]
-[; ;LCDTime.c: 375: if (day > 7)
-"375
+[; ;LCDTime.c: 387: if (day > 7)
+"387
 [e $ ! > _day -> 7 `i 193  ]
-[; ;LCDTime.c: 376: day = 1 ;
-"376
+[; ;LCDTime.c: 388: day = 1 ;
+"388
 [e = _day -> 1 `i ]
 [e :U 193 ]
-"377
-}
-[; ;LCDTime.c: 377: }
-[e $U 194  ]
-"378
-[e :U 192 ]
-[; ;LCDTime.c: 378: else if (state & 0x20)
-[e $ ! != & -> _state `i -> 32 `i -> 0 `i 195  ]
-[; ;LCDTime.c: 379: {
-"379
-{
-[; ;LCDTime.c: 380: day--;
-"380
-[e -- _day -> 1 `i ]
-[; ;LCDTime.c: 381: if (day < 0)
-"381
-[e $ ! < _day -> 0 `i 196  ]
-[; ;LCDTime.c: 382: day = 7 ;
-"382
-[e = _day -> 7 `i ]
-[e :U 196 ]
-"383
-}
-[e :U 195 ]
-"385
-[e :U 194 ]
-[; ;LCDTime.c: 383: }
-[; ;LCDTime.c: 385: if (state & 0x30)
-[e $ ! != & -> _state `i -> 48 `i -> 0 `i 197  ]
-[; ;LCDTime.c: 386: {
-"386
-{
-[; ;LCDTime.c: 387: LCDGotoXY(0,1) ;
-"387
-[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 388: showDate();
-"388
-[e ( _showDate ..  ]
 "389
 }
-[e :U 197 ]
+[; ;LCDTime.c: 389: }
+[e $U 194  ]
 "390
+[e :U 192 ]
+[; ;LCDTime.c: 390: else if (state & 0x20)
+[e $ ! != & -> _state `i -> 32 `i -> 0 `i 195  ]
+[; ;LCDTime.c: 391: {
+"391
+{
+[; ;LCDTime.c: 392: day--;
+"392
+[e -- _day -> 1 `i ]
+[; ;LCDTime.c: 393: if (day < 0)
+"393
+[e $ ! < _day -> 0 `i 196  ]
+[; ;LCDTime.c: 394: day = 7 ;
+"394
+[e = _day -> 7 `i ]
+[e :U 196 ]
+"395
+}
+[e :U 195 ]
+"397
+[e :U 194 ]
+[; ;LCDTime.c: 395: }
+[; ;LCDTime.c: 397: if (state & 0x30)
+[e $ ! != & -> _state `i -> 48 `i -> 0 `i 197  ]
+[; ;LCDTime.c: 398: {
+"398
+{
+[; ;LCDTime.c: 399: LCDGotoXY(0,1) ;
+"399
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 400: showDate();
+"400
+[e ( _showDate ..  ]
+"401
+}
+[e :U 197 ]
+"402
 }
 [e :U 189 ]
-"368
+"380
 [e $ ! != -> _bButton `i -> -> -> 0 `i `uc `i 190  ]
 [e :U 191 ]
-[; ;LCDTime.c: 389: }
-[; ;LCDTime.c: 390: }
-[; ;LCDTime.c: 392: if (n != day || d != date || m != month || y != year)
-"392
+[; ;LCDTime.c: 401: }
+[; ;LCDTime.c: 402: }
+[; ;LCDTime.c: 404: if (n != day || d != date || m != month || y != year)
+"404
 [e $ ! || || || != _n _day != _d _date != _m _month != _y _year 198  ]
-[; ;LCDTime.c: 393: {
-"393
+[; ;LCDTime.c: 405: {
+"405
 {
-[; ;LCDTime.c: 394: n = ((day / 10) << 4) + day % 10 ;
-"394
+[; ;LCDTime.c: 406: n = ((day / 10) << 4) + day % 10 ;
+"406
 [e = _n + << / _day -> 10 `i -> 4 `i % _day -> 10 `i ]
-[; ;LCDTime.c: 395: d = ((date / 10) << 4) + date % 10 ;
-"395
+[; ;LCDTime.c: 407: d = ((date / 10) << 4) + date % 10 ;
+"407
 [e = _d + << / _date -> 10 `i -> 4 `i % _date -> 10 `i ]
-[; ;LCDTime.c: 396: m = ((month / 10) << 4) + month % 10 ;
-"396
+[; ;LCDTime.c: 408: m = ((month / 10) << 4) + month % 10 ;
+"408
 [e = _m + << / _month -> 10 `i -> 4 `i % _month -> 10 `i ]
-[; ;LCDTime.c: 397: y = ((year / 10) << 4) + year % 10 ;
-"397
+[; ;LCDTime.c: 409: y = ((year / 10) << 4) + year % 10 ;
+"409
 [e = _y + << / _year -> 10 `i -> 4 `i % _year -> 10 `i ]
-[; ;LCDTime.c: 399: DS1307_SetDate(n,d,m,y) ;
-"399
+[; ;LCDTime.c: 411: DS1307_SetDate(n,d,m,y) ;
+"411
 [e ( _DS1307_SetDate (4 , , , -> _n `uc -> _d `uc -> _m `uc -> _y `uc ]
-"400
+"412
 }
 [e :U 198 ]
-[; ;LCDTime.c: 400: }
-[; ;LCDTime.c: 403: while(bButton)
-"403
+[; ;LCDTime.c: 412: }
+[; ;LCDTime.c: 415: while(bButton)
+"415
 [e $U 199  ]
 [e :U 200 ]
-[; ;LCDTime.c: 404: readInputs();
-"404
+[; ;LCDTime.c: 416: readInputs();
+"416
 [e ( _readInputs ..  ]
 [e :U 199 ]
-"403
+"415
 [e $ != -> _bButton `i -> -> -> 0 `i `uc `i 200  ]
 [e :U 201 ]
-"405
+"417
 }
 [e :U 152 ]
-[; ;LCDTime.c: 405: }
-[; ;LCDTime.c: 406: }
-"406
+[; ;LCDTime.c: 417: }
+[; ;LCDTime.c: 418: }
+"418
 [e :UE 110 ]
 }
-"408
+"420
 [v _readInputs `(v ~T0 @X0 1 ef ]
-"409
+"421
 {
-[; ;LCDTime.c: 408: void readInputs()
-[; ;LCDTime.c: 409: {
+[; ;LCDTime.c: 420: void readInputs()
+[; ;LCDTime.c: 421: {
 [e :U _readInputs ]
 [f ]
-[; ;LCDTime.c: 410: bButton = 0 ;
-"410
+[; ;LCDTime.c: 422: bButton = 0 ;
+"422
 [e = _bButton -> -> 0 `i `uc ]
-[; ;LCDTime.c: 412: if (RB4 == 1)
-"412
+[; ;LCDTime.c: 424: if (RB4 == 1)
+"424
 [e $ ! == -> _RB4 `i -> 1 `i 203  ]
-[; ;LCDTime.c: 413: {
-"413
+[; ;LCDTime.c: 425: {
+"425
 {
-[; ;LCDTime.c: 414: _delay((unsigned long)((15)*(4000000/4000000.0))) ;
-"414
+[; ;LCDTime.c: 426: _delay((unsigned long)((15)*(4000000/4000000.0))) ;
+"426
 [e ( __delay (1 -> * -> -> 15 `i `d / -> -> 4000000 `l `d .4000000.0 `ul ]
-[; ;LCDTime.c: 415: if (RB4 == 1)
-"415
+[; ;LCDTime.c: 427: if (RB4 == 1)
+"427
 [e $ ! == -> _RB4 `i -> 1 `i 204  ]
-[; ;LCDTime.c: 416: {
-"416
+[; ;LCDTime.c: 428: {
+"428
 {
-[; ;LCDTime.c: 417: bButton = 1 ;
-"417
+[; ;LCDTime.c: 429: bButton = 1 ;
+"429
 [e = _bButton -> -> 1 `i `uc ]
-[; ;LCDTime.c: 418: return ;
-"418
+[; ;LCDTime.c: 430: return ;
+"430
 [e $UE 202  ]
-"419
+"431
 }
 [e :U 204 ]
-"420
+"432
 }
 [e :U 203 ]
-"423
+"435
 [v _pinstate `uc ~T0 @X0 1 a ]
-[; ;LCDTime.c: 419: }
-[; ;LCDTime.c: 420: }
-[; ;LCDTime.c: 423: unsigned char pinstate = (RB1 << 1) | RB2 ;
+[; ;LCDTime.c: 431: }
+[; ;LCDTime.c: 432: }
+[; ;LCDTime.c: 435: unsigned char pinstate = (RB1 << 1) | RB2 ;
 [e = _pinstate -> | << -> _RB1 `i -> 1 `i -> _RB2 `i `uc ]
-[; ;LCDTime.c: 425: state = ttable[state & 0xf][pinstate];
-"425
+[; ;LCDTime.c: 437: state = ttable[state & 0xf][pinstate];
+"437
 [e = _state *U + &U *U + &U _ttable * -> -> & -> _state `i -> 15 `i `ui `ux -> * -> # *U &U *U &U _ttable `ui -> -> 4 `i `ui `ux * -> _pinstate `ux -> -> # *U &U *U + &U _ttable * -> -> & -> _state `i -> 15 `i `ui `ux -> * -> # *U &U *U &U _ttable `ui -> -> 4 `i `ui `ux `ui `ux ]
-[; ;LCDTime.c: 426: }
-"426
+[; ;LCDTime.c: 438: }
+"438
 [e :UE 202 ]
 }
-"428
+"440
 [v _readClock `(v ~T0 @X0 1 ef ]
-"429
+"441
 {
-[; ;LCDTime.c: 428: void readClock()
-[; ;LCDTime.c: 429: {
+[; ;LCDTime.c: 440: void readClock()
+[; ;LCDTime.c: 441: {
 [e :U _readClock ]
 [f ]
-"430
+"442
 [v _a `uc ~T0 @X0 1 a ]
 [v _b `uc ~T0 @X0 1 a ]
 [v _c `uc ~T0 @X0 1 a ]
 [v _n `uc ~T0 @X0 1 a ]
-[; ;LCDTime.c: 430: unsigned char a,b,c,n ;
-[; ;LCDTime.c: 432: DS1307_GetTime(&a,&b,&c);
-"432
+[; ;LCDTime.c: 442: unsigned char a,b,c,n ;
+[; ;LCDTime.c: 444: DS1307_GetTime(&a,&b,&c);
+"444
 [e ( _DS1307_GetTime (3 , , &U _a &U _b &U _c ]
-[; ;LCDTime.c: 435: hour = (a % 16) + ((a / 16 ) * 10) ;
-"435
-[e = _hour + % -> _a `i -> 16 `i * / -> _a `i -> 16 `i -> 10 `i ]
-[; ;LCDTime.c: 436: minute = (b % 16) + ((b / 16 ) * 10) ;
-"436
-[e = _minute + % -> _b `i -> 16 `i * / -> _b `i -> 16 `i -> 10 `i ]
-[; ;LCDTime.c: 437: seconds = (c % 16) + ((c / 16 ) * 10) ;
-"437
-[e = _seconds + % -> _c `i -> 16 `i * / -> _c `i -> 16 `i -> 10 `i ]
-[; ;LCDTime.c: 439: if (hour != last_hour)
-"439
-[e $ ! != _hour -> _last_hour `i 206  ]
-[; ;LCDTime.c: 440: {
-"440
-{
-[; ;LCDTime.c: 441: last_hour = hour ;
-"441
-[e = _last_hour -> _hour `uc ]
-[; ;LCDTime.c: 443: DS1307_GetDate(&n,&a,&b,&c) ;
-"443
-[e ( _DS1307_GetDate (4 , , , &U _n &U _a &U _b &U _c ]
-[; ;LCDTime.c: 445: day = (n % 16) ;
-"445
-[e = _day % -> _n `i -> 16 `i ]
-[; ;LCDTime.c: 446: date = (a % 16) + ((a / 16 ) * 10) ;
-"446
-[e = _date + % -> _a `i -> 16 `i * / -> _a `i -> 16 `i -> 10 `i ]
-[; ;LCDTime.c: 447: month = (b % 16) + ((b / 16 ) * 10) ;
+[; ;LCDTime.c: 447: hour = (a % 16) + ((a / 16 ) * 10) ;
 "447
-[e = _month + % -> _b `i -> 16 `i * / -> _b `i -> 16 `i -> 10 `i ]
-[; ;LCDTime.c: 448: year = (c % 16) + ((c / 16 ) * 10) ;
+[e = _hour + % -> _a `i -> 16 `i * / -> _a `i -> 16 `i -> 10 `i ]
+[; ;LCDTime.c: 448: minute = (b % 16) + ((b / 16 ) * 10) ;
 "448
-[e = _year + % -> _c `i -> 16 `i * / -> _c `i -> 16 `i -> 10 `i ]
+[e = _minute + % -> _b `i -> 16 `i * / -> _b `i -> 16 `i -> 10 `i ]
+[; ;LCDTime.c: 449: seconds = (c % 16) + ((c / 16 ) * 10) ;
 "449
-}
-[e :U 206 ]
-[; ;LCDTime.c: 449: }
-[; ;LCDTime.c: 451: if (minute != runningMinute)
+[e = _seconds + % -> _c `i -> 16 `i * / -> _c `i -> 16 `i -> 10 `i ]
+[; ;LCDTime.c: 451: if (hour != last_hour)
 "451
-[e $ ! != _minute _runningMinute 207  ]
+[e $ ! != _hour -> _last_hour `i 206  ]
 [; ;LCDTime.c: 452: {
 "452
 {
-[; ;LCDTime.c: 453: runningMinute = minute ;
+[; ;LCDTime.c: 453: last_hour = hour ;
 "453
-[e = _runningMinute _minute ]
-[; ;LCDTime.c: 454: runningTime++ ;
-"454
-[e ++ _runningTime -> 1 `i ]
-[; ;LCDTime.c: 456: DS1307_writeRam(&runningTime,0,2) ;
-"456
-[e ( _DS1307_writeRam (3 , , -> &U _runningTime `*uc -> 0 `i -> 2 `i ]
+[e = _last_hour -> _hour `uc ]
+[; ;LCDTime.c: 455: DS1307_GetDate(&n,&a,&b,&c) ;
+"455
+[e ( _DS1307_GetDate (4 , , , &U _n &U _a &U _b &U _c ]
+[; ;LCDTime.c: 457: day = (n % 16) ;
 "457
+[e = _day % -> _n `i -> 16 `i ]
+[; ;LCDTime.c: 458: date = (a % 16) + ((a / 16 ) * 10) ;
+"458
+[e = _date + % -> _a `i -> 16 `i * / -> _a `i -> 16 `i -> 10 `i ]
+[; ;LCDTime.c: 459: month = (b % 16) + ((b / 16 ) * 10) ;
+"459
+[e = _month + % -> _b `i -> 16 `i * / -> _b `i -> 16 `i -> 10 `i ]
+[; ;LCDTime.c: 460: year = (c % 16) + ((c / 16 ) * 10) ;
+"460
+[e = _year + % -> _c `i -> 16 `i * / -> _c `i -> 16 `i -> 10 `i ]
+"461
+}
+[e :U 206 ]
+[; ;LCDTime.c: 461: }
+[; ;LCDTime.c: 463: if (minute != runningMinute)
+"463
+[e $ ! != _minute _runningMinute 207  ]
+[; ;LCDTime.c: 464: {
+"464
+{
+[; ;LCDTime.c: 465: runningMinute = minute ;
+"465
+[e = _runningMinute _minute ]
+[; ;LCDTime.c: 466: runningTime++ ;
+"466
+[e ++ _runningTime -> 1 `i ]
+[; ;LCDTime.c: 469: DS1307_writeRam(&runningTime,0,2) ;
+"469
+[e ( _DS1307_writeRam (3 , , -> &U _runningTime `*uc -> 0 `i -> 2 `i ]
+"470
 }
 [e :U 207 ]
-[; ;LCDTime.c: 457: }
-[; ;LCDTime.c: 458: }
-"458
-[e :UE 205 ]
-}
-"460
-[v _showClock `(v ~T0 @X0 1 ef ]
-"461
-{
-[; ;LCDTime.c: 460: void showClock()
-[; ;LCDTime.c: 461: {
-[e :U _showClock ]
-[f ]
-[; ;LCDTime.c: 462: LCDGotoXY(0,0) ;
-"462
-[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 463: showTime() ;
-"463
-[e ( _showTime ..  ]
-[; ;LCDTime.c: 465: LCDGotoXY(0,1) ;
-"465
-[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 466: showDate() ;
-"466
-[e ( _showDate ..  ]
-[; ;LCDTime.c: 469: if (menuFunction == 1)
-"469
-[e $ ! == -> _menuFunction `i -> 1 `i 209  ]
-[; ;LCDTime.c: 470: showRunningTime();
-"470
-[e ( _showRunningTime ..  ]
-[e :U 209 ]
+[; ;LCDTime.c: 470: }
 [; ;LCDTime.c: 471: }
 "471
+[e :UE 205 ]
+}
+"473
+[v _showClock `(v ~T0 @X0 1 ef ]
+"474
+{
+[; ;LCDTime.c: 473: void showClock()
+[; ;LCDTime.c: 474: {
+[e :U _showClock ]
+[f ]
+[; ;LCDTime.c: 475: LCDGotoXY(0,0) ;
+"475
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 0 `i `uc ]
+[; ;LCDTime.c: 476: showTime() ;
+"476
+[e ( _showTime ..  ]
+[; ;LCDTime.c: 478: LCDGotoXY(0,1) ;
+"478
+[e ( _LCDGotoXY (2 , -> -> 0 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 479: showDate() ;
+"479
+[e ( _showDate ..  ]
+[; ;LCDTime.c: 482: if (menuFunction == 1)
+"482
+[e $ ! == -> _menuFunction `i -> 1 `i 209  ]
+[; ;LCDTime.c: 483: showRunningTime();
+"483
+[e ( _showRunningTime ..  ]
+[e :U 209 ]
+[; ;LCDTime.c: 484: }
+"484
 [e :UE 208 ]
 }
-"474
+"487
 [v _showTime `(v ~T0 @X0 1 ef ]
-"475
+"488
 {
-[; ;LCDTime.c: 474: void showTime()
-[; ;LCDTime.c: 475: {
+[; ;LCDTime.c: 487: void showTime()
+[; ;LCDTime.c: 488: {
 [e :U _showTime ]
 [f ]
-[; ;LCDTime.c: 476: LCDWriteInt(hour,2);
-"476
+[; ;LCDTime.c: 489: LCDWriteInt(hour,2);
+"489
 [e ( _LCDWriteInt (2 , _hour -> -> 2 `i `c ]
-[; ;LCDTime.c: 477: (LCDByte(':',1)) ;
-"477
+[; ;LCDTime.c: 490: (LCDByte(':',1)) ;
+"490
 [e ( _LCDByte (2 , -> -> 58 `ui `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 478: LCDWriteInt(minute,2);
-"478
+[; ;LCDTime.c: 491: LCDWriteInt(minute,2);
+"491
 [e ( _LCDWriteInt (2 , _minute -> -> 2 `i `c ]
-[; ;LCDTime.c: 479: (LCDByte(':',1)) ;
-"479
+[; ;LCDTime.c: 492: (LCDByte(':',1)) ;
+"492
 [e ( _LCDByte (2 , -> -> 58 `ui `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 480: LCDWriteInt(seconds,2);
-"480
+[; ;LCDTime.c: 493: LCDWriteInt(seconds,2);
+"493
 [e ( _LCDWriteInt (2 , _seconds -> -> 2 `i `c ]
-[; ;LCDTime.c: 486: }
-"486
+[; ;LCDTime.c: 499: }
+"499
 [e :UE 210 ]
 }
-"488
+"501
 [v _showDate `(v ~T0 @X0 1 ef ]
-"489
+"502
 {
-[; ;LCDTime.c: 488: void showDate()
-[; ;LCDTime.c: 489: {
+[; ;LCDTime.c: 501: void showDate()
+[; ;LCDTime.c: 502: {
 [e :U _showDate ]
 [f ]
-"490
-[v _d `i ~T0 @X0 1 a ]
-[; ;LCDTime.c: 490: int d = (day-1) * 3 ;
-[e = _d * - _day -> 1 `i -> 3 `i ]
-[; ;LCDTime.c: 492: LCDWriteInt(date,2);
-"492
-[e ( _LCDWriteInt (2 , _date -> -> 2 `i `c ]
-[; ;LCDTime.c: 493: (LCDByte('/',1)) ;
-"493
-[e ( _LCDByte (2 , -> -> 47 `ui `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 494: LCDWriteInt(month,2);
-"494
-[e ( _LCDWriteInt (2 , _month -> -> 2 `i `c ]
-[; ;LCDTime.c: 495: (LCDByte('/',1)) ;
-"495
-[e ( _LCDByte (2 , -> -> 47 `ui `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 496: (LCDByte('2',1)) ;
-"496
-[e ( _LCDByte (2 , -> -> 50 `ui `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 497: (LCDByte('0',1)) ;
-"497
-[e ( _LCDByte (2 , -> -> 48 `ui `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 498: LCDWriteInt(year,2);
-"498
-[e ( _LCDWriteInt (2 , _year -> -> 2 `i `c ]
-[; ;LCDTime.c: 499: (LCDByte(32,1)) ;
-"499
-[e ( _LCDByte (2 , -> -> 32 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 500: (LCDByte(32,1)) ;
-"500
-[e ( _LCDByte (2 , -> -> 32 `i `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 501: (LCDByte(daysOfTheWeek[d++],1)) ;
-"501
-[e ( _LCDByte (2 , *U + &U _daysOfTheWeek * -> -> ++ _d -> 1 `i `ui `ux -> -> # *U &U _daysOfTheWeek `ui `ux -> -> 1 `i `uc ]
-[; ;LCDTime.c: 502: (LCDByte(daysOfTheWeek[d++],1)) ;
-"502
-[e ( _LCDByte (2 , *U + &U _daysOfTheWeek * -> -> ++ _d -> 1 `i `ui `ux -> -> # *U &U _daysOfTheWeek `ui `ux -> -> 1 `i `uc ]
-[; ;LCDTime.c: 503: (LCDByte(daysOfTheWeek[d],1)) ;
 "503
+[v _d `i ~T0 @X0 1 a ]
+[; ;LCDTime.c: 503: int d = (day-1) * 3 ;
+[e = _d * - _day -> 1 `i -> 3 `i ]
+[; ;LCDTime.c: 505: LCDWriteInt(date,2);
+"505
+[e ( _LCDWriteInt (2 , _date -> -> 2 `i `c ]
+[; ;LCDTime.c: 506: (LCDByte('/',1)) ;
+"506
+[e ( _LCDByte (2 , -> -> 47 `ui `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 507: LCDWriteInt(month,2);
+"507
+[e ( _LCDWriteInt (2 , _month -> -> 2 `i `c ]
+[; ;LCDTime.c: 508: (LCDByte('/',1)) ;
+"508
+[e ( _LCDByte (2 , -> -> 47 `ui `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 509: (LCDByte('2',1)) ;
+"509
+[e ( _LCDByte (2 , -> -> 50 `ui `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 510: (LCDByte('0',1)) ;
+"510
+[e ( _LCDByte (2 , -> -> 48 `ui `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 511: LCDWriteInt(year,2);
+"511
+[e ( _LCDWriteInt (2 , _year -> -> 2 `i `c ]
+[; ;LCDTime.c: 512: (LCDByte(32,1)) ;
+"512
+[e ( _LCDByte (2 , -> -> 32 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 513: (LCDByte(32,1)) ;
+"513
+[e ( _LCDByte (2 , -> -> 32 `i `uc -> -> 1 `i `uc ]
+[; ;LCDTime.c: 514: (LCDByte(daysOfTheWeek[d++],1)) ;
+"514
+[e ( _LCDByte (2 , *U + &U _daysOfTheWeek * -> -> ++ _d -> 1 `i `ui `ux -> -> # *U &U _daysOfTheWeek `ui `ux -> -> 1 `i `uc ]
+[; ;LCDTime.c: 515: (LCDByte(daysOfTheWeek[d++],1)) ;
+"515
+[e ( _LCDByte (2 , *U + &U _daysOfTheWeek * -> -> ++ _d -> 1 `i `ui `ux -> -> # *U &U _daysOfTheWeek `ui `ux -> -> 1 `i `uc ]
+[; ;LCDTime.c: 516: (LCDByte(daysOfTheWeek[d],1)) ;
+"516
 [e ( _LCDByte (2 , *U + &U _daysOfTheWeek * -> -> _d `ui `ux -> -> # *U &U _daysOfTheWeek `ui `ux -> -> 1 `i `uc ]
-[; ;LCDTime.c: 504: }
-"504
+[; ;LCDTime.c: 517: }
+"517
 [e :UE 211 ]
 }
-"506
+"519
 [v _showRunningTime `(v ~T0 @X0 1 ef ]
-"507
+"520
 {
-[; ;LCDTime.c: 506: void showRunningTime()
-[; ;LCDTime.c: 507: {
+[; ;LCDTime.c: 519: void showRunningTime()
+[; ;LCDTime.c: 520: {
 [e :U _showRunningTime ]
 [f ]
-[; ;LCDTime.c: 508: LCDGotoXY(10,0) ;
-"508
+[; ;LCDTime.c: 521: LCDGotoXY(10,0) ;
+"521
 [e ( _LCDGotoXY (2 , -> -> 10 `i `uc -> -> 0 `i `uc ]
-[; ;LCDTime.c: 509: LCDWriteInt(runningTime / 60,1);
-"509
+[; ;LCDTime.c: 522: LCDWriteInt(runningTime / 60,1);
+"522
 [e ( _LCDWriteInt (2 , / _runningTime -> 60 `i -> -> 1 `i `c ]
-[; ;LCDTime.c: 510: (LCDByte(':',1)) ;
-"510
+[; ;LCDTime.c: 523: (LCDByte(':',1)) ;
+"523
 [e ( _LCDByte (2 , -> -> 58 `ui `uc -> -> 1 `i `uc ]
-[; ;LCDTime.c: 511: LCDWriteInt(runningTime % 60,2);
-"511
+[; ;LCDTime.c: 524: LCDWriteInt(runningTime % 60,2);
+"524
 [e ( _LCDWriteInt (2 , % _runningTime -> 60 `i -> -> 2 `i `c ]
-[; ;LCDTime.c: 512: }
-"512
+[; ;LCDTime.c: 525: }
+"525
 [e :UE 212 ]
 }
-[a 4C 72 111 117 114 115 0 ]
-[a 5C 77 105 110 117 116 101 115 0 ]
-[a 6C 83 101 99 111 110 100 115 0 ]
-[a 7C 89 101 97 114 0 ]
-[a 8C 77 111 110 116 104 0 ]
-[a 2C 68 97 116 101 32 63 0 ]
-[a 1C 84 105 109 101 32 63 0 ]
-[a 9C 68 97 116 101 32 0 ]
-[a 10C 68 97 121 32 32 0 ]
-[a 3C 32 32 32 32 32 32 32 0 ]
+[a 7C 72 111 117 114 115 0 ]
+[a 3C 32 109 105 110 117 116 101 115 0 ]
+[a 8C 77 105 110 117 116 101 115 0 ]
+[a 9C 83 101 99 111 110 100 115 0 ]
+[a 1C 83 116 97 114 116 105 110 103 32 99 111 117 110 116 101 114 0 ]
+[a 10C 89 101 97 114 0 ]
+[a 11C 77 111 110 116 104 0 ]
+[a 5C 68 97 116 101 32 63 0 ]
+[a 4C 84 105 109 101 32 63 0 ]
+[a 2C 97 116 32 0 ]
+[a 12C 68 97 116 101 32 0 ]
+[a 13C 68 97 121 32 32 0 ]
+[a 6C 32 32 32 32 32 32 32 0 ]

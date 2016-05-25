@@ -1468,7 +1468,8 @@ void LCDBusyLoop();
 
 # 37 "i2c.h"
 void I2C_Init() ;
-void I2C_Clock(void) ;
+
+void I2C_Wait();
 void I2C_Start() ;
 void I2C_Stop(void);
 void I2C_Write(unsigned char dat) ;
@@ -1493,13 +1494,15 @@ int DS1307_Init()
 {
 unsigned char s = 0 ;
 
+# 12
 I2C_Start();
 DS1307_Write(0xd0);
 DS1307_Write(0x00);
-I2C_Start();
+I2C_Restart();
 DS1307_Write(0xd1);
 s = DS1307_Read();
 I2C_NoAck();
+I2C_Stop();
 
 if (s & 0x80)
 {
@@ -1511,16 +1514,13 @@ DS1307_Write(s);
 I2C_Stop();
 return 1 ;
 }
-else
-I2C_Stop();
-
 return 0 ;
 }
 
 void DS1307_Write(unsigned char dat)
 {
 I2C_Write(dat);
-I2C_Clock();
+
 }
 
 unsigned char DS1307_Read()
@@ -1556,8 +1556,7 @@ void DS1307_GetTime(unsigned char *h_ptr,unsigned char *m_ptr,unsigned char *s_p
 I2C_Start();
 DS1307_Write(0xD0);
 DS1307_Write(0x00);
-I2C_Stop();
-I2C_Start();
+I2C_Restart();
 DS1307_Write(0xD1);
 *s_ptr = DS1307_Read(); I2C_Ack();
 *m_ptr = DS1307_Read(); I2C_Ack();
@@ -1570,8 +1569,7 @@ void DS1307_GetDate(unsigned char *n_ptr,unsigned char *d_ptr,unsigned char *m_p
 I2C_Start();
 DS1307_Write(0xD0);
 DS1307_Write(0x03);
-I2C_Stop();
-I2C_Start();
+I2C_Restart();
 DS1307_Write(0xD1);
 *n_ptr = DS1307_Read(); I2C_Ack();
 *d_ptr = DS1307_Read(); I2C_Ack();
@@ -1585,8 +1583,7 @@ void DS1307_readRam(unsigned char *ptr, int offset, int length)
 I2C_Start();
 DS1307_Write(0xD0);
 DS1307_Write(0x08 + offset);
-I2C_Stop();
-I2C_Start();
+I2C_Restart();
 DS1307_Write(0xD1);
 while(length-- > 1)
 *ptr++ = DS1307_Read(); I2C_Ack();

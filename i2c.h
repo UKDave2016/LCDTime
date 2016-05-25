@@ -35,7 +35,8 @@
 
 
 void I2C_Init() ;
-void I2C_Clock(void) ;
+//void I2C_Clock(void) ;
+void I2C_Wait();
 void I2C_Start() ;
 void I2C_Stop(void); 
 void I2C_Write(unsigned char dat) ;
