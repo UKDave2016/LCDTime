@@ -7,8 +7,6 @@
 
 #include "settings.h"
 
-
-
 // CONFIG
 #pragma config FOSC = XT        // Oscillator Selection bits (XT oscillator)
 #pragma config WDTE = OFF       // Watchdog Timer Enable bit (WDT disabled)
@@ -24,7 +22,8 @@ int hour=6, minute=5, seconds=4, year=16, month=5, date=8, day = 1 ;
 // used to save a few cycles
 char last_hour = 0xee ;
 // running time (minutes)
-int runningTime = 0 ;
+int runningMinutes = 0 ;
+int runningHours = 0 ;
 // we always start with one minute of running time, it's not supposed to be that accurate :)
 int runningMinute = -1 ;
 
@@ -72,20 +71,22 @@ void main(void)
     LCDClear();
     
     // read back our running time
-    DS1307_readRam(&runningTime,0,2) ;
+    DS1307_readRam(&runningMinutes,0,2) ;
+    DS1307_readRam(&runningHours,2,2) ;
     
     LCDWriteString("Starting counter");
     LCDGotoXY(0,1) ;
     LCDWriteString("at ");
-    LCDWriteInt(runningTime,5);
-    LCDWriteString(" minutes");
+    LCDWriteInt(runningHours,1);
+    LCDWriteString(":");
+    LCDWriteInt(runningMinutes,1);
     __delay_ms(750) ;
     __delay_ms(750) ;
     __delay_ms(750) ;
     __delay_ms(750) ;
 
     // compensate for our handling on the first run of the readClock routine
-    runningTime-- ;
+    runningMinutes-- ;
 
     LCDClear();
     // infinite loop, read the clock, display on the LCD, check for the button, and if needed, process the menus
@@ -465,10 +466,17 @@ void readClock()
     if (minute != runningMinute)
     {
         runningMinute = minute ;
-        runningTime++ ;
+        runningMinutes++ ;
+        
+        if (runningMinutes >= 60)
+        {
+            runningHours++;
+            DS1307_writeRam(&runningHours,2,2) ;
+            runningMinutes = 0 ;
+        }
         
         // write our running total to clock memory
-        DS1307_writeRam(&runningTime,0,2) ;
+        DS1307_writeRam(&runningMinutes,0,2) ;
     }
 }
 
@@ -521,7 +529,10 @@ void showDate()
 void showRunningTime()
 {
     LCDGotoXY(10,0) ;
-    LCDWriteInt(runningTime / 60,1);
-    LCDData(':') ;
-    LCDWriteInt(runningTime % 60,2);
+    if (runningHours > 1000)
+    {
+        LCDWriteInt(runningHours / 1000,1);
+        LCDData(',') ;
+    }
+    LCDWriteInt(runningHours % 1000,1);
 }
